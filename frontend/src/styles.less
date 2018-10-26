@@ -1,0 +1,32 @@
+.rating {
+    line-height: 1;
+    display: inline-block;
+  
+    &__item {
+      display: inline;
+      font-size: 0;
+  
+      &::before {
+        font-size: 18px;
+        content: "★";
+        color: lightgray;
+      }
+    }
+  
+    &__input {
+      position: absolute;
+      visibility: hidden;
+    }
+  }
+  
+  .rating:hover .rating__item::before {
+    color: hotpink;
+  }
+  
+  .rating__item:hover ~ .rating__item::before {
+    color: lightgray;
+  }
+  
+  .rating__item--selected::before {
+    color: hotpink;
+  }
