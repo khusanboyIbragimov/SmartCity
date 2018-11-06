@@ -132,7 +132,7 @@ export default class Navbar extends React.Component {
         return (
             <div>
                 <nav className="navbar navbar-default">
-                    <div className="container">
+                    <div style={{paddingBottom: "0px", paddingLeft: '30px', paddingRight: '30px'}} className="container-fluid">
                         <div className="navbar-header">
                             <button  type="button" className="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                                <span style={{ color: 'rgb(241, 159, 77)' }}>Меню</span> 
@@ -143,56 +143,63 @@ export default class Navbar extends React.Component {
                         <div className="collapse navbar-collapse" id=".navbar-collapse">
                             <ul className="nav navbar-nav navbar-right">
                                 <li><Link
+                                    className='nav-tabs'
                                     to="/"
                                     data-toggle="collapse"
                                     data-target=".navbar-collapse.in">
-                                    <span className='glyphicon glyphicon-home'></span>Марказ
+                                    <span className='glyphicon glyphicon-home nav-icons'></span><span className='nav-tabz'>Марказ</span>
                                     </Link>
                                 </li>
                                 <li><Link
+                                    className='nav-tabs'
                                     to="/sc/news"
                                     data-toggle="collapse"
                                     data-target=".navbar-collapse.in">
-                                    <span className='glyphicon glyphicon-globe'></span>Янгиликлар
+                                    <span className='glyphicon glyphicon-globe nav-icons'></span><span className='nav-tabz'>Янгиликлар</span>
                                     </Link>
                                 </li>
                                 <li><Link
+                                    className='nav-tabs'
                                     to="/sc/announcement"
                                     data-toggle="collapse"
                                     data-target=".navbar-collapse.in">
-                                    <span className='glyphicon glyphicon-bullhorn'></span>Эълонлар
+                                    <span className='glyphicon glyphicon-bullhorn nav-icons'></span><span className='nav-tabz'>Эълонлар</span>
                                     </Link>
                                 </li>
                                 <li><Link
+                                    className='nav-tabs'
                                     to="/sc/ratings"
                                     data-toggle="collapse"
                                     data-target=".navbar-collapse.in">
-                                    <span className='glyphicon glyphicon-star'></span>Рейтинг
+                                    <span className='glyphicon glyphicon-star nav-icons'></span><span className='nav-tabz'>Рейтинг</span>
                                     </Link>
                                 </li>
                                 <li><Link
+                                    className='nav-tabs'
                                     to="/sc/survey"
                                     data-toggle="collapse"
                                     data-target=".navbar-collapse.in">
                                     <i
-                                        className="fa fa-bar-chart"
+                                        className="fa fa-bar-chart nav-icons"
                                         aria-hidden="true"
                                     >
-                                    </i>Сўров
+                                    </i><span className='nav-tabz'>Сўров</span>
                                     </Link>
                                 </li>
                                 <li><Link
+                                    className='nav-tabs'
                                     to="/sc/bazaar"
                                     data-toggle="collapse"
                                     data-target=".navbar-collapse.in">
-                                    <b><span className='glyphicon glyphicon-usd'></span></b>Бозор
+                                    <b><span className='glyphicon glyphicon-usd nav-icons'></span></b><span className='nav-tabz'>Бозор</span>
                                     </Link>
                                 </li>
                                 <li><Link
+                                    className='nav-tabs'
                                     to="/sc/giychat"
                                     data-toggle="collapse"
                                     data-target=".navbar-collapse.in">
-                                    <i className="fa fa-users" aria-hidden="true"></i>Ғийчат
+                                    <i className="fa fa-users nav-icons" aria-hidden="true"></i><span className='nav-tabz'>Ғийчат</span>
                                     </Link>
                                 </li>
                                 {isLogged ?
@@ -201,7 +208,7 @@ export default class Navbar extends React.Component {
                                         <span style={{ fontSize: '22px' }}
                                             data-toggle="collapse"
                                             data-target=".navbar-collapse.in"
-                                            className="glyphicon glyphicon-user"></span>
+                                            className="glyphicon glyphicon-user nav-icons"></span>
                                     </Link>
                                     </li> : ""}
                                 {!isLogged ?
@@ -211,14 +218,14 @@ export default class Navbar extends React.Component {
                                             data-target=".navbar-collapse.in"
                                         >
                                             <span style={{ fontSize: '22px' }}
-                                                className="glyphicon glyphicon-log-in">
+                                                className="glyphicon glyphicon-log-in nav-icons">
                                             </span>
                                         </a></li> :
-                                    <li onClick={this.handleLogout}>
+                                    <li onClick={this.handleLogout} >
                                         <a data-toggle="collapse"
                                             data-target=".navbar-collapse.in">
                                             <span style={{ fontSize: '22px' }}
-                                                className="glyphicon glyphicon-log-out">
+                                                className="glyphicon glyphicon-log-out nav-icons">
                                             </span>
                                         </a></li>}
                                 <Modal

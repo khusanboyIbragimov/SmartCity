@@ -18,6 +18,12 @@ body{
 #navbar_collapse {
   border: hidden;
 }
+.nav-icons{
+  color: rgb(241, 159, 77);
+}
+.nav-tabz{
+  color: #0093d3;
+}
 /*
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
