@@ -12,7 +12,7 @@ export default class SideBar extends Component {
 			<div id='side-bar'>
 				<div>
 					{this.props.onlineUsers.map((ele) => {
-						var colors = ['red', 'green', 'pink', 'orange', 'blue', 'black'];
+						var colors = ['red', 'green', 'pink', 'orange', 'blue', 'black', 'purple'];
 						var num = Math.floor((Math.random() * colors.length));
 						var color = colors[num];
 						return (

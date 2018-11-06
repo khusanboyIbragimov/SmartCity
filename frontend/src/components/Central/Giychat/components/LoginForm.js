@@ -68,7 +68,7 @@ export default class LoginForm extends Component {
 							/> */}
 						<div className="error">{error ? error : null}</div>
 						<button className='btn btn-success'><i class="fa fa-sign-in" aria-hidden="true"></i>
-							&nbsp;чатга кираман</button>
+							&nbsp;чатга кириш</button>
 						<div className='footer-away'></div>
 					</form>
 				</div>
