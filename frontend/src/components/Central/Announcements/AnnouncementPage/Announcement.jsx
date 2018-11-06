@@ -7,7 +7,7 @@ var Moment = require("moment");
 require('moment/locale/uz');
 
 export default class Announcement extends React.Component {
- 
+
     constructor() {
         super();
         this.state = {
@@ -19,44 +19,57 @@ export default class Announcement extends React.Component {
         this.logout();
         axios
             .get("/users/getallannouncements")
-            .then( (res) => {
+            .then((res) => {
                 this.setState({
                     announcements: res.data
                 })
             })
-            .catch( (err) => {
+            .catch((err) => {
                 console.log(err);
             })
     }
 
-	logout = () => {
+    logout = () => {
         const socket = io(socketUrl);
-        let username = this.props.userInfo.length > 0? this.props.userInfo[0].username:""
+        let username = this.props.userInfo.length > 0 ? this.props.userInfo[0].username : ""
         socket.emit(LOGOUT, username);
-	}
-
-
-
+    }
 
     render() {
         const { announcements } = this.state;
-        return(
+        return (
             <div>
-                <h3>Эълонлар!</h3>
-                <hr/>
-                <ul>
-                {announcements.map( announcement => {
-                       return(
-                            <div key={announcement.announcement_id}>
-                                <h4>{announcement.title}</h4>
-                                <p>{announcement.announcement}</p>
-                                <p>{announcement.fullname}</p>
-                                <p>{Moment(announcement.announ_timestamp).format("LL")}</p>
-                                <hr/>
+                <h3> <span style={{ color: 'rgb(241, 159, 77)' }}>Smart</span> <strong style={{ color: '#0093d3'}}>Эълонлар</strong></h3>
+                {announcements.map(announcement => {
+                    return (
+                        <div className='container' key={announcement.announcement_id}>
+                            <div className='row'>
+                                <div className="panel panel-default">
+                                    <div className="panel-heading">
+                                        <h4 style={{ color: '#0093d3' }} className="h4"><span className='glyphicon glyphicon-bullhorn'></span> {announcement.title}</h4>
+                                    </div>
+                                    <div className="panel-body">
+                                        <div className='col-sm-12 text-justify'>
+                                            <p>{announcement.announcement}</p>
+                                        </div>
+                                        <div className='col-sm-12'>
+                                            <div className='row'>
+                                                <div className='col-sm-6 text-left'>
+                                                    <h5 style={{ color: "grey" }}><i className="fa fa-pencil" aria-hidden="true"></i>
+                                                        &nbsp;{announcement.fullname}</h5>
+                                                </div>
+                                                <div className='col-sm-6 text-right'>
+                                                    <span style={{ color: "grey", fontSize: "10px" }} className='glyphicon glyphicon-time'>
+                                                        &nbsp;{Moment(announcement.announ_timestamp).format("LLLL")}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        )
+                        </div>
+                    )
                 })}
-                </ul>
             </div>
         )
     }

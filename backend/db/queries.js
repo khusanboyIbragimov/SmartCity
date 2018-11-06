@@ -10,7 +10,7 @@ function logoutUser(req, res, next) {
 
 function userInfo(req, res, next) {
   db.any(
-    `SELECT fullname, username, phone_number, user_imgurl
+    `SELECT fullname, username, phone_number, user_imgurl, user_id
      FROM users
      WHERE user_id=${req.user.user_id}`
   )
@@ -44,7 +44,7 @@ function getAllNews(req, res, next) {
 
 function getAllRentItems(req, res, next) {
   db.any(
-   `SELECT title, description, item_timestamp, FULLname, item_id, phone_number, price, item4rent_imgurl
+   `SELECT title, description, item_timestamp, FULLname, item_id, phone_number, price, item4rent_imgurl, section
     FROM item4rent 
     INNER JOIN users 
     ON(users.user_id=item4rent.user_id)
@@ -60,7 +60,7 @@ function getAllRentItems(req, res, next) {
 
 function getAllServices(req, res, next) {
   db.any(
-   `SELECT title, description, FULLname, service_id, phone_number, price, service_imgurl
+   `SELECT title, description, FULLname, service_id, phone_number, price, service_imgurl, section
     FROM services 
     INNER JOIN users 
     ON(users.user_id=services.user_id);`
@@ -75,7 +75,7 @@ function getAllServices(req, res, next) {
 
 function getAllSaleItems(req, res, next) {
   db.any(
-   `SELECT title, condition, description, item_timestamp, FULLname, item_id, phone_number, price, item4sale_imgurl
+   `SELECT title, condition, description, item_timestamp, FULLname, item_id, phone_number, price, item4sale_imgurl, section
     FROM item4sale 
     INNER JOIN users 
     ON(users.user_id=item4sale.user_id)
@@ -87,6 +87,85 @@ function getAllSaleItems(req, res, next) {
   .catch( err => {
     console.log(err);
   })
+}
+
+// SELECT survey_question.survey_question_id, survey_question_options.survey_question_options_id, options,
+// string_agg(DISTINCT votes_of_options.USER_id::CHARACTER VARYING, ', ') AS users,
+// COUNT (votes_of_options.user_id)
+// FROM survey_question_options
+// FULL JOIN survey_question
+// ON (survey_question.survey_question_id=survey_question_options.survey_question_id)
+// FULL JOIN votes_of_options
+// ON (survey_question_options.survey_question_options_id=votes_of_options.survey_question_options_id)
+// GROUP BY survey_question.survey_question, survey_question_options.survey_question_options_id, survey_question.survey_question_id;
+
+function getAllSurveys(req, res, next) {
+  db.any(
+   `SELECT survey_question.survey_question_id, survey_question, 
+    survey_question_options.survey_question_options_id, fullname, options AS text,
+    string_agg(DISTINCT votes_of_options.USER_id::CHARACTER VARYING, ',') AS users
+    FROM votes_of_options
+    FULL JOIN survey_question
+    ON (survey_question.survey_question_id=votes_of_options.survey_question_id)
+    FULL JOIN survey_question_options
+    ON (survey_question.survey_question_id=survey_question_options.survey_question_id)
+    INNER JOIN users
+    ON (survey_question.user_id=users.user_id)
+    GROUP BY survey_question.survey_question_id, survey_question_options.options, 
+    survey_question_options.survey_question_options_id, users.fullname;`
+  )
+  .then( data => {
+    res.json(data);
+  })
+  .catch( err => {
+    res.json(err);
+  })
+}
+
+function getSingleItem(req, res, next) {
+  if (req.params.section === 'sale') {
+    db.any(
+      `SELECT title, condition, description, item_timestamp, fullname, phone_number, price, item4sale_imgurl, views
+       FROM item4sale 
+       INNER JOIN users 
+       ON(users.user_id=item4sale.user_id)
+       WHERE item_id=${req.params.id}`
+    )
+    .then( data => {
+      res.json(data);
+    })
+    .catch( err => {
+      res.json(err);
+    })
+  } else if (req.params.section === 'rent') {
+    db.any(
+      `SELECT title, condition, description, item_timestamp, fullname, phone_number, price, item4rent_imgurl, views
+       FROM item4rent 
+       INNER JOIN users 
+       ON(users.user_id=item4rent.user_id)
+       WHERE item_id=${req.params.id}`
+    )
+    .then( data => {
+      res.json(data);
+    })
+    .catch( err => {
+      res.json(err);
+    })
+  } else if (req.params.section === 'service') {
+    db.any(
+      `SELECT title, description, fullname, phone_number, price, service_imgurl, views
+       FROM services 
+       INNER JOIN users 
+       ON(users.user_id=services.user_id)
+       WHERE service_id=${req.params.id}`
+    )
+    .then( data => {
+      res.json(data);
+    })
+    .catch( err => {
+      res.json(err);
+    })
+  }
 }
 
 function getAllAnnouncements(req, res, next) {
@@ -150,10 +229,10 @@ function getUsersId(req, res, next) {
   }
 }
 
-function getMySurveys(req, res, next) {
+function getMyRatings(req, res, next) {
   db.any(
-    `SELECT survey_question_id, survey_question
-     FROM survey_question
+    `SELECT rating_question_id, rating_question
+     FROM rating_question
      WHERE user_id=${req.user.user_id}`
   )
   .then( (data) => {
@@ -232,18 +311,18 @@ function getUsersSaleItems(req, res, next) {
 // FROM survey_rating 
 // GROUP BY survey_question_id;
 
-function getAllSurveys(req, res, next) {
+function getAllRatings(req, res, next) {
   if (req.user !== undefined) {
     db.any(
-      `SELECT survey_question.survey_question_id, survey_question, fullname,  
-       AVG(rating_score), string_agg(survey_rating.user_id::CHARACTER varying, ',') AS users_who_rated,
+      `SELECT rating_question.rating_question_id, rating_question, fullname,  
+       AVG(rating_score), string_agg(rating_question_score.user_id::CHARACTER varying, ',') AS users_who_rated,
        string_agg(DISTINCT feedback, ' ~* ') AS feedbacks
-       FROM survey_question
+       FROM rating_question
        INNER JOIN users 
-       ON(users.user_id=survey_question.user_id)
-       FULL JOIN survey_rating
-       ON(survey_question.survey_question_id=survey_rating.survey_question_id)
-       GROUP BY survey_question.survey_question_id, users.fullname, survey_rating.survey_question_id;`
+       ON(users.user_id=rating_question.user_id)
+       FULL JOIN rating_question_score
+       ON(rating_question.rating_question_id=rating_question_score.rating_question_id)
+       GROUP BY rating_question.rating_question_id, users.fullname, rating_question_score.rating_question_id;`
      )
      .then( data => {
        if (data !== null) {
@@ -256,14 +335,14 @@ function getAllSurveys(req, res, next) {
   } 
   else {
     db.any(
-      `SELECT survey_question.survey_question_id, survey_question, fullname,  AVG(rating_score),
+      `SELECT rating_question.rating_question_id, rating_question, fullname,  AVG(rating_score),
        string_agg(DISTINCT feedback, ' ~* ') AS feedbacks
-       FROM survey_question
+       FROM rating_question
        INNER JOIN users 
-       ON(users.user_id=survey_question.user_id)
-       FULL JOIN survey_rating
-       ON(survey_question.survey_question_id=survey_rating.survey_question_id)
-       GROUP BY survey_question.survey_question_id, users.fullname, users.user_id;`
+       ON(users.user_id=rating_question.user_id)
+       FULL JOIN rating_question_score
+       ON(rating_question.rating_question_id=rating_question_score.rating_question_id)
+       GROUP BY rating_question.rating_question_id, users.fullname, users.user_id;`
      )
      .then( data => {
        if (data !== null) {
@@ -307,6 +386,39 @@ function getRightCounts(req, res, next) {
       console.log(err);
     })
   }
+  function getSurveyCounts(req, res, next) {
+    db.any(
+      `SELECT COUNT (user_id) AS value, survey_question_options.survey_question_options_id
+      FROM votes_of_options
+      INNER JOIN survey_question_options
+      ON (survey_question_options.survey_question_options_id=votes_of_options.survey_question_options_id)
+      GROUP BY votes_of_options.survey_question_options_id, survey_question_options.options, survey_question_options.survey_question_options_id;`
+    )
+    .then( (data) => {
+      res.json(data);
+    })
+    .catch( (err) => {
+      console.log(err);
+    })
+  }
+
+function getUserSurveys(req, res, next) {
+  db.any(
+    `SELECT survey_question, survey_question.survey_question_id,
+     string_agg (DISTINCT options:: CHARACTER VARYING, ', ') AS options
+     FROM survey_question
+     INNER JOIN survey_question_options
+     ON (survey_question.survey_question_id=survey_question_options.survey_question_id)
+     WHERE user_id=${req.user.user_id}
+     GROUP BY survey_question.survey_question, survey_question.survey_question_id;`
+  )
+  .then( (data) => {
+    res.json(data);
+  })
+  .catch( (err) => {
+    console.log(err);
+  })
+}
 
 /*-------------------------------POST Request----------------------------------*/
 function getRegister(req, res, next) {
@@ -349,11 +461,11 @@ function insertNews(req, res, next) {
   })
 }
 
-function surveyQuestion(req, res, next) {
+function ratingQuestion(req, res, next) {
   return db.none(
-    "INSERT INTO survey_question (user_id, survey_question) VALUES (${user_id}, ${survey_question})",
+    "INSERT INTO rating_question (user_id, rating_question) VALUES (${user_id}, ${rating_question})",
     {
-      survey_question: req.body.survey_question,
+      rating_question: req.body.rating_question,
       user_id: req.user.user_id
     }
   )
@@ -365,11 +477,60 @@ function surveyQuestion(req, res, next) {
   })
 }
 
+function surveyQuestion(req, res, next) {
+  return db.one(
+    "INSERT INTO survey_question(user_id, survey_question) VALUES (${user_id}, ${survey_question}) RETURNING survey_question_id",
+    {
+      user_id: req.user.user_id,
+      survey_question: req.body.survey_question
+    }
+  )
+  .then( (data) => {
+    res.json(data);
+  })
+  .catch( (err) => {
+    console.log(err);
+  })
+}
+
+function postSurveyOptions(req, res, next) {
+  return db.task(
+    t => {
+      const options = req.body.options;
+      const queries = options.map( option => {
+        return t.none(
+          "INSERT INTO survey_question_options (survey_question_id, options) VALUES (${survey_question_id}, ${options})", 
+          {
+            survey_question_id: req.body.survey_question_id,
+            options: option.name
+          }
+        )
+      })
+      return t.batch(queries);
+    })
+    .then( (data) => {
+      res.json('success');
+    })
+    .catch( (err) => {
+      console.log(err);
+    })
+}
+
+// SELECT COUNT (votes_of_options.user_id), survey_question, options, survey_question.survey_question_id,
+// string_agg(DISTINCT votes_of_options.USER_id::CHARACTER VARYING, ', ') AS users
+// FROM survey_question
+// FULL JOIN survey_question_options
+// ON (survey_question.survey_question_id=survey_question_options.survey_question_id)
+// FULL JOIN votes_of_options
+// ON (survey_question_options.survey_question_options_id=votes_of_options.survey_question_options_id)
+// GROUP BY survey_question.survey_question, survey_question_options.options, survey_question.survey_question_id
+// ORDER BY survey_question.survey_question_id;
+
 function rating(req, res, next) {
   return db.none(
-    "INSERT INTO survey_rating (survey_question_id, user_id, rating_score, feedback) VALUES (${survey_question_id}, ${user_id}, ${rating_score}, ${feedback})",
+    "INSERT INTO rating_question_score (rating_question_id, user_id, rating_score, feedback) VALUES (${rating_question_id}, ${user_id}, ${rating_score}, ${feedback})",
     {
-      survey_question_id: req.body.survey_question_id,
+      rating_question_id: req.body.rating_question_id,
       user_id: req.user.user_id,
       rating_score: req.body.rating_score,
       feedback: req.body.feedback
@@ -402,13 +563,15 @@ function insertAnnouncement(req, res, next) {
 
 function insertRentItem(req, res, next) {
   return db.none(
-    "INSERT INTO item4rent (user_id, title, description, price, item4rent_imgurl) VALUES (${user_id}, ${title}, ${description}, ${price}, ${item4rent_imgurl})",
+    "INSERT INTO item4rent (user_id, title, description, price, item4rent_imgurl, section, views) VALUES (${user_id}, ${title}, ${description}, ${price}, ${item4rent_imgurl}, ${section}, ${views})",
     {
       user_id: req.user.user_id,
       title: req.body.title,
       description: req.body.description,
       price: req.body.price,
-      item4rent_imgurl: req.body.item4rent_imgurl
+      item4rent_imgurl: req.body.item4rent_imgurl,
+      section: "rent",
+      views: 0
     }
   )
   .then( (data) => {
@@ -421,13 +584,15 @@ function insertRentItem(req, res, next) {
 
 function insertService(req, res, next) {
   return db.none(
-    "INSERT INTO services (user_id, title, description, price, service_imgurl) VALUES (${user_id}, ${title}, ${description}, ${price}, ${service_imgurl})",
+    "INSERT INTO services (user_id, title, description, price, service_imgurl, section, views) VALUES (${user_id}, ${title}, ${description}, ${price}, ${service_imgurl}, ${section}, ${views})",
     {
       user_id: req.user.user_id,
       title: req.body.title,
       description: req.body.description,
       price: req.body.price,
-      service_imgurl: req.body.service_imgurl
+      service_imgurl: req.body.service_imgurl,
+      section: "service",
+      views: 0
     }
   )
   .then( (data) => {
@@ -440,14 +605,33 @@ function insertService(req, res, next) {
 
 function insertSaleItem(req, res, next) {
   return db.none(
-    "INSERT INTO item4sale (user_id, title, description, price, condition, item4sale_imgurl) VALUES (${user_id}, ${title}, ${description}, ${price}, ${condition}, ${item4sale_imgurl})",
+    "INSERT INTO item4sale (user_id, title, description, price, condition, item4sale_imgurl, section, views) VALUES (${user_id}, ${title}, ${description}, ${price}, ${condition}, ${item4sale_imgurl}, ${section}, ${views})",
     {
       user_id: req.user.user_id,
       title: req.body.title,
       description: req.body.description,
       price: req.body.price,
       condition: req.body.condition,
-      item4sale_imgurl: req.body.item4sale_imgurl
+      item4sale_imgurl: req.body.item4sale_imgurl,
+      section: "sale",
+      views: 0
+    }
+  )
+  .then( (data) => {
+    res.json('success');
+  })
+  .catch( (err) => {
+    console.log(err);
+  })
+}
+
+function postSurveyVote(req, res, next) {
+  return db.none(
+    "INSERT INTO votes_of_options(user_id, survey_question_id, survey_question_options_id) VALUES (${user_id}, ${survey_question_id}, ${survey_question_options_id})",
+    {
+      user_id: req.user.user_id,
+      survey_question_id: req.body.survey_question_id,
+      survey_question_options_id: req.body.survey_question_options_id
     }
   )
   .then( (data) => {
@@ -649,6 +833,21 @@ function deleteAnnouncement(req, res, next) {
   })
 }
 
+function deleteMyRating(req, res, next) {
+  return db
+    .none(
+      `DELETE 
+       FROM rating_question
+       WHERE rating_question_id=${req.body.rating_question_id};`
+    )
+    .then( (data) => {
+      res.json("deleted");
+    })
+    .catch( err => {
+      console.log(err);
+    })
+}
+
 function deleteMySurvey(req, res, next) {
   return db
     .none(
@@ -664,12 +863,12 @@ function deleteMySurvey(req, res, next) {
     })
 }
 
-function deleteFeedback4MySurvey(req, res, next) {
+function deleteFeedback4MyRating(req, res, next) {
   return db
     .none(
       `DELETE 
-       FROM survey_rating
-       WHERE survey_question_id=${req.body.survey_question_id};`
+       FROM rating_question_score
+       WHERE rating_question_id=${req.body.rating_question_id};`
     )
     .then( data => {
       res.json("deleted");
@@ -724,14 +923,14 @@ function deleteSaleItem(req, res, next) {
     })
 }
 
-function editMySurvey(req, res, next) {
+function editMyRating(req, res, next) {
   return db
     .none(
-      `UPDATE survey_question
-       SET survey_question=$1
-       WHERE survey_question_id=${req.body.survey_question_id}`,
+      `UPDATE rating_question
+       SET rating_question=$1
+       WHERE rating_question_id=${req.body.rating_question_id}`,
       [
-        req.body.survey_question,
+        req.body.rating_question,
       ]
     )
     .then( (data) => {
@@ -803,6 +1002,46 @@ function editSaleItem(req, res, next) {
     })
 }
 
+function increaseViews(req, res, next) {
+  if (req.params.section === 'sale') {
+    db.any(
+      `UPDATE item4sale
+       SET views=views + 1
+       WHERE item_id=${req.params.id}`
+    )
+    .then( data => {
+      res.json(data);
+    })
+    .catch( err => {
+      res.json(err);
+    })
+  } else if (req.params.section === 'rent') {
+    db.any(
+      `UPDATE item4rent
+       SET views=views + 1
+       WHERE item_id=${req.params.id}`
+    )
+    .then( data => {
+      res.json(data);
+    })
+    .catch( err => {
+      res.json(err);
+    })
+  } else if (req.params.section === 'service') {
+    db.any(
+      `UPDATE services
+       SET views=views + 1
+       WHERE service_id=${req.params.id}`
+    )
+    .then( data => {
+      res.json(data);
+    })
+    .catch( err => {
+      res.json(err);
+    })
+  }
+}
+
 
 module.exports = {
   /*-------GET Request-------*/
@@ -812,17 +1051,21 @@ module.exports = {
   getAllRentItems,
   getAllServices,
   getAllSaleItems,
+  getAllSurveys,
+  getSingleItem,
   getAllAnnouncements,
   getUsersPosts,
-  getMySurveys,
+  getMyRatings,
   getUsersRentItems,
   getUsersServices,
   getUsersSaleItems,
-  getAllSurveys,
+  getAllRatings,
   getUsersAnnouncement,
   getUsersId,
   getWrongCounts,
   getRightCounts,
+  getSurveyCounts,
+  getUserSurveys,
   /*-------POST Request-------*/
   login,
   getRegister,
@@ -832,9 +1075,12 @@ module.exports = {
   insertRentItem,
   insertService,
   insertSaleItem,
+  postSurveyVote,
   insertRightNews,
   insertWrongNews,
+  ratingQuestion,
   surveyQuestion,
+  postSurveyOptions,
   /*-------PATCH Request-------*/
   updateProfile,
   editNews,
@@ -843,13 +1089,15 @@ module.exports = {
   deleteRightNews,
   deleteWrongNews,
   deleteAnnouncement,
+  deleteMyRating,
   deleteMySurvey,
-  deleteFeedback4MySurvey,
+  deleteFeedback4MyRating,
   deleteRentItem,
   deleteService,
   deleteSaleItem,
-  editMySurvey,
+  editMyRating,
   editRentItem,
   editService,
   editSaleItem,
+  increaseViews
 }

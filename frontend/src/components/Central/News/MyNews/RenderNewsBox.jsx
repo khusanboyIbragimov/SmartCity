@@ -6,7 +6,6 @@ export default class RenderNewsBox extends React.Component {
     render() {
         return(
             <div>
-                <ul>
                     {this.props.news.length !== 0? this.props.news.map(elem => {
                         return <RenderNews 
                                 news_id={elem.news_id}
@@ -19,7 +18,6 @@ export default class RenderNewsBox extends React.Component {
                                 handleSubmitDeleteNews={this.props.handleSubmitDeleteNews}
                             />
                     }):""}
-                </ul> 
             </div>
         )
     }

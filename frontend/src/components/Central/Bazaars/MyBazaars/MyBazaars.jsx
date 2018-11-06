@@ -17,21 +17,24 @@ export default class MyBazaars extends React.Component {
     }
     render() {
         const { action } = this.state;
-        return(
-            <div>
-                <h3>Менинг бозорим</h3>
-                <br/><hr/>
-                <h6>Нима қилмоқчисиз?</h6>
-                <select value={action} onChange={this.handleSelect}>
-                    <option value="">сайлаш</option>
-                    <option value="sale">сотаман</option>
-                    <option value="rent">ижарага бераман</option>
-                    <option value="service">хизмат кўрсатаман</option>
-                </select>
-                <hr/>
-                {action === "rent"? <MyRentItems/>: 
-                 action === "sale"? <MySaleItems/>:
-                 action === "service"? <MyServices/>:""}
+        return (
+            <div className='row'>
+                <div className='col-sm-12'>
+                    <h3>Менинг бозорим</h3>
+                </div>
+                <div className='col-sm-12'>
+                    <select value={action} onChange={this.handleSelect} className="form-control" style={{ borderColor: '#0093d3' }}>
+                        <option value="">сайлаш</option>
+                        <option value="sale">сотиш</option>
+                        <option value="rent">ижарага бериш</option>
+                        <option value="service">хизмат кўрсатиш</option>
+                    </select>
+                    <hr />
+                    {action === "rent" ? <MyRentItems /> :
+                        action === "sale" ? <MySaleItems /> :
+                            action === "service" ? <MyServices /> : ""}
+                </div>
+                <br /><hr />
             </div>
         )
     }

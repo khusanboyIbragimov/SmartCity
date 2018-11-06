@@ -1,6 +1,23 @@
  .App {
   text-align: center;
 } 
+body{
+  background-color: #f0eeec;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.pinterest:hover
+        {
+            box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+            margin-top: -5px;
+            -webkit-transition: all 0.3s ease-in-out;
+            -moz-transition: all 0.3s ease-in-out;
+            -o-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+        }
+
+#navbar_collapse {
+  border: hidden;
+}
 /*
 .App-logo {
   animation: App-logo-spin infinite 20s linear;

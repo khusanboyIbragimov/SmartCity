@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import RenderSaleBox from "./RenderSaleBox";
+import no_image from "../../../../../dummyImages/no_image.jpeg";
 var ReactS3Uploader = require("react-s3-uploader");
 
 export default class MyRentItems extends React.Component {
@@ -28,12 +29,12 @@ export default class MyRentItems extends React.Component {
     componentDidMount() {
         axios
             .get("/users/getUsersSaleItems")
-            .then( (res) => {
+            .then((res) => {
                 this.setState({
                     my_sale_items: res.data
                 })
             })
-            .catch( (err) => {
+            .catch((err) => {
                 console.log(err);
             })
     }
@@ -75,19 +76,19 @@ export default class MyRentItems extends React.Component {
                 description: description,
                 price: price,
                 condition: condition,
-                item4sale_imgurl: item4sale_imgurl
+                item4sale_imgurl: item4sale_imgurl.length > 0 ? item4sale_imgurl : no_image
             })
-            .then( () => {
+            .then(() => {
                 axios
-                .get("/users/getUsersSaleItems")
-                .then( (res) => {
-                    this.setState({
-                        my_sale_items: res.data
+                    .get("/users/getUsersSaleItems")
+                    .then((res) => {
+                        this.setState({
+                            my_sale_items: res.data
+                        })
                     })
-                })
-                .catch( (err) => {
-                    console.log(err);
-                })
+                    .catch((err) => {
+                        console.log(err);
+                    })
                 this.setState({
                     title: "",
                     description: "",
@@ -96,7 +97,7 @@ export default class MyRentItems extends React.Component {
                     item4sale_imgurl: ""
                 })
             })
-            .catch( (err) => {
+            .catch((err) => {
                 console.log(err);
             })
     }
@@ -112,19 +113,19 @@ export default class MyRentItems extends React.Component {
                 price: newPrice,
                 condition: newCondition
             })
-            .then( () => {
+            .then(() => {
                 axios
                     .get("/users/getUsersSaleItems")
-                    .then( (res) => {
+                    .then((res) => {
                         this.setState({
                             my_sale_items: res.data
                         })
                     })
-                    .catch( (err) => {
+                    .catch((err) => {
                         console.log(err);
                     })
             })
-            .catch( (err) => {
+            .catch((err) => {
                 console.log(err);
             })
     }
@@ -135,19 +136,19 @@ export default class MyRentItems extends React.Component {
             .patch("/users/delete_sale_item", {
                 item_id: e.target.id
             })
-            .then( (res) => {
+            .then((res) => {
                 axios
-                .get("/users/getUsersSaleItems")
-                .then( (res) => {
-                    this.setState({
-                        my_sale_items: res.data
+                    .get("/users/getUsersSaleItems")
+                    .then((res) => {
+                        this.setState({
+                            my_sale_items: res.data
+                        })
                     })
-                })
-                .catch( (err) => {
-                    console.log(err);
-                })
+                    .catch((err) => {
+                        console.log(err);
+                    })
             })
-            .catch( (err) => {
+            .catch((err) => {
                 console.log(err);
             })
     }
@@ -155,39 +156,47 @@ export default class MyRentItems extends React.Component {
 
     render() {
         const { condition, title, description, price, my_sale_items, completed } = this.state;
-        return(
+        return (
             <div>
-                Менинг сотиладиган ашёларим
-                <form onSubmit={this.handleSubmit}>
-                    <input placeholder="сарлавха" onChange={this.handleInput} name="title" value={title} /><br/>
-                    <textarea placeholder="тушунтириш" onChange={this.handleInput} name="description" value={description}/><br/>
-                    <select value={condition} onChange={this.handleInput} name="condition">
-                        <option value="">аҳволи</option>
-                        <option value="янги">янги</option>
-                        <option value="янгироқ">янгироқ</option>
-                        <option value="яхши">яхши</option>
-                        <option value="булади">булади</option>
-                        <option value="ёмон">ёмон</option>
-                        <option value="запчасть учун">запчасть учун</option>
-                    </select><br/>
-                    <input placeholder="илтимос нархни яхшироқ ёриштиринг" name="price" onChange={this.handleInput} value={price} /><br/>
-                    <ReactS3Uploader
-                        signingUrl="/s3/sign"
-                        signingUrlMethod="GET"
-                        accept="image/*"
-                        uploadRequestHeaders={{
-                            'x-amz-acl': 'public-read'
-                        }}
-                        onFinish={this.onUploadFinish}
-                        onProgress={this.onUploadProgress}
-                        onClick={this.handleClick}
-                    /><br/>
-                    {this.state.showWaitMessage? <h1>илтимос кутиб туринг...{" "} {completed}</h1>:""}
-                    {this.state.showSubmitButton?<button>сотаман</button>:""}
-                    {this.state.showSubmitButtonWithoutPhoto?<button>сотаман</button>:""}
-                </form>
-                <hr/>
-                <RenderSaleBox 
+                <div className="panel panel-default">
+                    <div className="panel-body">
+                        <form onSubmit={this.handleSubmit}>
+                            <input style={{ borderColor: '#0093d3' }}
+                                className='form-control' placeholder="буюм номи" onChange={this.handleInput} name="title" value={title} /><br />
+                            <textarea style={{ borderColor: '#0093d3' }}
+                                className='form-control' rows="5" id="comment" placeholder="батафсил маълумот" onChange={this.handleInput} name="description" value={description} /><br />
+                            <select className="form-control" value={condition} onChange={this.handleInput} name="condition" style={{ borderColor: '#0093d3' }}>
+                                <option value="">аҳволи</option>
+                                <option value="янги">янги</option>
+                                <option value="янгироқ">янгироқ</option>
+                                <option value="яхши">яхши</option>
+                                <option value="булади">булади</option>
+                                <option value="ёмон">ёмон</option>
+                                <option value="запчасть учун">запчасть учун</option>
+                            </select><br /><br />
+                            <input style={{ borderColor: '#0093d3' }}
+                                className='form-control' type="text" pattern="[0-9]*" placeholder="қиймати (фақат сон миллий пулда)" name="price" onChange={this.handleInput} value={price} /><br />
+                            <h5 className='text-left'><i className="fa fa-file-image-o" aria-hidden="true"></i>
+                                &nbsp;Расм юкланг:</h5>
+                            <ReactS3Uploader
+                                signingUrl="/s3/sign"
+                                signingUrlMethod="GET"
+                                accept="image/*"
+                                uploadRequestHeaders={{
+                                    'x-amz-acl': 'public-read'
+                                }}
+                                onFinish={this.onUploadFinish}
+                                onProgress={this.onUploadProgress}
+                                onClick={this.handleClick}
+                            /><br />
+                            {this.state.showWaitMessage ? <h5>илтимос кутиб туринг...{" "} {completed}</h5> : ""}
+                            {this.state.showSubmitButton ? <button className='btn btn-success form-control'>сотиш</button> : ""}
+                            {this.state.showSubmitButtonWithoutPhoto ? <button className='btn btn-success form-control'>сотиш</button> : ""}
+                        </form>
+                    </div>
+                </div>
+                <h3>Cотиладиган буюмларим</h3>
+                <RenderSaleBox
                     my_sale_items={my_sale_items}
                     handleSubmitDeleteSaleItem={this.handleSubmitDeleteSaleItem}
                     handleSubmitEditSaleItem={this.handleSubmitEditSaleItem}

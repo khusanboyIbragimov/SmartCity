@@ -56,25 +56,28 @@ export default class LoginForm extends Component {
 				<div className="login">
 					<form onSubmit={this.handleSubmit} className="login-form" >
 						<label htmlFor="nickname">
-							<h2>Ғийчатга хуш келибсиз!!!</h2>
+							<h4>Салом <span style={{color: '#0093d3'}}>{nickname}</span> Ғийчатга мархамат</h4>
 						</label>
-						<input
+
+						{/* <input
 							ref={(input)=>{ this.textInput = input }}
 							type="text"
 							id="nickname"
 							value={nickname}
 							readOnly
 							placeholder={'...'}
-							/>
+							/> */}
 							<div className="error">{error ? error:null}</div>
-						<button>чатга кираман</button>
+						<button className='btn btn-success'>чатга кираман</button>
+						<div className='footer-away'></div>
 					</form>
 				</div>
 			);
 		} else {
 			return (
 				<div>
-					<h1>Илтимос аккаўнтингизга киринг</h1>
+					<h4 style={{color: 'red'}}>Илтимос аккаунтингизга киринг!</h4>
+					<div className='footer-away'></div>
 				</div>
 			)
 		}

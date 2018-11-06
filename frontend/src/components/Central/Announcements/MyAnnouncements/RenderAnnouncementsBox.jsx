@@ -6,7 +6,6 @@ export default class RenderAnnouncementsBox extends React.Component {
     render() {
         return(
             <div>
-                <ul>
                     {this.props.announcements.length !== 0? this.props.announcements.map(elem => {
                         return <RenderAnnouncements
                                 key={elem.announcement_id}
@@ -19,7 +18,6 @@ export default class RenderAnnouncementsBox extends React.Component {
                                 handleSubmitDeleteAnnouncement={this.props.handleSubmitDeleteAnnouncement}
                             />
                     }):""}
-                </ul> 
             </div>
         )
     }

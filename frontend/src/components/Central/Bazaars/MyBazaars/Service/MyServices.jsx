@@ -1,8 +1,7 @@
 import React from "react";
 import axios from "axios";
 import RenderServiceBox from "./RenderServiceBox";
-var ReactS3Uploader = require("react-s3-uploader");
-
+import no_image from "../../../../../dummyImages/no_image.jpeg";
 
 export default class MyServices extends React.Component {
 
@@ -73,7 +72,7 @@ export default class MyServices extends React.Component {
                 title: title,
                 description: description,
                 price: price,
-                service_imgurl: service_imgurl
+                service_imgurl: service_imgurl.length > 0? service_imgurl: no_image
             })
             .then( () => {
                 axios
@@ -150,29 +149,23 @@ export default class MyServices extends React.Component {
 
 
     render() {
-        const { title, description, price, my_services, completed } = this.state;
+        const { title, description, price, my_services } = this.state;
         return(
             <div>
-                Менинг хизматларим
-                <form onSubmit={this.handleSubmit}>
-                    <input placeholder="сарлавха" onChange={this.handleInput} name="title" value={title} /><br/>
-                    <textarea placeholder="тушунтириш" onChange={this.handleInput} name="description" value={description}/><br/>
-                    <input placeholder="илтимос нархни яхшироқ ёриштиринг" name="price" onChange={this.handleInput} value={price} />
-                    <ReactS3Uploader
-                        signingUrl="/s3/sign"
-                        signingUrlMethod="GET"
-                        accept="image/*"
-                        uploadRequestHeaders={{
-                            'x-amz-acl': 'public-read'
-                        }}
-                        onFinish={this.onUploadFinish}
-                        onProgress={this.onUploadProgress}
-                        onClick={this.handleClick}
-                    /><br/>
-                    {this.state.showWaitMessage? <h1>илтимос кутиб туринг...{" "} {completed}</h1>:""}
-                    {this.state.showSubmitButton?<button>хизмат кўрсатаман</button>:""}
-                    {this.state.showSubmitButtonWithoutPhoto?<button>хизмат кўрсатаман</button>:""}
-                </form>
+                <div className="panel panel-default">
+                    <div className="panel-body">
+                        <form onSubmit={this.handleSubmit}>
+                            <input style={{ borderColor: '#0093d3' }}
+                                className='form-control' placeholder="хизмат номи" onChange={this.handleInput} name="title" value={title} /><br />
+                            <textarea style={{ borderColor: '#0093d3' }}
+                                className='form-control' rows="5" id="comment" placeholder="батафсил маълумот" onChange={this.handleInput} name="description" value={description} /><br />
+                            <input style={{ borderColor: '#0093d3' }}
+                                className='form-control' type="text" pattern="[0-9]*" placeholder="қиймати (фақат сон миллий пулда)" name="price" onChange={this.handleInput} value={price} /><br />
+                            <button className='btn btn-success form-control'>хизмат кўрсатиш</button>
+                        </form>
+                    </div>
+                </div>
+                <h3>Xизматларим</h3>
                 <hr/>
                 <RenderServiceBox 
                     my_services={my_services}

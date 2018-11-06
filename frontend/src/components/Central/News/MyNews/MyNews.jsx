@@ -72,19 +72,19 @@ export default class MyNews extends React.Component {
                 title: newTitle,
                 text: newText,
             })
-            .then( () => {
+            .then(() => {
                 axios
-                .get("/users/getUsersPosts")
-                .then( (res) => {
-                    this.setState({
-                        news: res.data
+                    .get("/users/getUsersPosts")
+                    .then((res) => {
+                        this.setState({
+                            news: res.data
+                        })
                     })
-                })
-                .catch( (err) => {
-                    console.log(err);
-                })
+                    .catch((err) => {
+                        console.log(err);
+                    })
             })
-            .catch( (err) => {
+            .catch((err) => {
                 console.log(err);
             })
     }
@@ -92,41 +92,41 @@ export default class MyNews extends React.Component {
     handleSubmitDeleteNews = (e) => {
         e.preventDefault();
         var user_id = e.target.id;
-        axios 
+        axios
             .patch("/users/delete_wrong_news", {
                 news_id: user_id
             })
-            .then( () => {
+            .then(() => {
                 axios
                     .patch("/users/delete_right_news", {
                         news_id: user_id
                     })
-                    .then( () => {
+                    .then(() => {
                         axios
                             .patch("/users/deletenews", {
                                 news_id: user_id
                             })
-                            .then( (res) => {
+                            .then((res) => {
                                 axios
                                     .get("/users/getUsersPosts")
-                                    .then( (res) => {
+                                    .then((res) => {
                                         this.setState({
                                             news: res.data
                                         })
                                     })
-                                    .catch( (err) => {
+                                    .catch((err) => {
                                         console.log(err);
                                     })
                             })
-                            .catch( (err) => {
+                            .catch((err) => {
                                 console.log(err);
                             })
                     })
-                    .catch( (err) => {
+                    .catch((err) => {
                         console.log(err);
                     })
             })
-            .catch( (err) => {
+            .catch((err) => {
                 console.log(err);
             })
     }
@@ -141,26 +141,26 @@ export default class MyNews extends React.Component {
                 text: text,
                 news_imgurl: news_imgurl
             })
-            .then( (res) => {
+            .then((res) => {
                 this.setState({
                     title: "",
                     text: "",
                     news_imgurl: ""
                 })
             })
-            .then( (res) => {
+            .then((res) => {
                 axios
-                .get("/users/getUsersPosts")
-                .then( (res) => {
-                    this.setState({
-                        news: res.data
+                    .get("/users/getUsersPosts")
+                    .then((res) => {
+                        this.setState({
+                            news: res.data
+                        })
                     })
-                })
-                .catch( (err) => {
-                    console.log(err);
-                })  
+                    .catch((err) => {
+                        console.log(err);
+                    })
             })
-            .catch( (err) => {
+            .catch((err) => {
                 console.log(err);
             })
     }
@@ -169,41 +169,46 @@ export default class MyNews extends React.Component {
         const { news, title, text, completed } = this.state;
         return (
             <div>
-                <form onSubmit={this.handleSubmit}>
-                    <input 
-                        type="text" 
-                        onChange={this.handleInput}
-                        name="title"
-                        placeholder="сарлавха"
-                        value={title}
-                    />
-                    <br/>
-                    <textarea
-                        type="text"
-                        onChange={this.handleInput}
-                        name="text"
-                        placeholder="янгилик матни"
-                        value={text}
-                    >
-                    </textarea>
-                    <br/>
-                    <ReactS3Uploader
-                        signingUrl="/s3/sign"
-                        signingUrlMethod="GET"
-                        accept="image/*"
-                        uploadRequestHeaders={{
-                            'x-amz-acl': 'public-read'
-                        }}
-                        onFinish={this.onUploadFinish}
-                        onProgress={this.onUploadProgress}
-                        onClick={this.handleClick}
-                    /><br/>
-                    {this.state.showWaitMessage? <h1>илтимос кутиб туринг...{" "} {completed}</h1>:""}
-                    {this.state.showSubmitButtonWithPhoto?<button>тарқатаман</button>:""}
-                    {this.state.showSubmitButtonWithoutPhoto?<button>тарқатаман</button>:""}
-                </form>
-                <hr/>
-                Mенинг янгиликларим
+                <div className="panel panel-default">
+                    <div className="panel-body">
+                        <form onSubmit={this.handleSubmit}>
+                            <input className="form-control"
+                                type="text"
+                                onChange={this.handleInput}
+                                name="title"
+                                placeholder="сарлавҳа"
+                                value={title}
+                                style={{ borderColor: '#0093d3' }}
+                            />
+                            <br />
+                            <textarea className="form-control" rows="5" id="comment"
+                                type="text"
+                                onChange={this.handleInput}
+                                name="text"
+                                placeholder="янгилик матни"
+                                value={text}
+                                style={{ borderColor: '#0093d3' }}
+                            >
+                            </textarea>
+                            <br />
+                            <ReactS3Uploader
+                                signingUrl="/s3/sign"
+                                signingUrlMethod="GET"
+                                accept="image/*"
+                                uploadRequestHeaders={{
+                                    'x-amz-acl': 'public-read'
+                                }}
+                                onFinish={this.onUploadFinish}
+                                onProgress={this.onUploadProgress}
+                                onClick={this.handleClick}
+                            /><br />
+                            {this.state.showWaitMessage ? <h1>илтимос кутиб туринг...{" "} {completed}</h1> : ""}
+                            {this.state.showSubmitButtonWithPhoto ? <button className='btn btn-success form-control'>Янгилик тарқатиш</button> : ""}
+                            {this.state.showSubmitButtonWithoutPhoto ? <button className='btn btn-success form-control'>Янгилик тарқатиш</button> : ""}
+                        </form>
+                    </div>
+                </div>
+                <h3>Mенинг янгиликларим</h3>
                 <RenderNewsBox
                     news={news}
                     handleInput={this.handleInput}

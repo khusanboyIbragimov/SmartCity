@@ -1,115 +1,122 @@
 import React from "react";
 import axios from 'axios';
-import RenderRatingBox from "./RenderRatingBox";
+import RenderSurveyBox1 from "./RenderSurveyBox1";
 import io from 'socket.io-client';
 import { LOGOUT } from '../../Giychat/Events';
 const socketUrl = "http://localhost:3100";
 
-  
 export default class Survey extends React.Component {
     constructor() {
         super();
         this.state = {
-            surveyQuestion: [],
-            rating: 0,
-            feedback: "",
-            more_comments: 3,
-            userId: ""
+            optionsAndPoints: [],
+            userId: "",
+            survey_counts: []
         }
     }
 
     componentDidMount() {
         this.logout();
         axios
-            .get("/users/getallsurveys")
-            .then((res) => {
+            .get("/users/get_all_surveys")
+            .then(res => {
                 this.setState({
-                    surveyQuestion: res.data
+                    optionsAndPoints: res.data
                 })
+                axios
+                    .get("/users/get_survey_counts")
+                    .then((res) => {
+                        this.setState({
+                            survey_counts: res.data
+                        })
+                        axios
+                            .get("/users/getUsersId")
+                            .then((res) => {
+                                this.setState({
+                                    userId: res.data
+                                })
+                            })
+                            .catch((err) => {
+                                console.log(err);
+                            })
+                    })
+                    .catch(err => {
+                        console.log(err)
+                    })
             })
-            .catch((err) => {
-                console.log(err);
-            })
-        axios
-            .get("/users/getUsersId")
-            .then((res) => {
-                this.setState({
-                    userId: res.data
-                })
-            })
-            .catch((err) => {
+            .catch(err => {
                 console.log(err);
             })
     }
 
     logout = () => {
         const socket = io(socketUrl);
-        let username = this.props.userInfo.length > 0? this.props.userInfo[0].username:""
+        let username = this.props.userInfo.length > 0 ? this.props.userInfo[0].username : ""
         socket.emit(LOGOUT, username);
-	}
-
-    handleInputFeedback = (e) => {
-        this.setState({
-            [e.targe]: e.target.value
-        })
     }
 
-    selectRatingQuestion = (e) => {
-        e.preventDefault()
+    handleVote = (e) => {
         axios
-            .post("/users/rating", {
+            .post("/users/post_survey_vote", {
                 survey_question_id: e.target.id,
-                rating_score: this.state.rating,
-                feedback: this.state.feedback
+                survey_question_options_id: e.target.value,
             })
-            .then( () => {
+            .then((res) => {
                 axios
-                .get("/users/getallsurveys")
-                .then((res) => {
-                    this.setState({
-                        surveyQuestion: res.data
+                    .get("/users/get_all_surveys")
+                    .then(res => {
+                        this.setState({
+                            optionsAndPoints: res.data
+                        })
+                        axios
+                            .get("/users/get_survey_counts")
+                            .then((res) => {
+                                this.setState({
+                                    survey_counts: res.data
+                                })
+                            })
+                            .catch(err => {
+                                console.log(err)
+                            })
                     })
-                })
-                .catch((err) => {
-                    console.log(err);
-                })
-                this.setState({
-                    feedback: "",
-                    rating: 0,
-                })
+                    .catch(err => {
+                        console.log(err);
+                    })
             })
-            .catch( err => {
-                console.log(err)
+            .catch((err) => {
+                console.log(err);
             })
-    }
-
-    changeRating = ( newRating ) => {
-        this.setState({
-          rating: newRating
-        })
-        
-    }
-
-    moreComments = (e) => {
-        this.setState({
-            more_comments: this.state.more_comments + 5
-        })
     }
 
     render() {
-        const { surveyQuestion, rating, userId } = this.state;
+        const { optionsAndPoints, userId, survey_counts } = this.state;
+        function group(array, key) {
+            return [...array.reduce((acc, o) =>
+                acc.set(o[key],
+                    (acc.get(o[key]) || [])
+                        .concat(o)), new Map())
+                .values()];
+        }
+        var grouped = group(optionsAndPoints, 'survey_question_id');
+        var countAdded = [];
+        for (var i = 0; i < grouped.length; i++) {
+            let eachGroup = grouped[i];
+            eachGroup.forEach(i =>
+                i.value = (survey_counts.find(j =>
+                    j.survey_question_options_id === i.survey_question_options_id)
+                    || { value: 0 }).value);
+            countAdded.push(eachGroup);
+        }
+        // console.log('1========>: ', optionsAndPoints)
+        // console.log('2========>: ', grouped)
+        // console.log('3========>: ', countAdded)
         return (
             <div>
-                Сўров
-                <RenderRatingBox
-                    surveyQuestion={surveyQuestion}
-                    changeRating={this.changeRating}
-                    rating={rating}
-                    selectRatingQuestion={this.selectRatingQuestion}
-                    handleInputFeedback={this.handleInputFeedback}
-                    moreComments={this.moreComments}
-                    more_comments={this.state.more_comments}
-                    userId={userId}
+                <h3><span style={{ color: 'rgb(241, 159, 77)' }}>Smart</span> <strong style={{ color: '#0093d3'}}>Сўровлар</strong></h3>
+                <RenderSurveyBox1
+                    surveyAndOptions={countAdded}
+                    handleVote={this.handleVote}
+                    user_id={userId}
                 />
             </div>
         )

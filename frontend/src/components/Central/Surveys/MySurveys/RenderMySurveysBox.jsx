@@ -4,21 +4,23 @@ import RenderMySurveys from "./RenderMySurveys";
 export default class RenderMySurveysBox extends React.Component {
 
     render() {
-        return(
-            <div>
-                <ul>
-                    {this.props.my_surveys.length !== 0? this.props.my_surveys.map(elem => {
-                        return<RenderMySurveys 
-                                key={elem.survey_question_id}
-                                survey_question_id={elem.survey_question_id}
-                                survey_question={elem.survey_question}
-                                handleSubmitEditMySurvey={this.props.handleSubmitEditMySurvey}
-                                handleSubmitDeleteMySurvey={this.props.handleSubmitDeleteMySurvey}
-                                handleInput={this.props.handleInput}
-                            />
-                    }):""}
-                </ul> 
-            </div>
+        return (
+                <div className="row">
+                    {this.props.surveysAndOptions.length !== 0 ? this.props.surveysAndOptions.map(elem => (
+                        <div key={Math.random()} className="col-sm-6 col-xs-12">
+                            <div className="pinterest">
+                                <RenderMySurveys
+                                    key={Math.random()}
+                                    survey_question_id={elem.survey_question_id}
+                                    survey_question={elem.survey_question}
+                                    option={elem.options !== null ? elem.options.split(",").map((o) => (<div>{o}</div>)) : ""}
+                                    handleSubmitDeleteMySurvey={this.props.handleSubmitDeleteMySurvey}
+                                />
+                            </div>
+
+                        </div>
+                    )) : ""}
+                </div>
         )
     }
 }

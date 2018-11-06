@@ -6,6 +6,7 @@ import StarRatings from 'react-star-ratings';
 const socketUrl = "http://localhost:3100";
 var Moment = require("moment");
 require('moment/locale/uz');
+
 export default class Home extends React.Component {
 
     constructor() {
@@ -30,7 +31,7 @@ export default class Home extends React.Component {
                 console.log(err);
             })
         axios
-            .get("/users/getallsurveys")
+            .get("/users/get_all_surveys")
             .then((res) => {
                 this.setState({
                     surveyQuestion: res.data?res.data.slice(0, 1)[0]:""
@@ -43,7 +44,7 @@ export default class Home extends React.Component {
             .get("/users/getallannouncements")
             .then( (res) => {
                 this.setState({
-                    announcements: res.data.slice(0, 1)[0]
+                    announcements: res.data?res.data[0]:""
                 })
             })
             .catch( (err) => {
@@ -59,12 +60,10 @@ export default class Home extends React.Component {
     
     render() {
         const { news, surveyQuestion, announcements } = this.state;
-        let avg = surveyQuestion.avg !== undefined? surveyQuestion.avg:"";
-        console.log()
+        let avg = surveyQuestion? surveyQuestion.avg:0;
         return(
             <div>
                 <h2>Қишлоқ хабарлари</h2>
-                <ul>
                 {news.map( (ele) => {
                    return( 
                    <div key={ele.news_id}>
@@ -76,19 +75,18 @@ export default class Home extends React.Component {
                    </div>
                     )
                 })}
-            </ul>
-            <h1>{surveyQuestion.survey_question}</h1>
-            <StarRatings
+            <h1>{surveyQuestion? surveyQuestion.survey_question:""}</h1>
+                {surveyQuestion? <StarRatings
                     starRatedColor="yellow"
-                    rating={Number(avg)}
+                    rating={avg > 0? Number(avg):0}
                     numberOfStars={5}
                     starEmptyColor="grey"
-                /><br/>
+                />:""}<br/>
                 <div>
-                    <h1>{announcements.title}</h1>
-                    <p>{announcements.announcement}</p>
-                    <p>{announcements.fullname}</p>
-                    <p>{Moment(announcements.announ_timestamp).format("LLLL")}</p>
+                    <h1>{announcements? announcements.title:""}</h1>
+                    <p>{announcements? announcements.announcement:""}</p>
+                    <p>{announcements? announcements.fullname:""}</p>
+                    <p>{announcements? Moment(announcements.announ_timestamp).format("LLLL"):""}</p>
                     <hr />
                 </div>
             </div>

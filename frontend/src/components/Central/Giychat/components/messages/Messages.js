@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 
 export default class Messages extends Component {
 	constructor(props) {
-	  super(props);
-		
+		super(props);
+
 		this.scrollDown = this.scrollDown.bind(this)
 	}
 
-	scrollDown(){
+	scrollDown() {
 		const { container } = this.refs
 		container.scrollTop = container.scrollHeight
 	}
@@ -19,7 +19,7 @@ export default class Messages extends Component {
 	componentDidUpdate(prevProps, prevState) {
 		this.scrollDown()
 	}
-	
+
 	render() {
 		const { messages, user, typingUsers } = this.props
 		return (
@@ -27,24 +27,35 @@ export default class Messages extends Component {
 				className="thread-container">
 				<div className="thread">
 					{
-						messages.map((mes)=>{
+						messages.map((mes) => {
 							return (
 								<div
 									key={mes.id}
 									className={`message-container ${mes.sender === user.name && 'right'}`}
 								>
-									<div className="time">{mes.time}</div>
-									<div className="data">
-										<div className="message">{mes.message}</div>
-										<div className="name">{mes.sender}</div>
+									<div class="message my-message">
+										<img alt="" class="img-circle medium-image" src='https://scontent-frt3-2.cdninstagram.com/vp/3ca2fb4fd8fb9e90234d42da07f63fed/5C505CC9/t51.2885-15/e35/41349438_869720689897963_6915892188155667819_n.jpg' />
+										<div class="message-body">
+											<div class="message-body-inner">
+												<div class="message-info">
+													<h4>{mes.sender}</h4>
+													<h5> <i class="fa fa-clock-o"></i> {mes.time > 12 ? mes.time + ' AM' : mes.time + ' PM'}</h5>
+												</div>
+												<hr />
+												<div class="message-text">
+													{mes.message}
+												</div>
+											</div>
+										</div>
+										<br />
 									</div>
 								</div>
 
-								)
+							)
 						})
 					}
 					{
-						typingUsers.map((name)=>{
+						typingUsers.map((name) => {
 							return (
 								<div key={name} className="typing-user">
 									{`${name} is typing . . .`}
