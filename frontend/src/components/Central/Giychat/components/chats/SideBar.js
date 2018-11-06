@@ -16,14 +16,14 @@ export default class SideBar extends Component {
 						var num = Math.floor((Math.random() * colors.length));
 						var color = colors[num];
 						return (
-							<ul class="list-unstyled">
-								<li key={Math.random()} class="left clearfix">
-									<span class="chat-img pull-left">
+							<ul className="list-unstyled">
+								<li key={Math.random()} className="left clearfix">
+									<span className="chat-img pull-left">
 										<img src='https://scontent-frt3-2.cdninstagram.com/vp/3ca2fb4fd8fb9e90234d42da07f63fed/5C505CC9/t51.2885-15/e35/41349438_869720689897963_6915892188155667819_n.jpg' alt="User Avatar" class="img-circle" />
 									</span>
-									<div class="chat-body clearfix">
-										<div class="header_sec ">
-											<strong class="primary-font"><h4 style={{color: color}}>{ele}</h4></strong>
+									<div className="chat-body clearfix">
+										<div className="header_sec ">
+											<strong className="primary-font"><h4 style={{color: color}}>{ele}</h4></strong>
 										</div>
 									</div>
 								</li>

@@ -80,7 +80,7 @@ export default class MessageInput extends Component {
 						disabled={message.length < 1}
 						type="submit"
 						className="send btn btn-success"
-					><i class="fa fa-paper-plane" aria-hidden="true"></i>
+					><i className="fa fa-paper-plane" aria-hidden="true"></i>
 						&nbsp;жунатиш</button>
 				</form>
 			</div>

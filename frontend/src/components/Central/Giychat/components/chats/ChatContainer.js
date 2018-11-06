@@ -114,24 +114,24 @@ export default class ChatContainer extends Component {
 		const { chats, activeChat } = this.state
 		return (
 			<div>
-				<div class="main_section">
-					<div class="col-md-12">
+				<div className="main_section">
+					<div className="col-md-12">
 						<h4>
-							<i class="fa fa-weixin" aria-hidden="true"></i> &nbsp;
+							<i className="fa fa-weixin" aria-hidden="true"></i> &nbsp;
 							Ғулакандоз Ғийчати 
                     	</h4>
 					</div>
-					<div class="container">
-						<div class="chat_container">
-							<div class="col-sm-3 chat_sidebar">
-								<div class="row">
+					<div className="container">
+						<div className="chat_container">
+							<div className="col-sm-3 chat_sidebar">
+								<div className="row">
 									<div>
 										<h4>
-											<i class="fa fa-users" aria-hidden="true"></i> &nbsp;
+											<i className="fa fa-users" aria-hidden="true"></i> &nbsp;
 											Иштирокчилар
                    						 </h4>
 									</div>
-									<div class="member_list">
+									<div className="member_list">
 										<SideBar
 											onlineUsers={this.props.onlineUsers}
 											logout={logout}
@@ -145,12 +145,12 @@ export default class ChatContainer extends Component {
 								</div>
 							</div>
 							<br /><br />
-							<div class="col-sm-9 message_section">
+							<div className="col-sm-9 message_section">
 								{
 									activeChat !== null ? (
-										<div class="row">
-											<div class="chat_area">
-												<ul class="list-unstyled">
+										<div className="row">
+											<div className="chat_area">
+												<ul className="list-unstyled">
 													<ChatHeading name={activeChat.name} />
 													<Messages
 														messages={activeChat.messages}
@@ -159,7 +159,7 @@ export default class ChatContainer extends Component {
 													/>
 												</ul>
 											</div>
-											<div class="message_write">
+											<div className="message_write">
 												<MessageInput
 													sendMessage={
 														(message) => {
