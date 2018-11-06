@@ -136,7 +136,7 @@ export default class Navbar extends React.Component {
                         <div className="navbar-header">
                             <button  type="button" className="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                                <span style={{ color: 'rgb(241, 159, 77)' }}>Меню</span> 
-                                &nbsp;<i style={{ color: '#0093d3' }} class="fa fa-bars"></i>
+                                &nbsp;<i style={{ color: '#0093d3' }} className="fa fa-bars"></i>
                             </button>
                             <a style={{ fontFamily: 'san-serif', fontSize: '30px' }} className="navbar-brand"><span style={{ color: 'rgb(241, 159, 77)' }}>Smart</span><strong style={{ color: '#0093d3' }}>City</strong></a>
                         </div>
