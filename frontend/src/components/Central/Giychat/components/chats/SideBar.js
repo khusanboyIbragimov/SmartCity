@@ -12,6 +12,9 @@ export default class SideBar extends Component {
 			<div id='side-bar'>
 				<div>
 					{this.props.onlineUsers.map((ele) => {
+						var colors = ['red', 'green', 'pink', 'orange', 'blue', 'black'];
+						var num = Math.floor((Math.random() * colors.length));
+						var color = colors[num];
 						return (
 							<ul class="list-unstyled">
 								<li key={Math.random()} class="left clearfix">
@@ -20,7 +23,7 @@ export default class SideBar extends Component {
 									</span>
 									<div class="chat-body clearfix">
 										<div class="header_sec ">
-											<strong class="primary-font"><h4 style={{color: '#0093d3'}}>{ele}</h4></strong>
+											<strong class="primary-font"><h4 style={{color: color}}>{ele}</h4></strong>
 										</div>
 									</div>
 								</li>
