@@ -115,16 +115,16 @@ export default class ChatContainer extends Component {
 		return (
 			<div>
 				<div class="main_section">
+					<div class="col-md-12">
+						<h4>
+							<i class="fa fa-weixin" aria-hidden="true"></i> &nbsp;
+							Ғийчат
+                    	</h4>
+					</div>
 					<div class="container">
 						<div class="chat_container">
 							<div class="col-sm-3 chat_sidebar">
 								<div class="row">
-									<div class="col-md-12">
-										<h4>
-											<i class="fa fa-weixin" aria-hidden="true"></i> &nbsp;
-											Ғийчат
-                    					</h4>
-									</div>
 									<div>
 										<h4>
 											<i class="fa fa-users" aria-hidden="true"></i> &nbsp;

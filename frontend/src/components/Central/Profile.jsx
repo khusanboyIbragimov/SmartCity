@@ -172,7 +172,7 @@ export default class Profile extends React.Component {
                                                     <div className="col-sm-3 text-right">
                                                         {!toggle ? <button className="btn btn-default" onClick={this.handleToggle}><span className='glyphicon glyphicon-pencil'></span> ўзгартириш</button> : ""}
                                                         {toggle && showSubmitButton ? <button className="btn btn-default" onClick={this.handleToggle}>сақлаш</button> : ""}
-                                                        {this.state.showSubmitButtonWithoutPhoto ? <button>сақлаш</button> : ""}
+                                                        {this.state.showSubmitButtonWithoutPhoto ? <button className="btn btn-default"><span className='glyphicon glyphicon-check'></span> сақлаш</button> : ""}
                                                     </div>
                                                 </form>
                                             </div>
