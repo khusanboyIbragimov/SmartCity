@@ -134,91 +134,90 @@ export default class Navbar extends React.Component {
                 <nav className="navbar navbar-default">
                     <div className="container">
                         <div className="navbar-header">
-                            <button type="button" className="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                                <span className="icon-bar"></span>
-                                <span className="icon-bar"></span>
-                                <span className="icon-bar"></span>
+                            <button  type="button" className="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                               <span style={{ color: 'rgb(241, 159, 77)' }}>Меню</span> 
+                                &nbsp;<i style={{ color: '#0093d3' }} class="fa fa-bars"></i>
                             </button>
-                            <a style={{ fontFamily: 'san-serif', fontSize: '30px' }} className="navbar-brand"><span style={{ color: 'rgb(241, 159, 77)' }}>Smart</span><strong style={{ color: '#0093d3'}}>City</strong></a>
+                            <a style={{ fontFamily: 'san-serif', fontSize: '30px' }} className="navbar-brand"><span style={{ color: 'rgb(241, 159, 77)' }}>Smart</span><strong style={{ color: '#0093d3' }}>City</strong></a>
                         </div>
                         <div className="collapse navbar-collapse" id=".navbar-collapse">
                             <ul className="nav navbar-nav navbar-right">
-                                <li><Link 
-                                        to="/" 
-                                        data-toggle="collapse" 
-                                        data-target=".navbar-collapse.in"> 
-                                        <span className='glyphicon glyphicon-home'></span>Марказ
+                                <li><Link
+                                    to="/"
+                                    data-toggle="collapse"
+                                    data-target=".navbar-collapse.in">
+                                    <span className='glyphicon glyphicon-home'></span>Марказ
                                     </Link>
                                 </li>
-                                <li><Link 
-                                        to="/sc/news" 
-                                        data-toggle="collapse" 
-                                        data-target=".navbar-collapse.in"> 
-                                        <span className='glyphicon glyphicon-globe'></span>Янгиликлар 
+                                <li><Link
+                                    to="/sc/news"
+                                    data-toggle="collapse"
+                                    data-target=".navbar-collapse.in">
+                                    <span className='glyphicon glyphicon-globe'></span>Янгиликлар
                                     </Link>
                                 </li>
-                                <li><Link 
-                                        to="/sc/announcement" 
-                                        data-toggle="collapse" 
-                                        data-target=".navbar-collapse.in">
-                                        <span className='glyphicon glyphicon-bullhorn'></span>Эълонлар
+                                <li><Link
+                                    to="/sc/announcement"
+                                    data-toggle="collapse"
+                                    data-target=".navbar-collapse.in">
+                                    <span className='glyphicon glyphicon-bullhorn'></span>Эълонлар
                                     </Link>
                                 </li>
-                                <li><Link 
-                                        to="/sc/ratings" 
-                                        data-toggle="collapse" 
-                                        data-target=".navbar-collapse.in"> 
-                                        <span className='glyphicon glyphicon-star'></span>Рейтинг
+                                <li><Link
+                                    to="/sc/ratings"
+                                    data-toggle="collapse"
+                                    data-target=".navbar-collapse.in">
+                                    <span className='glyphicon glyphicon-star'></span>Рейтинг
                                     </Link>
                                 </li>
-                                <li><Link 
-                                        to="/sc/survey" 
-                                        data-toggle="collapse" 
-                                        data-target=".navbar-collapse.in"> 
-                                         <i 
-                                               className="fa fa-bar-chart" 
-                                               aria-hidden="true"
-                                                >
-                                            </i>Сўров
+                                <li><Link
+                                    to="/sc/survey"
+                                    data-toggle="collapse"
+                                    data-target=".navbar-collapse.in">
+                                    <i
+                                        className="fa fa-bar-chart"
+                                        aria-hidden="true"
+                                    >
+                                    </i>Сўров
                                     </Link>
                                 </li>
-                                <li><Link 
-                                        to="/sc/bazaar" 
-                                        data-toggle="collapse" 
-                                        data-target=".navbar-collapse.in"> 
-                                        <b><span className='glyphicon glyphicon-usd'></span></b>Бозор
+                                <li><Link
+                                    to="/sc/bazaar"
+                                    data-toggle="collapse"
+                                    data-target=".navbar-collapse.in">
+                                    <b><span className='glyphicon glyphicon-usd'></span></b>Бозор
                                     </Link>
                                 </li>
-                                <li><Link 
-                                        to="/sc/giychat" 
-                                        data-toggle="collapse" 
-                                        data-target=".navbar-collapse.in">
-                                        <i className="fa fa-users" aria-hidden="true"></i>Ғийчат
+                                <li><Link
+                                    to="/sc/giychat"
+                                    data-toggle="collapse"
+                                    data-target=".navbar-collapse.in">
+                                    <i className="fa fa-users" aria-hidden="true"></i>Ғийчат
                                     </Link>
                                 </li>
-                                {isLogged ? 
-                                    <li><Link 
-                                            to="/sc/profile">
-                                            <span style={{ fontSize: '22px' }} 
-                                            data-toggle="collapse" 
+                                {isLogged ?
+                                    <li><Link
+                                        to="/sc/profile">
+                                        <span style={{ fontSize: '22px' }}
+                                            data-toggle="collapse"
                                             data-target=".navbar-collapse.in"
                                             className="glyphicon glyphicon-user"></span>
-                                        </Link>
+                                    </Link>
                                     </li> : ""}
-                                {!isLogged ? 
-                                    <li 
+                                {!isLogged ?
+                                    <li
                                         onClick={this.handleLogin}>
-                                        <a  data-toggle="collapse" 
+                                        <a data-toggle="collapse"
                                             data-target=".navbar-collapse.in"
-                                        > 
-                                            <span style={{ fontSize: '22px' }} 
+                                        >
+                                            <span style={{ fontSize: '22px' }}
                                                 className="glyphicon glyphicon-log-in">
                                             </span>
                                         </a></li> :
                                     <li onClick={this.handleLogout}>
-                                        <a  data-toggle="collapse" 
+                                        <a data-toggle="collapse"
                                             data-target=".navbar-collapse.in">
-                                            <span style={{ fontSize: '22px' }} 
+                                            <span style={{ fontSize: '22px' }}
                                                 className="glyphicon glyphicon-log-out">
                                             </span>
                                         </a></li>}
@@ -245,14 +244,14 @@ export default class Navbar extends React.Component {
                                                         onChange={this.handleFormInput}
                                                         name="username"
                                                     />
-                                                        <input
-                                                            type="password"
-                                                            className="form-control"
-                                                            placeholder="парол"
-                                                            onChange={this.handleFormInput}
-                                                            name="password"
-                                                        />
-                                                        <hr/>
+                                                    <input
+                                                        type="password"
+                                                        className="form-control"
+                                                        placeholder="парол"
+                                                        onChange={this.handleFormInput}
+                                                        name="password"
+                                                    />
+                                                    <hr />
                                                     <button type="submit" className="btn btn-primary mb-2">Кириш</button>
                                                 </div>
                                                 <Modal
@@ -274,7 +273,7 @@ export default class Navbar extends React.Component {
                                                     </Modal.Footer>
                                                 </Modal>
                                             </form> :
-                                            <div><button onClick={this.handleLogout}>чиқиш</button><Link to="/sc/profile">Менинг Аккаунтим</Link></div>} <br/>
+                                            <div><button onClick={this.handleLogout}>чиқиш</button><Link to="/sc/profile">Менинг Аккаунтим</Link></div>} <br />
                                     </Modal.Body>
                                 </Modal>
                             </ul>
@@ -314,7 +313,7 @@ export default class Navbar extends React.Component {
                             <span className="sr-only">Next</span>
                         </a>
                     </div>
-                    <h3 className="margin"><span style={{color: 'rgb(241, 159, 77)'}} >Хуш Келибсиз</span> <strong style={{ color: '#0093d3'}}>{fullname}</strong></h3>
+                    <h3 className="margin"><span style={{ color: 'rgb(241, 159, 77)' }} >Хуш Келибсиз</span> <strong style={{ color: '#0093d3' }}>{fullname}</strong></h3>
                 </div>
             </div>
         )

@@ -9,14 +9,14 @@ var socket = io(socketUrl);
 export default class Layout extends Component {
 
 	constructor(props) {
-	  super(props);
-	  this.state = {
-		user: null,
-		onlineUsers: []
-	  };
-	  socket.on('ALL_CONNECTED_USERS', (data) => {
-		this.showOnlineUsers(data);
-	  })
+		super(props);
+		this.state = {
+			user: null,
+			onlineUsers: []
+		};
+		socket.on('ALL_CONNECTED_USERS', (data) => {
+			this.showOnlineUsers(data);
+		})
 	}
 
 	componentWillMount() {
@@ -24,22 +24,22 @@ export default class Layout extends Component {
 	}
 
 	showOnlineUsers = data => {
-        this.setState({
-            onlineUsers: data
-        })
-    }
+		this.setState({
+			onlineUsers: data
+		})
+	}
 
 	// Connect to and initializes the socket.
 	initSocket = () => {
 		socket.on('connect', () => {
 			console.log("Client socket is active...");
-		}) 
+		})
 	}
 
 	// Sets the user property in state
 	setUser = (user) => {
 		socket.emit(USER_CONNECTED, user);
-		this.setState({user});
+		this.setState({ user });
 	}
 
 	// Sets the user property in state to null.
@@ -58,22 +58,22 @@ export default class Layout extends Component {
 		}
 		return (
 			<div className="container">
-			<div className='row'>
-{
-	!user?
-	<LoginForm 
-		socket={socket} 
-		setUser={this.setUser}
-	/>
-	:
-	<ChatContainer 
-		socket={socket} 
-		user={user} 
-		logout={this.logout} 
-		onlineUsers={onlineUserNames} 
-	/>
-}
-			</div>
+				<div className='row'>
+					{
+						!user ?
+							<LoginForm
+								socket={socket}
+								setUser={this.setUser}
+							/>
+							:
+							<ChatContainer
+								socket={socket}
+								user={user}
+								logout={this.logout}
+								onlineUsers={onlineUserNames}
+							/>
+					}
+				</div>
 			</div>
 		);
 	}
