@@ -120,6 +120,7 @@ export default class ChatContainer extends Component {
 							<i className="fa fa-weixin" aria-hidden="true"></i> &nbsp;
 							Ғулакандоз Ғийчати 
                     	</h4>
+						<span style={{color: 'red'}}>Чат иштирокчиларини ва узингизни хурмат килинг!</span>
 					</div>
 					<div className="container">
 						<div className="chat_container">
