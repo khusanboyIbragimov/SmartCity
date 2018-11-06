@@ -123,13 +123,13 @@ export default class ChatContainer extends Component {
 										<h4>
 											<i class="fa fa-weixin" aria-hidden="true"></i> &nbsp;
 											Ғийчат
-                    </h4>
+                    					</h4>
 									</div>
 									<div>
 										<h4>
 											<i class="fa fa-users" aria-hidden="true"></i> &nbsp;
 											Иштирокчилар
-                    </h4>
+                   						 </h4>
 									</div>
 									<div class="member_list">
 										<SideBar
@@ -141,7 +141,8 @@ export default class ChatContainer extends Component {
 											setActiveChat={this.setActiveChat}
 											onSendPrivateMessage={this.sendOpenPrivateMessage}
 										/>
-									</div></div>
+									</div>
+								</div>
 							</div>
 							<br /><br />
 							<div class="col-sm-9 message_section">
@@ -173,15 +174,13 @@ export default class ChatContainer extends Component {
 												/>
 											</div>
 										</div>
-									) :
-										<div className="chat-room choose">
-											<h3>Choose a chat!</h3>
-										</div>
+									) : ""
 								}
 							</div>
 						</div>
 					</div>
 				</div>
+				<div className='footer-away'></div>
 			</div>
 		);
 	}

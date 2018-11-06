@@ -83,7 +83,6 @@ export default class MessageInput extends Component {
 					><i class="fa fa-paper-plane" aria-hidden="true"></i>
 						&nbsp;жунатиш</button>
 				</form>
-				<hr />
 			</div>
 		);
 	}
