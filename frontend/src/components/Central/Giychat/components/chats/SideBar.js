@@ -16,10 +16,10 @@ export default class SideBar extends Component {
 						var num = Math.floor((Math.random() * colors.length));
 						var color = colors[num];
 						return (
-							<ul className="list-unstyled">
-								<li key={Math.random()} className="left clearfix">
+							<ul key={Math.random()} className="list-unstyled">
+								<li  className="left clearfix">
 									<span className="chat-img pull-left">
-										<img src='https://scontent-frt3-2.cdninstagram.com/vp/3ca2fb4fd8fb9e90234d42da07f63fed/5C505CC9/t51.2885-15/e35/41349438_869720689897963_6915892188155667819_n.jpg' alt="User Avatar" class="img-circle" />
+										<img src='https://scontent-frt3-2.cdninstagram.com/vp/3ca2fb4fd8fb9e90234d42da07f63fed/5C505CC9/t51.2885-15/e35/41349438_869720689897963_6915892188155667819_n.jpg' alt="User Avatar" className="img-circle" />
 									</span>
 									<div className="chat-body clearfix">
 										<div className="header_sec ">
@@ -33,7 +33,7 @@ export default class SideBar extends Component {
 				</div>
 				<div className="current-user">
 					<div onClick={() => { logout() }} title="Logout" className="logout">
-						<button className='btn btn-primary form-control'>чатдан чиқиш &nbsp;<i class="fa fa-sign-out" aria-hidden="true"></i></button>
+						<button className='btn btn-primary form-control'>чатдан чиқиш &nbsp;<i className="fa fa-sign-out" aria-hidden="true"></i></button>
 					</div>
 				</div>
 			</div>
