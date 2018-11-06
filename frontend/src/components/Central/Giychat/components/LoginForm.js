@@ -4,28 +4,28 @@ import axios from "axios";
 
 export default class LoginForm extends Component {
 	constructor(props) {
-	  super(props);
+		super(props);
 
-	  this.state = {
-	  	nickname: false,
-		error: "",
-	  };
+		this.state = {
+			nickname: false,
+			error: "",
+		};
 	}
 
 	componentWillMount() {
 		axios
 			.get("/users/userInfo")
-			.then( res => {
+			.then(res => {
 				this.setState({
 					nickname: res.data[0].username
 				})
 			})
-			.catch( err => {
+			.catch(err => {
 				console.log(err);
 			})
 	}
 
-	setUser = ({user, isUser})=>{
+	setUser = ({ user, isUser }) => {
 		if (isUser) {
 			this.setError("User name taken")
 		} else {
@@ -34,7 +34,7 @@ export default class LoginForm extends Component {
 		}
 	}
 
-	handleSubmit = (e)=>{
+	handleSubmit = (e) => {
 		e.preventDefault()
 		const { socket } = this.props
 		const { nickname } = this.state
@@ -45,8 +45,8 @@ export default class LoginForm extends Component {
 	// 	this.setState({nickname:e.target.value})
 	// }
 
-	setError = (error)=>{
-		this.setState({error})
+	setError = (error) => {
+		this.setState({ error })
 	}
 
 	render() {
@@ -56,9 +56,8 @@ export default class LoginForm extends Component {
 				<div className="login">
 					<form onSubmit={this.handleSubmit} className="login-form" >
 						<label htmlFor="nickname">
-							<h4>Салом <span style={{color: '#0093d3'}}>{nickname}</span> Ғийчатга мархамат</h4>
+							<h4>Салом <span style={{ color: '#0093d3' }}>{nickname}</span> Ғийчатга мархамат.</h4>
 						</label>
-
 						{/* <input
 							ref={(input)=>{ this.textInput = input }}
 							type="text"
@@ -67,9 +66,9 @@ export default class LoginForm extends Component {
 							readOnly
 							placeholder={'...'}
 							/> */}
-							<div className="error">{error ? error:null}</div>
+						<div className="error">{error ? error : null}</div>
 						<button className='btn btn-success'><i class="fa fa-sign-in" aria-hidden="true"></i>
-&nbsp;чатга кираман</button>
+							&nbsp;чатга кираман</button>
 						<div className='footer-away'></div>
 					</form>
 				</div>
@@ -77,7 +76,7 @@ export default class LoginForm extends Component {
 		} else {
 			return (
 				<div>
-					<h4 style={{color: 'red'}}>Илтимос аккаунтингизга киринг!</h4>
+					<h4 style={{ color: 'red' }}>Илтимос аккаунтингизга киринг!</h4>
 					<div className='footer-away'></div>
 				</div>
 			)

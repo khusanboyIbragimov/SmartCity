@@ -30,7 +30,7 @@ export default class SideBar extends Component {
 				</div>
 				<div className="current-user">
 					<div onClick={() => { logout() }} title="Logout" className="logout">
-						<button className='btn btn-primary form-control'><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;чатдан чиқаман </button>
+						<button className='btn btn-primary form-control'>чатдан чиқиш &nbsp;<i class="fa fa-sign-out" aria-hidden="true"></i></button>
 					</div>
 				</div>
 			</div>
