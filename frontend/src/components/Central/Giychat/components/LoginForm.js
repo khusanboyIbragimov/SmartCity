@@ -76,7 +76,7 @@ export default class LoginForm extends Component {
 		} else {
 			return (
 				<div>
-					<h4 style={{ color: 'red' }}>Илтимос аккаунтингизга киринг!</h4>
+					<h4 style={{ color: 'red' }}>Илтимос <span style={{color: '#0093d3'}}>Ғийчатга</span> кириш учун аккаунтингизга киринг!</h4>
 					<div className='footer-away'></div>
 				</div>
 			)
