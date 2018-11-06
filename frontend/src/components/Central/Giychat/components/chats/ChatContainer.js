@@ -118,7 +118,7 @@ export default class ChatContainer extends Component {
 					<div class="col-md-12">
 						<h4>
 							<i class="fa fa-weixin" aria-hidden="true"></i> &nbsp;
-							Ғийчат
+							Ғулакандоз Ғийчати 
                     	</h4>
 					</div>
 					<div class="container">
