@@ -68,7 +68,8 @@ export default class LoginForm extends Component {
 							placeholder={'...'}
 							/> */}
 							<div className="error">{error ? error:null}</div>
-						<button className='btn btn-success'>чатга кираман</button>
+						<button className='btn btn-success'><i class="fa fa-sign-in" aria-hidden="true"></i>
+&nbsp;чатга кираман</button>
 						<div className='footer-away'></div>
 					</form>
 				</div>

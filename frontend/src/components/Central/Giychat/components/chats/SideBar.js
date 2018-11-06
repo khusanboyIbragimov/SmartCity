@@ -19,8 +19,8 @@ export default class SideBar extends Component {
 										<img src='https://scontent-frt3-2.cdninstagram.com/vp/3ca2fb4fd8fb9e90234d42da07f63fed/5C505CC9/t51.2885-15/e35/41349438_869720689897963_6915892188155667819_n.jpg' alt="User Avatar" class="img-circle" />
 									</span>
 									<div class="chat-body clearfix">
-										<div class="header_sec">
-											<strong class="primary-font">{ele}</strong>
+										<div class="header_sec ">
+											<strong class="primary-font"><h4 style={{color: '#0093d3'}}>{ele}</h4></strong>
 										</div>
 									</div>
 								</li>
@@ -30,7 +30,7 @@ export default class SideBar extends Component {
 				</div>
 				<div className="current-user">
 					<div onClick={() => { logout() }} title="Logout" className="logout">
-						<button className='btn btn-primary form-control'>чатдан чиқаман </button>
+						<button className='btn btn-primary form-control'><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;чатдан чиқаман </button>
 					</div>
 				</div>
 			</div>
