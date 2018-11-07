@@ -129,6 +129,7 @@ export default class Navbar extends React.Component {
 
     render() {
         const { isLogged, fullname } = this.state;
+        const firstName = fullname.split(" ");
         return (
             <div>
                 <nav className="navbar navbar-default">
@@ -138,7 +139,9 @@ export default class Navbar extends React.Component {
                                <span style={{ color: 'rgb(241, 159, 77)' }}>Меню</span> 
                                 &nbsp;<i style={{ color: '#0093d3' }} className="fa fa-bars"></i>
                             </button>
+                            <Link to='/'>
                             <a style={{ fontFamily: 'san-serif', fontSize: '30px' }} className="navbar-brand"><span style={{ color: 'rgb(241, 159, 77)' }}>Smart</span><strong style={{ color: '#0093d3' }}>City</strong></a>
+                            </Link>
                         </div>
                         <div className="collapse navbar-collapse" id=".navbar-collapse">
                             <ul className="nav navbar-nav navbar-right">
@@ -286,6 +289,7 @@ export default class Navbar extends React.Component {
                             </ul>
                         </div>
                     </div>
+                    <footer style={{ fontFamily: 'san-serif', fontSize: '14px'}} >{isLogged ? <span style={{color: 'rgb(241, 159, 77)'}}>Хуш келибсиз! </span>:''}<span style={{ color: 'rgb(241, 159, 77)' }}></span><span style={{ color: '#0093d3' }}>{firstName[0]}</span></footer>
                 </nav>
                 <div className="container-fluid bg-1 text-center">
                     <div id="myCarousel" className="carousel slide" data-ride="carousel">
@@ -320,7 +324,6 @@ export default class Navbar extends React.Component {
                             <span className="sr-only">Next</span>
                         </a>
                     </div>
-                    <h3 className="margin"><span style={{ color: 'rgb(241, 159, 77)' }} >Хуш Келибсиз</span> <strong style={{ color: '#0093d3' }}>{fullname}</strong></h3>
                 </div>
             </div>
         )

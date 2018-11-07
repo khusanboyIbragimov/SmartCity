@@ -4,6 +4,8 @@ import { COMMUNITY_CHAT, MESSAGE_SENT, MESSAGE_RECEIVED, TYPING, PRIVATE_MESSAGE
 import ChatHeading from './ChatHeading'
 import Messages from '../messages/Messages'
 import MessageInput from '../messages/MessageInput'
+// import PropTypes from 'prop-types';
+// import StayScrolled from 'react-stay-scrolled';
 
 
 export default class ChatContainer extends Component {

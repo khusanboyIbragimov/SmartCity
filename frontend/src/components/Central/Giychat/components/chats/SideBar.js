@@ -7,7 +7,7 @@ import React, { Component } from 'react';
 export default class SideBar extends Component {
 
 	render() {
-		const { user, logout } = this.props
+		const { logout } = this.props
 		return (
 			<div id='side-bar'>
 				<div>
