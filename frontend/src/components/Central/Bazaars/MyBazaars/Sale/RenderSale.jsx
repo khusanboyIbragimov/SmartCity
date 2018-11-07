@@ -95,6 +95,7 @@ export default class RenderSale extends React.Component {
                                 </p>
                             </div>
                         </div>
+                        
                         <div className="panel-footer">
                             <div className="row">
                                 <form

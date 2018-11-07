@@ -39,9 +39,9 @@ export default class SingleItem extends React.Component {
                 <div className="container" style={{ backgroundColor: 'white' }}>
                     <div className='row'>
                         <div className='col-sm-6 col-xs-6'>
-                        {this.props.section === "service" ? <h6 className='text-left' id='title'><i className="fa fa-wrench" aria-hidden="true"></i> {singleItem.title}</h6> : ""}
-                    {this.props.section === "rent" ? <h6 className='text-left' id='title'><i className="fa fa-handshake-o" aria-hidden="true"></i> {singleItem.title}</h6> : ""}
-                    {this.props.section === "sale" ? <h6 className='text-left' id='title'><i className="fa fa-shopping-cart" aria-hidden="true"></i> {singleItem.title}</h6> : ""}
+                        {this.props.section === "service" ? <h6 className='text-left' id='title'><i style={{color: 'rgb(241, 159, 77)'}} className="fa fa-wrench" aria-hidden="true"></i> {singleItem.title}</h6> : ""}
+                    {this.props.section === "rent" ? <h6 className='text-left' id='title'><i style={{color: 'rgb(241, 159, 77)'}} className="fa fa-handshake-o" aria-hidden="true"></i> {singleItem.title}</h6> : ""}
+                    {this.props.section === "sale" ? <h6 className='text-left' id='title'><i style={{color: 'rgb(241, 159, 77)'}} className="fa fa-shopping-cart" aria-hidden="true"></i> {singleItem.title}</h6> : ""}
                         </div>
                         <div className='col-sm-6 col-xs-6 text-right'>
                         {this.props.section === 'service' ? <h5>Хизмат кўрсатилади</h5> : ""}

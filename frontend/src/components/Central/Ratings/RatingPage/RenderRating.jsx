@@ -34,7 +34,7 @@ export default class RenderRating extends React.Component {
                         <div className="panel panel-default">
                             <div className="panel-heading">
                                 <h3 className="panel-title" style={{ color: "#0093d3", fontSize: '22px' }}>
-                                <span className='glyphicon glyphicon-star'></span> 
+                                <span style={{color: 'rgb(241, 159, 77)'}} className='glyphicon glyphicon-star'></span> 
                                 &nbsp;{this.props.rating_question}
                                 </h3>
                             </div>
@@ -63,7 +63,7 @@ export default class RenderRating extends React.Component {
                                      </button> : <button
                                                 className='btn btn-success'
                                                 onClick={() => this.setState({ show: true })}
-                                            > <span className='glyphicon glyphicon-star'></span>
+                                            > <span  className='glyphicon glyphicon-star'></span>
                                                 &nbsp; баҳолайман
                                     </button>}
                                     <Modal
@@ -98,7 +98,7 @@ export default class RenderRating extends React.Component {
                                             </div>
                                         </Modal.Body>
                                         <form onSubmit={selectRatingQuestion} id={this.props.rating_question_id} onClick={this.handleHide}>
-                                            <button className='btn btn-success' onClick={this.handleHide}><span className='glyphicon glyphicon-star'></span>
+                                            <button className='btn btn-success' onClick={this.handleHide}><span  className='glyphicon glyphicon-star'></span>
                                                 &nbsp;баҳолайман</button>
                                             <br /><br />
                                         </form>

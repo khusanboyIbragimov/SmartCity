@@ -85,7 +85,7 @@ export default class RenderSurvey extends React.Component {
                             {text}
                         </div>
                         <div className='col-sm-1 col-xs-1 text-right'>
-                            <i className="fa fa-line-chart" aria-hidden="true">&nbsp;{value}</i>
+                            <i style={{color: 'rgb(241, 159, 77)'}} className="fa fa-line-chart" aria-hidden="true">&nbsp;{value}</i>
                         </div>
                         <div className='col-sm-1 col-xs-1 text-right'>
                         </div>

@@ -32,7 +32,7 @@ export default class RenderAnnouncements extends React.Component {
                         <div className='row'>
                             <div className='col-sm-12 text-left' id={this.props.announcement_id}>
                                 {!toggleEditAnnouncements ?
-                                    <h4 style={{ color: '#0093d3' }}>{this.props.title}</h4> :
+                                    <h4 style={{ color: '#0093d3' }}><span style={{color: 'rgb(241, 159, 77)'}} className='glyphicon glyphicon-bullhorn'></span> {this.props.title}</h4> :
                                     <input
                                         className="form-control"
                                         name="newTitle"

@@ -41,7 +41,7 @@ export default class RenderNewsPage extends React.Component {
                         <div className='row'>
                             <div className="panel panel-default">
                                 <div className="panel-heading">
-                                    <h4 style={{ color: '#0093d3' }} className="h4"><span className='glyphicon glyphicon-globe'></span> {title}</h4>
+                                    <h4 style={{ color: '#0093d3' }} className="h4"><span style={{color: 'rgb(241, 159, 77)'}} className='glyphicon glyphicon-globe'></span> {title}</h4>
                                 </div>
                                 <div className="panel-body">
                                     <div className='col-sm-4'>

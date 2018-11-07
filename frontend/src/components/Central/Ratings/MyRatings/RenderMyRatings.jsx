@@ -30,7 +30,8 @@ export default class RenderMyRatings extends React.Component {
                         <div className='row'>
                             <div className='col-sm-12 text-left' id={this.props.rating_question_id}>
                                 {!toggleEditMyRating ?
-                                    <p>{this.props.rating_question}</p> :
+                                    <p><span style={{color: 'rgb(241, 159, 77)'}} className='glyphicon glyphicon-star'></span> 
+                                    &nbsp;{this.props.rating_question}</p> :
                                     <input name="newRatingQuestion"
                                         className='form-control'
                                         placeholder="менинг фикрим"

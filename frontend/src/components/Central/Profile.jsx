@@ -192,7 +192,7 @@ export default class Profile extends React.Component {
                                     <Link to="/sc/profile/myratings"><button style={{ width: '100%', fontSize: '12px' }} className='btn btn-primary'><span className='glyphicon glyphicon-star'></span>&nbsp;рэйтингларим</button></Link>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 </div>
                                 <div className='col-sm-2 col-xs-6 text-center'>
-                                    <Link to="/sc/profile/mysurveys"><button style={{ width: '100%', fontSize: '12px' }} className='btn btn-primary'> <i className="fa fa-bar-chart" aria-hidden="true"></i>&nbsp;сўровларим</button></Link>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <Link to="/sc/profile/mysurveys"><button style={{ width: '100%', fontSize: '12px' }} className='btn btn-primary'> <b><i className="fa fa-bar-chart" aria-hidden="true"></i></b>&nbsp;сўровларим</button></Link>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 </div>
                                 <div className='col-sm-2 col-xs-6 '>
                                     <Link to="/sc/profile/mybazaar"><button style={{ width: '100%', fontSize: '12px' }} className='btn btn-primary'><b><span className='glyphicon glyphicon-usd'></span></b>&nbsp;бозорим</button></Link>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

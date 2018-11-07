@@ -14,7 +14,7 @@ export default class RenderSurveyBox1 extends React.Component {
                                 <div className="panel-heading">
                                 <h4 style={{ color: '#0093d3' }} 
                                            className='text-left'>
-                                            <i 
+                                            <i style={{color: 'rgb(241, 159, 77)'}}
                                                className="fa fa-bar-chart" 
                                                aria-hidden="true"
                                                 >

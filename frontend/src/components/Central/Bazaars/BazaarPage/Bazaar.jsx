@@ -85,9 +85,10 @@ export default class Bazaar extends React.Component {
 
     render() {
         const { allInOne } = this.state;
+        var title = '';
         return (
             <div className='container'>
-                <h3><span style={{ color: 'rgb(241, 159, 77)' }}>Smart</span> <strong style={{ color: '#0093d3'}}>Бозор</strong></h3>
+                <h3><span style={{ color: 'rgb(241, 159, 77)' }}>Smart</span> <strong style={{ color: '#0093d3' }}>Бозор</strong></h3>
                 <div id="pricing" className="container-fluid">
                     <div className="text-center">
                         <select onChange={this.handleChange} style={{ borderColor: '#0093d3' }}>
@@ -100,6 +101,11 @@ export default class Bazaar extends React.Component {
                     </div>
                     <div className="row slideanim">
                         {allInOne.map((ele) => {
+                            if (ele.title.length > 11) {
+                                title = ele.title.substring(0, 10) + "...";
+                            } else {
+                               title = ele.title
+                            }
                             return (
                                 <div key={Math.random()}>
                                     <Link to={`/sc/bazaar/${ele.item_id || ele.service_id}/${ele.section}`}>
@@ -111,9 +117,9 @@ export default class Bazaar extends React.Component {
                                                     {ele.section && ele.section === "service" ? <div className="shape-text">хизмат</div> : ""}
                                                 </div>
                                                 <div className="panel-heading">
-                                                {ele.section && ele.section === "service" ? <h6 className='text-left' id='title'><i className="fa fa-wrench" aria-hidden="true"></i> {ele.title}</h6>: ""}
-                                                {ele.section && ele.section === "rent" ? <h6 className='text-left' id='title'><i className="fa fa-handshake-o" aria-hidden="true"></i> {ele.title}</h6>: ""}
-                                                {ele.section && ele.section === "sale" ? <h6 className='text-left' id='title'><i className="fa fa-shopping-cart" aria-hidden="true"></i> {ele.title}</h6>: ""}
+                                                    {ele.section && ele.section === "service" ? <h6 className='text-left' id='title'><i style={{color: 'rgb(241, 159, 77)'}} className="fa fa-wrench" aria-hidden="true"></i> {title}</h6> : ""}
+                                                    {ele.section && ele.section === "rent" ? <h6 className='text-left' id='title'><i style={{color: 'rgb(241, 159, 77)'}} className="fa fa-handshake-o" aria-hidden="true"></i> {title}</h6> : ""}
+                                                    {ele.section && ele.section === "sale" ? <h6 className='text-left' id='title'><i style={{color: 'rgb(241, 159, 77)'}} className="fa fa-shopping-cart" aria-hidden="true"></i> {title}</h6> : ""}
 
                                                 </div>
                                                 <div className="panel-body">

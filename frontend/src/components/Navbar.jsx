@@ -6,6 +6,8 @@ import io from 'socket.io-client';
 import { LOGOUT } from './Central/Giychat/Events';
 const socketUrl = "http://localhost:3100";
 
+const photo = require('./logo.png');
+
 export default class Navbar extends React.Component {
 
     constructor() {
@@ -140,7 +142,8 @@ export default class Navbar extends React.Component {
                                 &nbsp;<i style={{ color: '#0093d3' }} className="fa fa-bars"></i>
                             </button>
                             <Link to='/'>
-                            <a style={{ fontFamily: 'san-serif', fontSize: '30px' }} className="navbar-brand"><span style={{ color: 'rgb(241, 159, 77)' }}>Smart</span><strong style={{ color: '#0093d3' }}>City</strong></a>
+                            <img style={{height: '55px'}} className="navbar-brand" src={photo}/>
+                            {/* <a style={{ fontFamily: 'san-serif', fontSize: '30px' }} className="navbar-brand"><span style={{ color: 'rgb(241, 159, 77)' }}>Smart</span><strong style={{ color: '#0093d3' }}>City</strong></a> */}
                             </Link>
                         </div>
                         <div className="collapse navbar-collapse" id=".navbar-collapse">
@@ -289,7 +292,7 @@ export default class Navbar extends React.Component {
                             </ul>
                         </div>
                     </div>
-                    <footer style={{ fontFamily: 'san-serif', fontSize: '14px'}} >{isLogged ? <span style={{color: 'rgb(241, 159, 77)'}}>Хуш келибсиз! </span>:''}<span style={{ color: 'rgb(241, 159, 77)' }}></span><span style={{ color: '#0093d3' }}>{firstName[0]}</span></footer>
+                    <footer className='text-right' style={{ fontFamily: 'san-serif', fontSize: '14px', paddingRight: '45px'}} >{isLogged ? <span style={{color: 'rgb(241, 159, 77)'}}>Хуш келибсиз! </span>:''}<span style={{ color: 'rgb(241, 159, 77)' }}></span><span style={{ color: '#0093d3' }}>{firstName[0]}</span></footer>
                 </nav>
                 <div className="container-fluid bg-1 text-center">
                     <div id="myCarousel" className="carousel slide" data-ride="carousel">
