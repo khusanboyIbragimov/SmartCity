@@ -6,7 +6,7 @@ import io from 'socket.io-client';
 import { LOGOUT } from './Central/Giychat/Events';
 const socketUrl = "http://localhost:3100";
 
-const photo = require('./logo.png');
+const photo = require('./logo3.png');
 
 export default class Navbar extends React.Component {
 
@@ -142,7 +142,7 @@ export default class Navbar extends React.Component {
                                 &nbsp;<i style={{ color: '#0093d3' }} className="fa fa-bars"></i>
                             </button>
                             <Link to='/'>
-                            <img style={{height: '55px'}} className="navbar-brand" src={photo}/>
+                            <img alt="" style={{height: '55px'}} className="navbar-brand" src={photo}/>
                             {/* <a style={{ fontFamily: 'san-serif', fontSize: '30px' }} className="navbar-brand"><span style={{ color: 'rgb(241, 159, 77)' }}>Smart</span><strong style={{ color: '#0093d3' }}>City</strong></a> */}
                             </Link>
                         </div>

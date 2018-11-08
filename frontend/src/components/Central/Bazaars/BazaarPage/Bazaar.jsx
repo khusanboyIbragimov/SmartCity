@@ -85,7 +85,7 @@ export default class Bazaar extends React.Component {
 
     render() {
         const { allInOne } = this.state;
-        var title = '';
+        // var title = '';
         return (
             <div className='container'>
                 <h4><span style={{ color: 'rgb(241, 159, 77)' }}>Smart</span> <strong style={{ color: '#0093d3' }}>Бозор</strong></h4>
@@ -101,11 +101,11 @@ export default class Bazaar extends React.Component {
                     </div>
                     <div className="row slideanim">
                         {allInOne.map((ele) => {
-                            if (ele.title.length > 13) {
-                                title = ele.title.substring(0, 12) + "...";
-                            } else {
-                               title = ele.title
-                            }
+                            // if (ele.title.length > 13) {
+                            //     title = ele.title.substring(0, 12) + "...";
+                            // } else {
+                            //    title = ele.title
+                            // }
                             return (
                                 <div key={Math.random()}>
                                     <Link to={`/sc/bazaar/${ele.item_id || ele.service_id}/${ele.section}`}>
@@ -117,9 +117,9 @@ export default class Bazaar extends React.Component {
                                                     {ele.section && ele.section === "service" ? <div className="shape-text">хизмат</div> : ""}
                                                 </div>
                                                 <div className="panel-heading">
-                                                    {ele.section && ele.section === "service" ? <h4 className='text-left' id='title'><i style={{color: 'rgb(241, 159, 77)'}} className="fa fa-wrench" aria-hidden="true"></i> {title}</h4> : ""}
-                                                    {ele.section && ele.section === "rent" ? <h4 className='text-left' id='title'><i style={{color: 'rgb(241, 159, 77)'}} className="fa fa-handshake-o" aria-hidden="true"></i> {title}</h4> : ""}
-                                                    {ele.section && ele.section === "sale" ? <h4 className='text-left' id='title'><i style={{color: 'rgb(241, 159, 77)'}} className="fa fa-shopping-cart" aria-hidden="true"></i> {title}</h4> : ""}
+                                                    {ele.section && ele.section === "service" ? <h4 className='text-left' id='title'><i style={{color: 'rgb(241, 159, 77)'}} className="fa fa-wrench" aria-hidden="true"></i> {ele.title}</h4> : ""}
+                                                    {ele.section && ele.section === "rent" ? <h4 className='text-left' id='title'><i style={{color: 'rgb(241, 159, 77)'}} className="fa fa-handshake-o" aria-hidden="true"></i> {ele.title}</h4> : ""}
+                                                    {ele.section && ele.section === "sale" ? <h4 className='text-left' id='title'><i style={{color: 'rgb(241, 159, 77)'}} className="fa fa-shopping-cart" aria-hidden="true"></i> {ele.title}</h4> : ""}
 
                                                 </div>
                                                 <div className="panel-body">

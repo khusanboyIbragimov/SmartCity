@@ -87,7 +87,7 @@ export default class RenderNewsPage extends React.Component {
                                     </div>
                                     <div className='col-sm-8'>
                                         <div key={news_id}>
-                                            <div style={{ textAlign: 'left' }}><div>{text.length > 150 ? <div className="text-justify">{text}</div> : <div>{text}<br /><br />
+                                            <div style={{ textAlign: 'left' }}><div>{text.length > 150 ? <div className="text-justify"><p>{text}</p></div> : <div><p>{text}</p><br /><br />
                                                 <blockquote className={`text-justify ${showHistoryText ? "show" : "hide"} pagination`} onClick={this.handleClickHistoryText}>
                                                     {gulakandozHistory[Math.floor(Math.random() * gulakandozHistory.length)]}<hr />
                                                     <cite>Ғулакандоз: кеча, бугун, эртага. Хужанд - 2002 йил</cite>
