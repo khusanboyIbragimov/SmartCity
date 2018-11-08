@@ -96,28 +96,23 @@ span.round-tab {
 }
 
 span.round-tab i{
-  color:rgb(241, 159, 77);
-  /* kerak */
+  color:#0093d3;
 }
 .wizard li.active span.round-tab {
   background: #fff;
   border: 2px solid #0093d3;
-  /* kerak */
 }
 .wizard li.active span.round-tab i{
   color: #0093d3;
-  /* kerak */
 }
 
 span.round-tab:hover {
   color: #333;
   border: 2px solid #333;
-  /* kerak */
 }
 
 .wizard .nav-tabs > li {
   width: 16%;
-  /* kerak */
 }
 
 
@@ -127,7 +122,6 @@ span.round-tab:hover {
   margin: 20px auto;
   border-radius: 100%;
   padding: 0;
-  /* kerak */
 }
 
 @media( max-width : 585px ) {
@@ -156,3 +150,4 @@ span.round-tab:hover {
       left: 35%;
   }
 }
+
