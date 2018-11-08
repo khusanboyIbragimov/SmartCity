@@ -292,7 +292,7 @@ export default class Navbar extends React.Component {
                             </ul>
                         </div>
                     </div>
-                    <b><footer className='text-right' style={{ fontFamily: 'san-serif', fontSize: '12px', paddingRight: '45px'}} >{isLogged ? <span style={{color: 'rgb(241, 159, 77)'}}>Хуш келибсиз! </span>:''}<span style={{ color: 'rgb(241, 159, 77)' }}></span><span style={{ color: '#0093d3' }}>{firstName[0]}</span></footer></b>
+                    <b><footer className='text-right' style={{ fontFamily: 'san-serif', fontSize: '12px', paddingRight: '45px', letterSpacing: '-0.1px'}} >{isLogged ? <span style={{color: 'rgb(241, 159, 77)'}}>Хуш келибсиз! </span>:''}<span style={{ color: 'rgb(241, 159, 77)' }}></span><span style={{ color: '#0093d3' }}>{firstName[0]}</span></footer></b>
                 </nav>
                 <div className="container-fluid bg-1 text-center">
                     <div id="myCarousel" className="carousel slide" data-ride="carousel">
