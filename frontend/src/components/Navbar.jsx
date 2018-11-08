@@ -153,7 +153,7 @@ export default class Navbar extends React.Component {
                                     to="/"
                                     data-toggle="collapse"
                                     data-target=".navbar-collapse.in">
-                                    <span className='glyphicon glyphicon-home nav-icons'></span><span className='nav-tabz'>Марказ</span>
+                                    <b><span className='glyphicon glyphicon-home nav-icons'></span><span className='nav-tabz'>Марказ</span></b>
                                     </Link>
                                 </li>
                                 <li><Link
@@ -161,7 +161,7 @@ export default class Navbar extends React.Component {
                                     to="/sc/news"
                                     data-toggle="collapse"
                                     data-target=".navbar-collapse.in">
-                                    <span className='glyphicon glyphicon-globe nav-icons'></span><span className='nav-tabz'>Янгиликлар</span>
+                                    <b><span className='glyphicon glyphicon-globe nav-icons'></span><span className='nav-tabz'>Янгиликлар</span></b> 
                                     </Link>
                                 </li>
                                 <li><Link
@@ -169,7 +169,7 @@ export default class Navbar extends React.Component {
                                     to="/sc/announcement"
                                     data-toggle="collapse"
                                     data-target=".navbar-collapse.in">
-                                    <span className='glyphicon glyphicon-bullhorn nav-icons'></span><span className='nav-tabz'>Эълонлар</span>
+                                    <b><span className='glyphicon glyphicon-bullhorn nav-icons'></span><span className='nav-tabz'>Эълонлар</span></b> 
                                     </Link>
                                 </li>
                                 <li><Link
@@ -177,7 +177,7 @@ export default class Navbar extends React.Component {
                                     to="/sc/ratings"
                                     data-toggle="collapse"
                                     data-target=".navbar-collapse.in">
-                                    <span className='glyphicon glyphicon-star nav-icons'></span><span className='nav-tabz'>Рейтинг</span>
+                                    <b><span className='glyphicon glyphicon-star nav-icons'></span><span className='nav-tabz'>Рейтинг</span></b> 
                                     </Link>
                                 </li>
                                 <li><Link
@@ -185,11 +185,11 @@ export default class Navbar extends React.Component {
                                     to="/sc/survey"
                                     data-toggle="collapse"
                                     data-target=".navbar-collapse.in">
-                                    <i
+                                    <b><i
                                         className="fa fa-bar-chart nav-icons"
                                         aria-hidden="true"
                                     >
-                                    </i><span className='nav-tabz'>Сўров</span>
+                                    </i><span className='nav-tabz'>Сўров</span></b>
                                     </Link>
                                 </li>
                                 <li><Link
@@ -197,7 +197,7 @@ export default class Navbar extends React.Component {
                                     to="/sc/bazaar"
                                     data-toggle="collapse"
                                     data-target=".navbar-collapse.in">
-                                    <b><span className='glyphicon glyphicon-usd nav-icons'></span></b><span className='nav-tabz'>Бозор</span>
+                                    <b><span className='glyphicon glyphicon-usd nav-icons'></span><span className='nav-tabz'>Бозор</span></b>
                                     </Link>
                                 </li>
                                 <li><Link
@@ -205,16 +205,16 @@ export default class Navbar extends React.Component {
                                     to="/sc/giychat"
                                     data-toggle="collapse"
                                     data-target=".navbar-collapse.in">
-                                    <i className="fa fa-users nav-icons" aria-hidden="true"></i><span className='nav-tabz'>Ғийчат</span>
+                                    <b> <i className="fa fa-users nav-icons" aria-hidden="true"></i><span className='nav-tabz'>Ғийчат</span></b>
                                     </Link>
                                 </li>
                                 {isLogged ?
                                     <li><Link
                                         to="/sc/profile">
-                                        <span style={{ fontSize: '22px' }}
+                                        <b><span style={{ fontSize: '18px' }}
                                             data-toggle="collapse"
                                             data-target=".navbar-collapse.in"
-                                            className="glyphicon glyphicon-user nav-icons"></span>
+                                            className="glyphicon glyphicon-user nav-icons"></span></b>
                                     </Link>
                                     </li> : ""}
                                 {!isLogged ?
@@ -223,16 +223,16 @@ export default class Navbar extends React.Component {
                                         <a data-toggle="collapse"
                                             data-target=".navbar-collapse.in"
                                         >
-                                            <span style={{ fontSize: '22px' }}
+                                            <b><span style={{ fontSize: '18px' }}
                                                 className="glyphicon glyphicon-log-in nav-icons">
-                                            </span>
+                                            </span></b>
                                         </a></li> :
                                     <li onClick={this.handleLogout} >
                                         <a data-toggle="collapse"
                                             data-target=".navbar-collapse.in">
-                                            <span style={{ fontSize: '22px' }}
+                                            <b><span style={{ fontSize: '18px' }}
                                                 className="glyphicon glyphicon-log-out nav-icons">
-                                            </span>
+                                            </span></b>
                                         </a></li>}
                                 <Modal
                                     show={this.state.isLogin}
@@ -292,7 +292,7 @@ export default class Navbar extends React.Component {
                             </ul>
                         </div>
                     </div>
-                    <footer className='text-right' style={{ fontFamily: 'san-serif', fontSize: '14px', paddingRight: '45px'}} >{isLogged ? <span style={{color: 'rgb(241, 159, 77)'}}>Хуш келибсиз! </span>:''}<span style={{ color: 'rgb(241, 159, 77)' }}></span><span style={{ color: '#0093d3' }}>{firstName[0]}</span></footer>
+                    <b><footer className='text-right' style={{ fontFamily: 'san-serif', fontSize: '12px', paddingRight: '45px'}} >{isLogged ? <span style={{color: 'rgb(241, 159, 77)'}}>Хуш келибсиз! </span>:''}<span style={{ color: 'rgb(241, 159, 77)' }}></span><span style={{ color: '#0093d3' }}>{firstName[0]}</span></footer></b>
                 </nav>
                 <div className="container-fluid bg-1 text-center">
                     <div id="myCarousel" className="carousel slide" data-ride="carousel">

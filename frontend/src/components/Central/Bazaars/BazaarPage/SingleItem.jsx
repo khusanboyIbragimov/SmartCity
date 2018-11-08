@@ -39,9 +39,9 @@ export default class SingleItem extends React.Component {
                 <div className="container" style={{ backgroundColor: 'white' }}>
                     <div className='row'>
                         <div className='col-sm-6 col-xs-6'>
-                        {this.props.section === "service" ? <h6 className='text-left' id='title'><i style={{color: 'rgb(241, 159, 77)'}} className="fa fa-wrench" aria-hidden="true"></i> {singleItem.title}</h6> : ""}
-                    {this.props.section === "rent" ? <h6 className='text-left' id='title'><i style={{color: 'rgb(241, 159, 77)'}} className="fa fa-handshake-o" aria-hidden="true"></i> {singleItem.title}</h6> : ""}
-                    {this.props.section === "sale" ? <h6 className='text-left' id='title'><i style={{color: 'rgb(241, 159, 77)'}} className="fa fa-shopping-cart" aria-hidden="true"></i> {singleItem.title}</h6> : ""}
+                        {this.props.section === "service" ? <h5 className='text-left' id='title'><i style={{color: 'rgb(241, 159, 77)'}} className="fa fa-wrench" aria-hidden="true"></i> {singleItem.title}</h5> : ""}
+                    {this.props.section === "rent" ? <h5 className='text-left' id='title'><i style={{color: 'rgb(241, 159, 77)'}} className="fa fa-handshake-o" aria-hidden="true"></i> {singleItem.title}</h5> : ""}
+                    {this.props.section === "sale" ? <h5 className='text-left' id='title'><i style={{color: 'rgb(241, 159, 77)'}} className="fa fa-shopping-cart" aria-hidden="true"></i> {singleItem.title}</h5> : ""}
                         </div>
                         <div className='col-sm-6 col-xs-6 text-right'>
                         {this.props.section === 'service' ? <h5>Хизмат кўрсатилади</h5> : ""}
@@ -55,12 +55,12 @@ export default class SingleItem extends React.Component {
                             {singleItem ? <img src={singleItem.item4rent_imgurl} alt="" style={{ height: '100%', width: '100%' }} /> : ""}
                             {singleItem ? <img src={singleItem.service_imgurl} alt="" style={{ height: '100%', width: '100%' }} /> : ""}    </div>
                         <div className="col-sm-4" >
-                            <strong><h3 style={{ color: '#390' }} className="googleFont"><span style={{ color: '#0093d3' }} className="glyphicon glyphicon-check"></span> Батафсил маълумот:</h3></strong><hr />
+                            <strong><h4 style={{ color: '#390' }} className="googleFont"><span style={{ color: '#0093d3' }} className="glyphicon glyphicon-check"></span> Батафсил маълумот:</h4></strong><hr />
                             <p className='text-left' style={{ fontSize: '14px' }}>{singleItem ? singleItem.description : ""}.</p>
                         </div>
                         <div className="col-sm-4" >
-                            <strong> <h3 style={{ color: '#390' }} className="googleFont "><i style={{ color: '#0093d3' }} className="fa fa-address-card-o" aria-hidden="true"></i>
-                                &nbsp;Боғланиш учун:</h3> </strong><hr />
+                            <strong> <h4 style={{ color: '#390' }} className="googleFont "><i style={{ color: '#0093d3' }} className="fa fa-address-card-o" aria-hidden="true"></i>
+                                &nbsp;Боғланиш учун:</h4> </strong><hr />
                             <h4 className='text-left'><i className="fa fa-user" aria-hidden="true"></i>
                                 &nbsp;{singleItem ? singleItem.fullname : ""}</h4>
                             <h4 className='text-left'><i className="fa fa-mobile" aria-hidden="true"></i>

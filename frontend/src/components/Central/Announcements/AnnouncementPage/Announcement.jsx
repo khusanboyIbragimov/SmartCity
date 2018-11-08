@@ -39,7 +39,7 @@ export default class Announcement extends React.Component {
         const { announcements } = this.state;
         return (
             <div>
-                <h3> <span style={{ color: 'rgb(241, 159, 77)' }}>Smart</span> <strong style={{ color: '#0093d3'}}>Эълонлар</strong></h3>
+                <h4> <span style={{ color: 'rgb(241, 159, 77)' }}>Smart</span> <strong style={{ color: '#0093d3'}}>Эълонлар</strong></h4><hr/>
                 {announcements.map(announcement => {
                     return (
                         <div className='container' key={announcement.announcement_id}>

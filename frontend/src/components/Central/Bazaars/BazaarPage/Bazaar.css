@@ -1,4 +1,4 @@
-#price{font-size: 24px;
+#price{
     font-weight: 600;
     display: block;
     color: #333;
@@ -6,7 +6,6 @@
 }
 #title{
     color: #0093d3;
-    font-size: 18px;
     text-shadow: 4px, 4px, 10px, rgb(241, 159, 77);
 }
 #time{

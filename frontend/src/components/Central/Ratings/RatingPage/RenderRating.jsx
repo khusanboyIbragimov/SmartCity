@@ -33,16 +33,16 @@ export default class RenderRating extends React.Component {
                     <div className='col-sm-6'>
                         <div className="panel panel-default">
                             <div className="panel-heading">
-                                <h3 className="panel-title" style={{ color: "#0093d3", fontSize: '22px' }}>
+                                <h4 className="panel-title" style={{ color: "#0093d3" }}>
                                 <span style={{color: 'rgb(241, 159, 77)'}} className='glyphicon glyphicon-star'></span> 
                                 &nbsp;{this.props.rating_question}
-                                </h3>
+                                </h4>
                             </div>
                             <div className="panel-body">
-                                <b><h3
+                                <b><h4
                                     style={{ color: "#e7711b", fontSize: '22px' }}>
                                     {Number(this.props.ratings).toFixed(1)} <span className='glyphicon glyphicon-stats'></span>
-                                </h3></b>
+                                </h4></b>
                                 <StarRatings
                                     starRatedColor="#e7711b"
                                     rating={Number(this.props.ratings)}

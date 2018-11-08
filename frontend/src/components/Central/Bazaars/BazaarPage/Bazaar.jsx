@@ -88,7 +88,7 @@ export default class Bazaar extends React.Component {
         var title = '';
         return (
             <div className='container'>
-                <h3><span style={{ color: 'rgb(241, 159, 77)' }}>Smart</span> <strong style={{ color: '#0093d3' }}>Бозор</strong></h3>
+                <h4><span style={{ color: 'rgb(241, 159, 77)' }}>Smart</span> <strong style={{ color: '#0093d3' }}>Бозор</strong></h4>
                 <div id="pricing" className="container-fluid">
                     <div className="text-center">
                         <select onChange={this.handleChange} style={{ borderColor: '#0093d3' }}>
@@ -101,8 +101,8 @@ export default class Bazaar extends React.Component {
                     </div>
                     <div className="row slideanim">
                         {allInOne.map((ele) => {
-                            if (ele.title.length > 11) {
-                                title = ele.title.substring(0, 10) + "...";
+                            if (ele.title.length > 13) {
+                                title = ele.title.substring(0, 12) + "...";
                             } else {
                                title = ele.title
                             }
@@ -117,9 +117,9 @@ export default class Bazaar extends React.Component {
                                                     {ele.section && ele.section === "service" ? <div className="shape-text">хизмат</div> : ""}
                                                 </div>
                                                 <div className="panel-heading">
-                                                    {ele.section && ele.section === "service" ? <h6 className='text-left' id='title'><i style={{color: 'rgb(241, 159, 77)'}} className="fa fa-wrench" aria-hidden="true"></i> {title}</h6> : ""}
-                                                    {ele.section && ele.section === "rent" ? <h6 className='text-left' id='title'><i style={{color: 'rgb(241, 159, 77)'}} className="fa fa-handshake-o" aria-hidden="true"></i> {title}</h6> : ""}
-                                                    {ele.section && ele.section === "sale" ? <h6 className='text-left' id='title'><i style={{color: 'rgb(241, 159, 77)'}} className="fa fa-shopping-cart" aria-hidden="true"></i> {title}</h6> : ""}
+                                                    {ele.section && ele.section === "service" ? <h4 className='text-left' id='title'><i style={{color: 'rgb(241, 159, 77)'}} className="fa fa-wrench" aria-hidden="true"></i> {title}</h4> : ""}
+                                                    {ele.section && ele.section === "rent" ? <h4 className='text-left' id='title'><i style={{color: 'rgb(241, 159, 77)'}} className="fa fa-handshake-o" aria-hidden="true"></i> {title}</h4> : ""}
+                                                    {ele.section && ele.section === "sale" ? <h4 className='text-left' id='title'><i style={{color: 'rgb(241, 159, 77)'}} className="fa fa-shopping-cart" aria-hidden="true"></i> {title}</h4> : ""}
 
                                                 </div>
                                                 <div className="panel-body">
@@ -128,7 +128,7 @@ export default class Bazaar extends React.Component {
                                                     {ele.service_imgurl ? <img src={ele.service_imgurl} alt="hizmat surati" style={{ height: "200px", width: "100%" }} /> : ""}
                                                 </div>
                                                 <div className="panel-footer">
-                                                    <h3 className='text-left' id="price"><i className="fa fa-money" aria-hidden="true"></i>&nbsp;{ele.price}{" "}<span id='somon'>сомони</span></h3>
+                                                    <h4 className='text-left' id="price"><i className="fa fa-money" aria-hidden="true"></i>&nbsp;{ele.price}{" "}<span id='somon'>сомони</span></h4>
                                                     <p className='text-right' id='time'><i className="fa fa-clock-o" aria-hidden="true"></i>&nbsp;{Moment(ele.item_timestamp).format("LLLL")}</p>
                                                 </div>
                                             </div>
