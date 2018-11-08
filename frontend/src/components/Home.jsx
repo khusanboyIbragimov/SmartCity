@@ -66,7 +66,7 @@ export default class Home extends React.Component {
         return (
             <div>
                 <b><h4><img alt="" style={{ height: '22px' }} src={photo} />га Хуш келибсиз азиз <spann style={{ color: "#0093d3" }}>хамқишлоқлар!</spann></h4></b>
-                <div class="wizard">
+                <div class="wizard container-fluid">
                     <div class="wizard-inner">
                         <div class="connecting-line"></div>
                         <ul class="nav nav-tabs" role="tablist">
