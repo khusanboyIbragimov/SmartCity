@@ -23,7 +23,7 @@ export default class Messages extends Component {
 											key={mes.id}
 										// className={`message-container ${mes.sender === user.name && 'right'}`}
 										>
-											<div className="message my-message">
+											<div className="message my-message ">
 												<img alt="" className="img-circle medium-image" src='https://scontent-frt3-2.cdninstagram.com/vp/3ca2fb4fd8fb9e90234d42da07f63fed/5C505CC9/t51.2885-15/e35/41349438_869720689897963_6915892188155667819_n.jpg' />
 												<div className="message-body">
 													<div className="message-body-inner">
@@ -33,7 +33,7 @@ export default class Messages extends Component {
 														</div>
 														<hr />
 														<div className="message-text">
-															{mes.message}
+															<p>{mes.message}</p>
 														</div>
 													</div>
 												</div>

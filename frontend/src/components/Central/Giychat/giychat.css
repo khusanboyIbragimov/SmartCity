@@ -684,13 +684,13 @@ color: #a2b8c5;
 .message .message-info > h5 {
 color: #a2b8c5;
 margin: 8px 0 0 0;
-font-size: 12px;
+font-size: 10px;
 float: right;
 padding-right: 10px;
 }
 
 .message .message-info > h4 {
-font-size: 14px;
+font-size: 12px;
 font-weight: 600;
 margin: 7px 13px 0 10px;
 color: #65addd;
@@ -705,8 +705,8 @@ opacity: 0.75;
 
 .message .message-text {
 text-align: left;
-padding: 3px 13px 10px 13px;
-font-size: 14px;
+padding: 3px 0px -0px 13px;
+font-size: 12px;
 }
 
 .message.my-message .message-body {
