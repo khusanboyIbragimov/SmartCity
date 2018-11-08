@@ -161,7 +161,7 @@ export default class Profile extends React.Component {
                                             <div className="row">
                                                 <form onSubmit={this.handleSubmit}>
                                                     <div className="col-sm-6 text-left">
-                                                        <h3>Менинг профайлим</h3><br />
+                                                        <h4>Менинг профайлим</h4><br />
                                                         <span className='glyphicon glyphicon-check'></span> Тўлиқ исмим: {!toggle ? fullname : ""} {toggle ? <input  value={fullname} name="fullname" onChange={this.handleInput}></input> : ""}<br /><br />
                                                         <span className='glyphicon glyphicon-user'></span> Менинг юзернэймим: {!toggle ? username : ""} {toggle ? <input value={username} name="username" onChange={this.handleInput}></input> : ""}<br /><br />
                                                         <span className='glyphicon glyphicon-earphone'></span> Телефон номерим: {!toggle ? phone_number : ""} {toggle ? <input value={phone_number} name="phone_number" onChange={this.handleInput}></input> : ""}<br /><br />

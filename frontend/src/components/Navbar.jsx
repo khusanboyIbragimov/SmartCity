@@ -153,7 +153,7 @@ export default class Navbar extends React.Component {
                                     to="/"
                                     data-toggle="collapse"
                                     data-target=".navbar-collapse.in">
-                                    <b><span className='glyphicon glyphicon-home nav-icons'></span><span className='nav-tabz'>Марказ</span></b>
+                                    <b><span className='glyphicon glyphicon-home nav-icons'></span><span style={{letterSpacing: '1px'}}  className='nav-tabz'>Марказ</span></b>
                                     </Link>
                                 </li>
                                 <li><Link
@@ -161,7 +161,7 @@ export default class Navbar extends React.Component {
                                     to="/sc/news"
                                     data-toggle="collapse"
                                     data-target=".navbar-collapse.in">
-                                    <b><span className='glyphicon glyphicon-globe nav-icons'></span><span className='nav-tabz'>Янгиликлар</span></b> 
+                                    <b><span className='glyphicon glyphicon-globe nav-icons'></span><span style={{letterSpacing: '1px'}} className='nav-tabz'>Янгиликлар</span></b> 
                                     </Link>
                                 </li>
                                 <li><Link
@@ -169,7 +169,7 @@ export default class Navbar extends React.Component {
                                     to="/sc/announcement"
                                     data-toggle="collapse"
                                     data-target=".navbar-collapse.in">
-                                    <b><span className='glyphicon glyphicon-bullhorn nav-icons'></span><span className='nav-tabz'>Эълонлар</span></b> 
+                                    <b><span className='glyphicon glyphicon-bullhorn nav-icons'></span><span style={{letterSpacing: '1px'}} className='nav-tabz'>Эълонлар</span></b> 
                                     </Link>
                                 </li>
                                 <li><Link
@@ -177,7 +177,7 @@ export default class Navbar extends React.Component {
                                     to="/sc/ratings"
                                     data-toggle="collapse"
                                     data-target=".navbar-collapse.in">
-                                    <b><span className='glyphicon glyphicon-star nav-icons'></span><span className='nav-tabz'>Рейтинг</span></b> 
+                                    <b><span className='glyphicon glyphicon-star nav-icons'></span><span style={{letterSpacing: '1px'}} className='nav-tabz'>Рейтинг</span></b> 
                                     </Link>
                                 </li>
                                 <li><Link
@@ -189,7 +189,7 @@ export default class Navbar extends React.Component {
                                         className="fa fa-bar-chart nav-icons"
                                         aria-hidden="true"
                                     >
-                                    </i><span className='nav-tabz'>Сўров</span></b>
+                                    </i><span style={{letterSpacing: '1px'}} className='nav-tabz'>Сўров</span></b>
                                     </Link>
                                 </li>
                                 <li><Link
@@ -197,7 +197,7 @@ export default class Navbar extends React.Component {
                                     to="/sc/bazaar"
                                     data-toggle="collapse"
                                     data-target=".navbar-collapse.in">
-                                    <b><span className='glyphicon glyphicon-usd nav-icons'></span><span className='nav-tabz'>Бозор</span></b>
+                                    <b><span className='glyphicon glyphicon-usd nav-icons'></span><span style={{letterSpacing: '1px'}} className='nav-tabz'>Бозор</span></b>
                                     </Link>
                                 </li>
                                 <li><Link
@@ -205,7 +205,7 @@ export default class Navbar extends React.Component {
                                     to="/sc/giychat"
                                     data-toggle="collapse"
                                     data-target=".navbar-collapse.in">
-                                    <b> <i className="fa fa-users nav-icons" aria-hidden="true"></i><span className='nav-tabz'>Ғийчат</span></b>
+                                    <b> <i className="fa fa-users nav-icons" aria-hidden="true"></i><span style={{letterSpacing: '1px'}} className='nav-tabz'>Ғийчат</span></b>
                                     </Link>
                                 </li>
                                 {isLogged ?
