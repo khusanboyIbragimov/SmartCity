@@ -9,6 +9,7 @@ import MyBazaars from "./Bazaars/MyBazaars/MyBazaars";
 import io from 'socket.io-client';
 import { LOGOUT } from './Giychat/Events';
 const socketUrl = "http://localhost:3100";
+const photo = require('./logo_for_profile.png');
 
 var ReactS3Uploader = require("react-s3-uploader");
 
@@ -167,7 +168,8 @@ export default class Profile extends React.Component {
                                                         <span className='glyphicon glyphicon-earphone'></span> Телефон номерим: {!toggle ? phone_number : ""} {toggle ? <input value={phone_number} name="phone_number" onChange={this.handleInput}></input> : ""}<br /><br />
                                                     </div>
                                                     <div className="col-sm-3">
-                                                        <span className="glyphicon glyphicon-globe logo slideanim" style={{ color: '#0093d3', fontSize: '200px' }}></span>
+                                                    <img alt='' src={photo} style={{ height: '168px'}}/>
+                                                        {/* <span className="glyphicon glyphicon-globe logo slideanim" style={{ color: '#0093d3', fontSize: '200px' }}></span> */}
                                                     </div>
                                                     <div className="col-sm-3 text-right">
                                                         {!toggle ? <button className="btn btn-default" onClick={this.handleToggle}><span className='glyphicon glyphicon-pencil'></span> ўзгартириш</button> : ""}

@@ -147,6 +147,11 @@
   overflow-x: hidden;
   overflow-y: auto;
   width: 100%;
+  background-image: url("http://hasshe.com/img/s/ex2Ohl2iwRt4iiGg-1HVQgHaKi.jpg"); 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
 }
 .chat_area li {
   padding: 14px 14px 0;
@@ -200,7 +205,7 @@
 
 
 
-body{
+.giychat_body{
   margin-top:20px;
   background:#eee; 
 }
