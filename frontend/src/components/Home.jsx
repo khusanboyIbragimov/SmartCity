@@ -150,10 +150,17 @@ export default class Home extends React.Component {
                                 Смарт бозор лойиҳасида бевосита узингизнинг буюмнигизни савдога қуйиш, ижарага бериш ва уз ҳизматингизни таклиф қилишингиз мумкин. </p>
                                  <b><h5><i style={{ color: 'rgb(241, 159, 77)' }} class="fa fa-info-circle" aria-hidden="true"></i>
                     &nbsp;Вебсайтдан фойдаланиш ҳақида маълумот.</h5></b>
-                    <p style={{ fontSize: '12px', textIndent: '20px'}} className='text-left'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-                    Quod perspiciatis rem corrupti. Ex deleniti porro hic dolorem, harum exercitationem similique architecto quo placeat ad cumque 
-                    repudiandae ratione minima. Tenetur, aspernatur!</p>
-                    <p style={{ fontSize: '12px', textIndent: '20px'}} className='text-left'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab, hic quibusdam. Voluptates, recusandae laboriosam! Enim facere, ea magnam neque illo earum! Voluptates saepe obcaecati nihil, dicta illo qui blanditiis repudiandae?</p>
+                    <p style={{ fontSize: '12px', textIndent: '20px'}} className='text-left'>Салом азиз ҳамқишлоқлар азиз Ғулакандозликлар! Ушбу бўлимда сизга вэбсайтдан қандай тулиқ 
+                    қулай фойдаланиш ҳақида маълумот берамиз.</p>
+                    <p style={{ fontSize: '12px', textIndent: '20px'}} className='text-left'>1. Вебсайтни ҳамма имкониятларидан тулиқ фойдаланиш учун "Аккаунт" яратишни тафсия этамиз.</p>
+                    <p style={{ fontSize: '12px', textIndent: '20px'}} className='text-left'>2. Аккаунт яратганингиздан сунг уз профайлингизга<span style={{textIndent: '2px'}} className="glyphicon glyphicon-user nav-icons"></span>&nbsp; борсангиз 5 та навигация кнопкалари бор: <button className='btn btn-default btn-xs'>янгиликларим</button>, <button className='btn btn-default btn-xs'>эълонларим</button>, <button className='btn btn-default btn-xs'>рейтингларим</button>, <button className='btn btn-default btn-xs'>суровларим</button>, <button className='btn btn-default btn-xs'>бозорим</button>.</p>
+                    <p style={{ fontSize: '12px', textIndent: '20px'}} className='text-left'>2.1.  <button className='btn btn-default btn-xs'>янгиликларим</button> кнопкасида сиз уз янгиликларингизни сарлафҳаси, матни ва расмини юклаб оммага тарқатишингиз мумкин. (исталган вақтда уз янгилигингизни учиришингиз мумкин)</p>
+                    <p style={{ fontSize: '12px', textIndent: '20px'}} className='text-left'>2.2. <button className='btn btn-default btn-xs'>эълонларим</button> кнопкасида сиз турли эълонларни ёзиб қолдиришингиз мумкин. (эълон сарлавҳаси ва матни). (исталган вақтда уз эълонингизни учиришингиз мумкин).</p>
+                    <p style={{ fontSize: '12px', textIndent: '20px'}} className='text-left'>2.3. <button className='btn btn-default btn-xs'>рейтингларим</button> кнопкасида Гулакандоз аҳлидан бирор савдо нуқтаси, овқатланиш ошҳонаси, чойҳона ёки ҳизмат курсатиш шаҳоблари, хизмат кўрсатиш соҳаси ишчилари (докторлар, автомобил устолари ва ҳоказолар) ни оммага таклиф килиб рейтинг даражаларини аниқлаш билан янада ҳизмат даражасини кутарилишига уз ҳиссангизни қушишингиз мумкин. </p>
+                    <p style={{ fontSize: '12px', textIndent: '20px'}} className='text-left'>2.4. <button className='btn btn-default btn-xs'>суровларим</button> кнопкасида сиз ҳар ҳил суровларга омма фикрини билишингиз мумкин.</p>
+                    <p style={{ fontSize: '12px', textIndent: '20px'}} className='text-left'>2.5. <button className='btn btn-default btn-xs'>бозорим</button>  кнопкасида бевосита узингизнинг буюмнигизни савдога қуйиш, ижарага бериш ва уз ҳизматингизни таклиф қилишингиз мумкин.</p>
+                    <p style={{ fontSize: '12px', textIndent: '20px'}} className='text-left'>2.6. Биз сизга яна <button className='btn btn-default btn-xs'>ғийчат</button> лойиҳасини таклиф этамиз. У ерда сиз ҳордиқ вақтингизда кириб ҳамқишлоқларингиз билан фикр алмашинингиз мумкин.</p>
+
                                  </div>
                         {/* </div>
                     </div> */}
