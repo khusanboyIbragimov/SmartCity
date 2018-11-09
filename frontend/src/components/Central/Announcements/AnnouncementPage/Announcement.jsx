@@ -54,8 +54,7 @@ export default class Announcement extends React.Component {
                                             <p class="personName">{announcement.fullname}</p>
                                             <p className='title'><span style={{ color: 'rgb(241, 159, 77)' }} className='glyphicon glyphicon-bullhorn'></span> {announcement.title}</p>
                                             <p class="text_box">{announcement.announcement} </p>
-                                            <span style={{ color: "grey", fontSize: "10px" }} className='glyphicon glyphicon-time'>
-                                                &nbsp;{Moment(announcement.announ_timestamp).format("LLLL")}</span>               
+                                                <p className='text-right' id='time'><i className="fa fa-clock-o" aria-hidden="true"></i>&nbsp;{Moment(announcement.announ_timestamp).format("LLLL")}</p>              
                                         </div>
                                     </div>
                                 </div>
