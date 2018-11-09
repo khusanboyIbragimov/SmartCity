@@ -58,7 +58,7 @@ export default class Layout extends Component {
 			onlineUserNames.push(key);
 		}
 		return (
-			<div className="container">
+			<div className="container giychat_body">
 				<div className='row'>
 					{
 						!user ?

@@ -27,6 +27,7 @@ export default class RenderAnnouncements extends React.Component {
         const { toggleEditAnnouncements } = this.state;
         return (
             <div>
+               
                 <div className="panel panel-default">
                     <div className="panel-body">
                         <div className='row'>
