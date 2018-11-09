@@ -39,37 +39,36 @@ export default class Announcement extends React.Component {
         const { announcements } = this.state;
         return (
             <div>
-                <h4> <span style={{ color: 'rgb(241, 159, 77)' }}>Smart</span> <strong style={{ color: '#0093d3'}}>Эълонлар</strong></h4><hr/>
+                <h4> <span style={{ color: 'rgb(241, 159, 77)' }}>Smart</span> <strong style={{ color: '#0093d3' }}>Эълонлар</strong></h4><hr />
+                <div className='container' >
+                <div class="row">
                 {announcements.map(announcement => {
                     return (
-                        <div className='container' key={announcement.announcement_id}>
-                            <div className='row'>
-                                <div className="panel panel-default">
-                                    <div className="panel-heading">
-                                        <h4 style={{ color: '#0093d3' }} className="h4"><span style={{color: 'rgb(241, 159, 77)'}} className='glyphicon glyphicon-bullhorn'></span> {announcement.title}</h4>
-                                    </div>
-                                    <div className="panel-body">
-                                        <div className='col-sm-12 text-justify'>
-                                            <p>{announcement.announcement}</p>
+                            <div>
+<div class="col-sm-4" key={announcement.announcement_id}>
+                                    <div class="card">
+                                        <div class="avatar">
+                                            <img className='annon_img' src="https://scontent-frt3-2.cdninstagram.com/vp/3ca2fb4fd8fb9e90234d42da07f63fed/5C505CC9/t51.2885-15/e35/41349438_869720689897963_6915892188155667819_n.jpg" alt="" />
                                         </div>
-                                        <div className='col-sm-12'>
-                                            <div className='row'>
-                                                <div className='col-sm-6 text-left'>
-                                                    <h5 style={{ color: "grey" }}><i className="fa fa-pencil" aria-hidden="true"></i>
-                                                        &nbsp;{announcement.fullname}</h5>
-                                                </div>
-                                                <div className='col-sm-6 text-right'>
-                                                    <span style={{ color: "grey", fontSize: "10px" }} className='glyphicon glyphicon-time'>
-                                                        &nbsp;{Moment(announcement.announ_timestamp).format("LLLL")}</span>
-                                                </div>
-                                            </div>
+                                        <div class="content">
+                                            <p class="personName">{announcement.fullname}</p>
+                                            <p className='title'><span style={{ color: 'rgb(241, 159, 77)' }} className='glyphicon glyphicon-bullhorn'></span> {announcement.title}</p>
+                                            <p class="text_box">{announcement.announcement} </p>
+                                            <span style={{ color: "grey", fontSize: "10px" }} className='glyphicon glyphicon-time'>
+                                                &nbsp;{Moment(announcement.announ_timestamp).format("LLLL")}</span>               
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                                
+                           
+                         
+                       
                     )
                 })}
+                </div>
+                <hr/>
+                </div>
             </div>
         )
     }

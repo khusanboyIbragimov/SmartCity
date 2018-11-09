@@ -113,4 +113,57 @@ span.round-tab:hover {
       left: 35%;
   }
 }
+/* announcement */
+.card {
+  overflow: hidden;
+  position: relative;
+  border: 1px solid #CCC;
+  border-radius: 8px;
+  text-align: center;
+  padding: 0;
+  background-color: #fff;
+  color: #000;
+}
 
+.card .content {
+  position: relative;
+  margin: 15px;
+  z-index: 100;
+  text-align:left;
+}
+
+.card .avatar {
+  position: relative;
+  margin:15px 15px 5px 15px;
+  z-index: 100;
+  float:left;
+}
+
+
+.card .avatar .annon_img {
+   width:80px ;
+  height:80px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.personName {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: sans-serif;
+  color: rgb(0, 147, 211);
+  letter-spacing: 1px;
+  font-size: 10px;
+}
+
+.title
+{
+  font-weight: bold;
+  font-size:12px;
+  letter-spacing:1px;
+}
+.text_box{
+  font-size:12px;
+  letter-spacing:1px;
+}
