@@ -3,7 +3,8 @@ import axios from 'axios';
 import RenderNewsPageBox from "./RenderNewsPageBox";
 import io from 'socket.io-client';
 import { LOGOUT } from '../../Giychat/Events';
-const socketUrl = "http://localhost:3100";
+const socketUrl = "http://192.168.43.95:3100";
+// const socketUrl = "http://localhost:3100";
 
 export default class News extends React.Component {
 
@@ -39,7 +40,7 @@ export default class News extends React.Component {
                                 this.setState({
                                     getwrongcounts: res.data
                                 })
-                                axios 
+                                axios
                                     .get("/users/getUsersId")
                                     .then( (res) => {
                                         this.setState({
@@ -90,7 +91,7 @@ export default class News extends React.Component {
                                 this.setState({
                                     getrightcounts: res.data
                                 })
-                                axios 
+                                axios
                                 .get("/users/getwrongcounts")
                                 .then( (res) => {
                                     this.setState({
@@ -112,7 +113,7 @@ export default class News extends React.Component {
             .catch( (err) => {
                 console.log(err);
             })
-           
+
     }
 
     handleSubmitWrongNews = (e) => {
@@ -136,7 +137,7 @@ export default class News extends React.Component {
                             this.setState({
                                 getrightcounts: res.data
                             })
-                            axios 
+                            axios
                                 .get("/users/getwrongcounts")
                                 .then( (res) => {
                                     this.setState({
@@ -163,7 +164,7 @@ export default class News extends React.Component {
     render() {
         const { news, userId, getrightcounts, getwrongcounts } = this.state;
         // let result = Object.values(([...arr1, ...arr2].reduce((acc, d) => (acc[d.news_id] = {...acc[d.news_id], ...d }, acc) ,{})))
-  
+
         // let result = [...arr1, ...arr2].map(elem => {
         //     let {count=0, news_id: id} = elem;
         //     elem.count = count;
@@ -192,5 +193,3 @@ export default class News extends React.Component {
         )
     }
 }
-
-

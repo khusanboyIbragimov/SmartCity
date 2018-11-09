@@ -12,14 +12,14 @@ export default class RenderSurveyBox1 extends React.Component {
                             <div key={Math.random()} className='container'>
                                 <div className="panel panel-default">
                                 <div className="panel-heading">
-                                <h4 style={{ color: '#0093d3' }} 
+                                <h4 style={{ color: '#0093d3' }}
                                            className='text-left'>
                                             <i style={{color: 'rgb(241, 159, 77)'}}
-                                               className="fa fa-bar-chart" 
+                                               className="fa fa-bar-chart"
                                                aria-hidden="true"
                                                 >
                                             </i>
-                                            &nbsp;{ele[i].survey_question}
+                                            &nbsp;{ele[i] !== undefined? ele[i].survey_question:""}
                                         </h4>
                                 </div>
                                     <div className="panel-body">
@@ -28,11 +28,11 @@ export default class RenderSurveyBox1 extends React.Component {
                                             handleVote={this.props.handleVote}
                                             user_id={this.props.user_id}
                                         />
-                                        <p style={{ fontSize: '12px', color: '#999' }} 
+                                        <p style={{ fontSize: '12px', color: '#999' }}
                                            className='text-right'>
                                            <i className="fa fa-pencil" aria-hidden="true"></i>
-                                           &nbsp;{ele[i].fullname}
-                                        </p>  
+                                           &nbsp;{ele[i] !== undefined? ele[i].fullname:""}
+                                        </p>
                                     </div>
                                 </div>
                             </div>
