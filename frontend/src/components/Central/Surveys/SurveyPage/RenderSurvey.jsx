@@ -1,5 +1,8 @@
 import React from 'react';
 import { Modal, ProgressBar } from 'react-bootstrap';
+import { Link } from "react-router-dom";
+import axios from 'axios';
+const photo = require('../../../logo3.png');
 
 
 export default class RenderSurvey extends React.Component {
@@ -20,10 +23,54 @@ export default class RenderSurvey extends React.Component {
         console.log(e.target.value)
         // console.log(e.target.id)
     }
+    handleLogin = () => {
+        this.setState({
+            isLogin: !this.state.isLogin
+        })
+    }
+
+    handleLoginMessage = () => {
+        this.setState({
+            loginMessage: false
+        })
+    }
+
+
+    handleFormInput = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
+    handleSubmit = (e) => {
+        e.preventDefault();
+        const { username, password } = this.state;
+        axios
+            .post("/users/login", {
+                username: username,
+                password: password
+            })
+            .then(() => {
+                window.location.reload();
+            })
+            .then((res) => {
+                this.setState({
+                    isLogged: "loggedIn",
+                    fullname: res.data.fullname
+                })
+            })
+            .catch((err) => {
+                if (err.response.data === "wrong_password") {
+                    this.setState({
+                        loginMessage: true
+                    })
+                }
+                console.log(err.response.data);
+            })
+    }
 
     render() {
         const { value, text, survey_question_id,
-            survey_question_options_id, user_id, users } = this.props;
+            survey_question_options_id, user_id, users, isLogged } = this.props;
         return (
 
             <div>
@@ -103,12 +150,83 @@ export default class RenderSurvey extends React.Component {
                     aria-labelledby="contained-modal-title"
                 >
                     <Modal.Body>
-                        Илтимос аккаўнтингизга киринг ва ушбу хабарни хақиқатга
-                        яқинлаштиришга ўз ҳиссангизни қўшинг. Унутманг бу жамиятда
+                    <Modal.Header closeButton>
+                                        <Modal.Title id="contained-modal-title">
+                                        <h4><img alt="" style={{height: '16px'}}src={photo}/> маъмурияти</h4>
+                                    </Modal.Title>
+                                    </Modal.Header>
+                        Илтимос    {!isLogged ?
+                                    <a
+                                        onClick={this.handleLogin}>
+                                       
+                                            <p className='pointer'>аккаунтингизга</p>
+                                        </a> :
+                                    <li onClick={this.handleLogout} >
+                                        <a data-toggle="collapse"
+                                            data-target=".navbar-collapse.in">
+                                            <b><span style={{ fontSize: '18px' }}
+                                                className="glyphicon glyphicon-log-out nav-icons">
+                                            </span></b>
+                                        </a></li>}
+                                <Modal
+                                    show={this.state.isLogin}
+                                    onHide={this.handleLogin}
+                                    container={this}
+                                    aria-labelledby="contained-modal-title"
+                                >
+                                    <Modal.Header closeButton>
+                                        <Modal.Title id="contained-modal-title">
+                                        <h4><img alt="" style={{height: '16px'}}src={photo}/> маъмурияти</h4>
+                                    </Modal.Title>
+                                    </Modal.Header>
+                                    <Modal.Body>
+                                        {isLogged !== "loggedIn" ? <Link to="/sc/register" onClick={this.handleLogin}> Aккаунт яратиш </Link> : ""}
+                                        {isLogged !== "loggedIn" ?
+                                            <form className="form-inline" onSubmit={this.handleSubmit} >
+                                                <div>
+                                                    <input
+                                                        type="text"
+                                                        className="form-control"
+                                                        placeholder="юзернэйм"
+                                                        onChange={this.handleFormInput}
+                                                        name="username"
+                                                    />
+                                                    <input
+                                                        type="password"
+                                                        className="form-control"
+                                                        placeholder="парол"
+                                                        onChange={this.handleFormInput}
+                                                        name="password"
+                                                    />
+                                                    <hr />
+                                                    <button type="submit" className="btn btn-primary mb-2">Кириш</button>
+                                                </div>
+                                                <Modal
+                                                    show={this.state.loginMessage}
+                                                    onHide={this.handleLoginMessage}
+                                                    container={this}
+                                                    aria-labelledby="contained-modal-title"
+                                                >
+                                                    <Modal.Header closeButton>
+                                                        <Modal.Title id="contained-modal-title">
+                                                            SmartCity маъмурияти
+                                                    </Modal.Title>
+                                                    </Modal.Header>
+                                                    <Modal.Body>
+                                                        парол ёки юзернэймда хатолиги бор.
+                                                    </Modal.Body>
+                                                    <Modal.Footer>
+                                                        <button className='btn btn-success' onClick={this.handleLoginMessage}>ёпиш</button>
+                                                    </Modal.Footer>
+                                                </Modal>
+                                            </form> :
+                                            <div><button onClick={this.handleLogout}>чиқиш</button><Link to="/sc/profile">Менинг Аккаунтим</Link></div>} <br />
+                                    </Modal.Body>
+                                </Modal> киринг ва ушбу суровда қатнашинг. Унитманг бу жамиятда
                         сизнинг хам ўрнингиз бор
                     </Modal.Body>
                     <Modal.Footer>
-                        <button onClick={this.handleModal}>ёпаман</button>
+                        <button className='btn btn-success' onClick={this.handleModal}>ёпиш</button>
                     </Modal.Footer>
                 </Modal>
             </div>

@@ -95,7 +95,7 @@ export default class Login extends React.Component {
                             парол ёки юзернэймда хатолиги бор.
                         </Modal.Body>
                         <Modal.Footer>
-                            <Button onClick={this.handleLoginMessage}>ёпаман</Button>
+                            <button className='btn btn-success' onClick={this.handleLoginMessage}>ёпиш</button>
                         </Modal.Footer>
                     </Modal>
                 </form>

@@ -183,7 +183,6 @@ export default class ChatContainer extends Component {
 						</div>
 					</div>
 				</div>
-				<div className='footer-away'></div>
 			</div>
 		);
 	}
