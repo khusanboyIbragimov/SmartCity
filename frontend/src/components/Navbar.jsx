@@ -242,7 +242,7 @@ export default class Navbar extends React.Component {
                                 >
                                     <Modal.Header closeButton>
                                         <Modal.Title id="contained-modal-title">
-                                            SmartCity маъмурияти
+                                        <h4><img alt="" style={{height: '16px'}}src={photo}/> маъмурияти</h4>
                                     </Modal.Title>
                                     </Modal.Header>
                                     <Modal.Body>
@@ -275,14 +275,14 @@ export default class Navbar extends React.Component {
                                                 >
                                                     <Modal.Header closeButton>
                                                         <Modal.Title id="contained-modal-title">
-                                                            SmartCity маъмурияти
+                                                        <h4><img alt="" style={{height: '16px'}}src={photo}/> маъмурияти</h4>
                                                     </Modal.Title>
                                                     </Modal.Header>
                                                     <Modal.Body>
                                                         парол ёки юзернэймда хатолиги бор.
                                                     </Modal.Body>
                                                     <Modal.Footer>
-                                                        <button className='btn btn-primary' onClick={this.handleLoginMessage}>ёпиш</button>
+                                                        <button className='btn btn-success' onClick={this.handleLoginMessage}>ёпиш</button>
                                                     </Modal.Footer>
                                                 </Modal>
                                             </form> :

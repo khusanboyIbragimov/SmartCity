@@ -1,6 +1,8 @@
 import React from "react";
 import axios from "axios";
 import { Redirect } from "react-router";
+const photo = require('./logo2.png');
+
 var ReactS3Uploader = require("react-s3-uploader");
 
 export default  class Register extends React.Component {
@@ -153,25 +155,47 @@ export default  class Register extends React.Component {
                                             onProgress={this.onUploadProgress}
                                             onClick={this.handleClick}
                                         /><br />
-                                        {this.state.showWaitMessage ? <h1>илтимос кутиб туринг...{" "} {completed}</h1> : ""}
+                                        {this.state.showWaitMessage ? <h5 style={{color: 'red'}}>илтимос кутиб туринг...{" "} {completed}</h5> : ""}
                                     </div>
                                     <p>{password !== confirm_password && confirm_password ? "пароллар хар хил" : ""}</p>
                                 </div>
                                 <div className="col-md-6 text-justify">
-                                    <h3 className="dark-grey">Terms and Conditions</h3>
+                                    <h4 className="dark-grey">Ушбу вебсайтдан фойдаланиш шартлари ва қонунлари.</h4>
                                     <p>
-                                        By clicking on "Register" you agree to The Company's' Terms and Conditions
+                                    "Яратиш" кнопкасини босиш орқали Сиз <img alt="" style={{height: '12px'}}src={photo}/> маъмурияти шартлари ва қонунларига розилик билдирасиз. 
                                     </p>
                                     <p>
-                                        While rare, prices are subject to change based on exchange rate fluctuations -
-                                        should such a fluctuation happen, we may request an additional payment. You have the option to request a full refund or to pay the new price. (Paragraph 13.5.8)
+                                    Ушбу бандда таъқиқланган ҳар қандай ноқонуний мақсад ёки бирор бир мақсад учун веб-сайт ёки хизматлардан фойдаланмаслигингизга розилик билдирасиз. Сиз ушбу Веб-сайт бизнесига зарар етказадиган ҳар қандай усулда фойдаланмаслигингизга розилик билдирасиз.
 				                    </p>
                                     <p>
-                                        Should there be an error in the description or pricing of a product, we will provide you with a full refund (Paragraph 13.5.6)
+                                    а) Бундан ташқари, сиз Веб-сайтда қуйидаги ишлар билан шугилланмасликка розилик берасиз:
 				                    </p>
                                     <p>
-                                        Acceptance of an order by us is dependent on our suppliers ability to provide the product. (Paragraph 13.5.6)
+                                    а.1) бошқаларни таҳқирлаш, таҳдид қилиш ёки бошқа шахсларнинг қонуний ҳуқуқларини бузиш;
 				                    </p>
+                                    <p>
+                                    а.2) Компаниянинг ёки учинчи томоннинг интеллектуал мулк ҳуқуқларини бузиш;
+				                    </p>
+                                    <p>
+                                    а.3) ҳар қандай компютер вирусини ёки бошқасини мулкига шикаст етказиши мумкин бўлган бошқа дастурларни юклаш ёки тарқатиш;
+				                    </p>
+                                    <p>
+                                    а.4) ҳар қандай фирибгарлик қилиш;
+				                    </p>
+                                    <p>
+                                    а.5) ҳар қандай ноқонуний қимор, лотереялар ёки пирамида схемасини тузиш ёки яратиш;
+				                    </p>
+                                    <p>
+                                    а.6) Ҳар қандай гуруҳга нисбатан зўравонлик, нафрат ёки камситишларни келтириб чиқарадиган ҳар қандай материални нашр қилиш ёки тарқатиш;				                    </p>
+                                    <p>
+                                    а.7) Бошқалар ҳақида ноқонуний маълумот тўплаш.  				                    </p>
+                                    <p>
+                                    а.8) Ҳар қандай экстриместик группаларни ғояларини илгари суриш ёки шунга оид материалларни юклаш қатиян манъ этилади;
+				                    </p>
+                                    <p>
+                                    а.9) Ҳар ҳил давлатга қарши булган исён уйготувчи материалларни тарқатиш манъ этилади;
+				                    </p>
+                                   
                                     {this.state.showSubmitButton ? <button className="btn btn-primary">яратиш</button> : ""}
                                     {this.state.showSubmitButtonWithoutPhoto ? <button className="btn btn-primary">яратиш</button> : ""}
                                 </div>

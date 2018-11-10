@@ -8,7 +8,6 @@ export default class RenderMySurveysBox extends React.Component {
                 <div className="row">
                     {this.props.surveysAndOptions.length !== 0 ? this.props.surveysAndOptions.map(elem => (
                         <div key={Math.random()} className="col-sm-6 col-xs-12">
-                            <div className="pinterest">
                                 <RenderMySurveys
                                     key={Math.random()}
                                     survey_question_id={elem.survey_question_id}
@@ -16,8 +15,6 @@ export default class RenderMySurveysBox extends React.Component {
                                     option={elem.options !== null ? elem.options.split(",").map((o) => (<div>{o}</div>)) : ""}
                                     handleSubmitDeleteMySurvey={this.props.handleSubmitDeleteMySurvey}
                                 />
-                            </div>
-
                         </div>
                     )) : ""}
                 </div>
