@@ -209,7 +209,7 @@ export default class RenderSurvey extends React.Component {
                                                 >
                                                     <Modal.Header closeButton>
                                                         <Modal.Title id="contained-modal-title">
-                                                            SmartCity маъмурияти
+                                                        <h4><img alt="" style={{height: '16px'}}src={photo}/> маъмурияти</h4>
                                                     </Modal.Title>
                                                     </Modal.Header>
                                                     <Modal.Body>
