@@ -32,7 +32,7 @@ export default class RenderNews extends React.Component {
                         <div className='row'>
                             <div className='col-sm-12 text-left' id={this.props.news_id}>
                                 {!toggleEditNews ?
-                                    <h4 style={{ color: '#0093d3' }}>{this.props.title}</h4> :
+                                    <h4 style={{ color: '#0093d3' }}><span style={{color: 'rgb(241, 159, 77)'}} className='glyphicon glyphicon-globe'></span>&nbsp;{this.props.title}</h4> :
                                     <input
                                         className="form-control"
                                         name="newTitle"

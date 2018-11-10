@@ -26,7 +26,8 @@ export default class RenderSale extends React.Component {
     render() {
         const { toggleEditSaleItem } = this.state;
         return (
-            <div>
+            <div className='container'>
+             <div className='row slideanim"'>
                 <div className="col-sm-4 col-xs-12">
                     <div className="panel panel-default text-center listing listing-radius listing-success">
                         <div className="panel-heading">
@@ -131,6 +132,8 @@ export default class RenderSale extends React.Component {
                     </div>
                 </div>
             </div>
+            </div>
+           
         )
     }
 }
