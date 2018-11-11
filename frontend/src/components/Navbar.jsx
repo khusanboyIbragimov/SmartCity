@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 import { Modal } from 'react-bootstrap';
 import io from 'socket.io-client';
 import { LOGOUT } from './Central/Giychat/Events';
+import { Redirect } from "react-router";
 const socketUrl = "http://localhost:3100";
-
 const photo = require('./logo3.png');
 
 export default class Navbar extends React.Component {
@@ -20,7 +20,8 @@ export default class Navbar extends React.Component {
             fullname: "",
             loginMessage: false,
             news: [],
-            isLogin: false
+            isLogin: false,
+            redirect: false
         }
     }
 
@@ -90,6 +91,10 @@ export default class Navbar extends React.Component {
             })
             .then(() => {
                 window.location.reload();
+            }).then( (res) => {
+                this.setState({
+                    redirect: true
+                })
             })
             .catch((err) => {
                 console.log(err);
@@ -130,7 +135,10 @@ export default class Navbar extends React.Component {
     }
 
     render() {
-        const { isLogged, fullname } = this.state;
+        const { isLogged, fullname, redirect } = this.state;
+        if (redirect) {
+            return <Redirect to="/" />
+        }
         const firstName = fullname.split(" ");
         return (
             <div>
@@ -227,7 +235,7 @@ export default class Navbar extends React.Component {
                                                 className="glyphicon glyphicon-log-in nav-icons">
                                             </span></b>
                                         </a></li> :
-                                    <li onClick={this.handleLogout} >
+                                    <li onClick={this.handleLogout} redirect='/'>
                                         <a data-toggle="collapse"
                                             data-target=".navbar-collapse.in">
                                             <b><span style={{ fontSize: '18px' }}
