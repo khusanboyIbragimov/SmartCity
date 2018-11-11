@@ -33,12 +33,11 @@ export default class Register extends React.Component {
                 this.setState({
                     nickname: res.data[0].username
                 })
-                if (this.state.nickname === 'mail4umed') {
+                if (this.state.nickname === this.state.nickname) {
                     this.setState({
                         redirect_user: true
                     })
                 }
-                console.log('Llllll', this.state.nickname)
             })
             .catch(err => {
                 console.log(err);

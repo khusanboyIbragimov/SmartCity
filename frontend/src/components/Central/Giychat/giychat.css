@@ -29,11 +29,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  
 }
-
-
-
 
 .message_write {
   background: #f5f3f3 none repeat scroll 0 0;
@@ -46,8 +42,6 @@
   color: #fff;
   cursor:pointer;
 }
-
-
 
 .giychat_body{
   margin-top:20px;
@@ -220,14 +214,6 @@ color: #fff;
 .message.info:after, .message.info:before {
 border-right: 13px solid #2da9e9;
 }
-
-
-
-
-
-
-
-
 .message.info .message-info > h4, .message.success .message-info > h4,
 .message.warning .message-info > h4, .message.danger .message-info > h4,
 .message.dark .message-info > h4 {

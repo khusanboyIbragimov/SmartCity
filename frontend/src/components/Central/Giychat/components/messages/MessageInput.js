@@ -56,35 +56,29 @@ export default class MessageInput extends Component {
 	render() {
 		const { message } = this.state
 		return (
-			<div className="col-lg-6">
-				<div className="message-input">
-					<form
-						onSubmit={this.handleSubmit}
-						className="message-form">
-						<div className="row">
-							<div className="col-lg-6">
-								<div className="input-group">
-									<input id="message"
-										ref={"messageinput"}
-										type="text"
-										className="form-control"
-										value={message}
-										autoComplete={'off'}
-										placeholder="..."
-										onKeyUp={e => { e.keyCode !== 13 && this.sendTyping() }}
-										onChange={
-											({ target }) => {
-												this.setState({ message: target.value })
-											}
-										} />
-									<span className="input-group-btn">
-										<button className="send btn btn-success" disabled={message.length < 1} type="submit"><i className="fa fa-paper-plane" aria-hidden="true"></i></button>
-									</span>
-								</div>
-							</div>
-						</div>
-					</form>
-				</div>
+			<div className="message-input">
+				<form
+					onSubmit={this.handleSubmit}
+					className="message-form">
+					<div className="input-group">
+						<input id="message"
+							ref={"messageinput"}
+							type="text"
+							className="form-control"
+							value={message}
+							autoComplete={'off'}
+							placeholder="..."
+							onKeyUp={e => { e.keyCode !== 13 && this.sendTyping() }}
+							onChange={
+								({ target }) => {
+									this.setState({ message: target.value })
+								}
+							} />
+						<span className="input-group-btn">
+							<button className="send btn btn-success" disabled={message.length < 1} type="submit"><i className="fa fa-paper-plane" aria-hidden="true"></i></button>
+						</span>
+					</div>
+				</form>
 			</div>
 		);
 	}
