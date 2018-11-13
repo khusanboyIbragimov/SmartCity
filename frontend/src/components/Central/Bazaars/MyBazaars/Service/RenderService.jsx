@@ -64,10 +64,10 @@ export default class RenderService extends React.Component {
                                         onChange={this.props.handleInput}>
                                     </textarea>}<br />
                                 <div className='row'>
-                                    <div className="col-sm-6 col-xs-6">
+                                    <div className="col-sm-6 col-xs-12">
                                         {!toggleEditService ?
-                                            <p><i className="fa fa-money" aria-hidden="true"></i>&nbsp;
-                                                    {this.props.price}
+                                            <p className='text-left'> <i className="fa fa-money" aria-hidden="true"></i>&nbsp;қиймати&nbsp;
+                                                    {this.props.price} сомони
                                             </p> :
                                             <input
                                                 style={{ borderColor: '#0093d3' }}

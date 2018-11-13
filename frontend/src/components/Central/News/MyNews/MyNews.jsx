@@ -202,7 +202,7 @@ export default class MyNews extends React.Component {
                                 onProgress={this.onUploadProgress}
                                 onClick={this.handleClick}
                             /><br />
-                            {this.state.showWaitMessage ? <h1>илтимос кутиб туринг...{" "} {completed}</h1> : ""}
+                            {this.state.showWaitMessage ? <h4>илтимос кутиб туринг...{" "} {completed}</h4> : ""}
                             {this.state.showSubmitButtonWithPhoto ? <button className='btn btn-success form-control'>Янгилик тарқатиш</button> : ""}
                             {this.state.showSubmitButtonWithoutPhoto ? <button className='btn btn-success form-control'>Янгилик тарқатиш</button> : ""}
                         </form>

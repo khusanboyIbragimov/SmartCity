@@ -5,7 +5,7 @@ const photo = require('./logo2.png');
 
 var ReactS3Uploader = require("react-s3-uploader");
 
-export default  class Register extends React.Component {
+export default class Register extends React.Component {
 
     constructor() {
         super();
@@ -21,7 +21,27 @@ export default  class Register extends React.Component {
             showWaitMessage: false,
             showSubmitButton: false,
             showSubmitButtonWithoutPhoto: true,
+            nickname: "",
+            redirect_user: false
         }
+    }
+
+    componentDidMount() {
+        axios
+            .get("/users/userInfo")
+            .then(res => {
+                this.setState({
+                    nickname: res.data[0].username
+                })
+                if (this.state.nickname === this.state.nickname) {
+                    this.setState({
+                        redirect_user: true
+                    })
+                }
+            })
+            .catch(err => {
+                console.log(err);
+            })
     }
 
     handleInput = (e) => {
@@ -47,8 +67,8 @@ export default  class Register extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        const { user_imgurl, username, password, fullname, phone_number} = this.state;
-        axios 
+        const { user_imgurl, username, password, fullname, phone_number } = this.state;
+        axios
             .post("/users/register", {
                 username: username,
                 password: password,
@@ -56,12 +76,12 @@ export default  class Register extends React.Component {
                 phone_number: phone_number,
                 user_imgurl: user_imgurl
             })
-            .then( (res) => {
+            .then((res) => {
                 this.setState({
                     redirect: true
                 })
             })
-            .catch( (err) => {
+            .catch((err) => {
                 console.log(err);
             })
     }
@@ -75,11 +95,15 @@ export default  class Register extends React.Component {
     }
 
     render() {
-        const { password, confirm_password, redirect, completed } = this.state;
+        const { password, confirm_password, redirect, completed, fullname, redirect_user } = this.state;
+
+        if (redirect_user) {
+            return <Redirect to="/" />
+        }
         if (redirect) {
             return <Redirect to="/sc/login" />
         }
-        return(
+        return (
             <div>
                 <div className="container-fluid">
                     <section className="container">
@@ -155,47 +179,54 @@ export default  class Register extends React.Component {
                                             onProgress={this.onUploadProgress}
                                             onClick={this.handleClick}
                                         /><br />
-                                        {this.state.showWaitMessage ? <h5 style={{color: 'red'}}>илтимос кутиб туринг...{" "} {completed}</h5> : ""}
+                                        {this.state.showWaitMessage ? <h5 style={{ color: 'red' }}>илтимос кутиб туринг...{" "} {completed}</h5> : ""}
                                     </div>
                                     <p>{password !== confirm_password && confirm_password ? "пароллар хар хил" : ""}</p>
                                 </div>
                                 <div className="col-md-6 text-justify">
                                     <h4 className="dark-grey">Ушбу вебсайтдан фойдаланиш шартлари ва қонунлари.</h4>
                                     <p>
-                                    "Яратиш" кнопкасини босиш орқали Сиз <img alt="" style={{height: '12px'}}src={photo}/> маъмурияти шартлари ва қонунларига розилик билдирасиз. 
+                                        "Яратиш" кнопкасини босиш орқали Сиз <img alt="" style={{ height: '12px' }} src={photo} /> маъмурияти шартлари ва қонунларига розилик билдирасиз.
                                     </p>
                                     <p>
-                                    Ушбу бандда таъқиқланган ҳар қандай ноқонуний мақсад ёки бирор бир мақсад учун веб-сайт ёки хизматлардан фойдаланмаслигингизга розилик билдирасиз. Сиз ушбу Веб-сайт бизнесига зарар етказадиган ҳар қандай усулда фойдаланмаслигингизга розилик билдирасиз.
+                                        Ушбу бандда таъқиқланган ҳар қандай ноқонуний мақсад учун веб-сайт ёки хизматлардан фойдаланмаслигингизга розилик билдирасиз.
 				                    </p>
                                     <p>
-                                    а) Бундан ташқари, сиз Веб-сайтда қуйидаги ишлар билан шугилланмасликка розилик берасиз:
+                                        Сиз ушбу Веб-сайт бизнесига зарар етказадиган ҳар қандай усулда фойдаланмаслигингизга розилик билдирасиз.				                    </p>
+                                    <p>
+                                        а) Бундан ташқари, сиз Веб-сайтда қуйидаги ишлар билан шугилланмасликка розилик берасиз:
 				                    </p>
                                     <p>
-                                    а.1) бошқаларни таҳқирлаш, таҳдид қилиш ёки бошқа шахсларнинг қонуний ҳуқуқларини бузиш;
+                                        а.1) бошқаларни таҳқирлаш, таҳдид қилиш ёки бошқа шахсларнинг қонуний ҳуқуқларини бузиш;
 				                    </p>
                                     <p>
-                                    а.2) Компаниянинг ёки учинчи томоннинг интеллектуал мулк ҳуқуқларини бузиш;
+                                        а.2) Компаниянинг ёки учинчи томоннинг интеллектуал мулк ҳуқуқларини бузиш;
 				                    </p>
                                     <p>
-                                    а.3) ҳар қандай компютер вирусини ёки бошқасини мулкига шикаст етказиши мумкин бўлган бошқа дастурларни юклаш ёки тарқатиш;
+                                        а.3) ҳар қандай компютер вирусини ёки бошқаларни мулкига шикаст етказиши мумкин бўлган дастурларни юклаш ёки тарқатиш;
 				                    </p>
                                     <p>
-                                    а.4) ҳар қандай фирибгарлик қилиш;
+                                        а.4) ҳар қандай фирибгарлик қилиш;
 				                    </p>
                                     <p>
-                                    а.5) ҳар қандай ноқонуний қимор, лотереялар ёки пирамида схемасини тузиш ёки яратиш;
+                                        а.5) ҳар қандай ноқонуний қимор, лотереялар ёки пирамида схемасини тузиш ёки яратиш;
 				                    </p>
                                     <p>
-                                    а.6) Ҳар қандай гуруҳга нисбатан зўравонлик, нафрат ёки камситишларни келтириб чиқарадиган ҳар қандай материални нашр қилиш ёки тарқатиш;				                    </p>
+                                        а.6) Ҳар қандай гуруҳга нисбатан зўравонлик, нафрат ёки камситишларни келтириб чиқарадиган ҳар қандай материални нашр қилиш ёки тарқатиш;				                    </p>
                                     <p>
-                                    а.7) Бошқалар ҳақида ноқонуний маълумот тўплаш.  				                    </p>
+                                        а.7) Бошқалар ҳақида ноқонуний маълумот тўплаш.  				                    </p>
                                     <p>
-                                    а.8) Ҳар қандай экстриместик группаларни ғояларини илгари суриш ёки шунга оид материалларни юклаш қатиян манъ этилади;
+                                        а.8) Ҳар қандай экстриместик группаларни ғояларини илгари суриш ёки шунга оид материалларни юклаш қатиян манъ этилади;
 				                    </p>
                                     <p>
-                                    а.9) Ҳар ҳил давлатга қарши булган исён уйготувчи материалларни тарқатиш манъ этилади;
+                                        а.9) Ҳар ҳил давлатга қарши булган исён уйготувчи материалларни тарқатиш манъ этилади;
 				                    </p>
-                                   
+                                    <p>
+                                        b) Қуидаги қонунларни бирорта бандига буйсинмаган шаҳсларни профили ва тарқатган барча материаллари шаҳсни розилигисиз учирилади.
+                                   </p>
+                                    <p>
+                                        c) Мен <b><span style={{ color: '#0093d3' }}>{fullname}</span></b> ушбу ердаги келтирилган қонун қоидаларни ҳаммасига риоя киламан! Аккаунтимни яратишларингни сурайман!
+                                   </p>
                                     {this.state.showSubmitButton ? <button className="btn btn-primary">яратиш</button> : ""}
                                     {this.state.showSubmitButtonWithoutPhoto ? <button className="btn btn-primary">яратиш</button> : ""}
                                 </div>

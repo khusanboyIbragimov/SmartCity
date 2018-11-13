@@ -86,14 +86,14 @@ export default class RenderNewsPage extends React.Component {
         const { showHistoryText } = this.state;
         return (
             <div className='container'>
-                <div class="well">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="row hidden-md hidden-lg"><h4 className="row hidden-md hidden-lg"><span style={{ color: 'rgb(241, 159, 77)' }} className='glyphicon glyphicon-globe'></span> {title}</h4></div>
+                <div className="well">
+                    <div className="row">
+                        <div className="col-md-12">
+                            <div className="row hidden-md hidden-lg"><h4 className="row hidden-md hidden-lg"><span style={{ color: 'rgb(241, 159, 77)' }} className='glyphicon glyphicon-globe'></span> {title}</h4></div>
 
-                            <div class="pull-left col-md-4 col-xs-12 thumb-contenido"><img style={{ height: "200px", width: "100%" }} class="center-block img-responsive" src={news_imgurl ? news_imgurl :
+                            <div className="pull-left col-md-4 col-xs-12 thumb-contenido"><img style={{ height: "200px", width: "100%" }} className="center-block img-responsive" src={news_imgurl ? news_imgurl :
                                     images[Math.floor(Math.random() * images.length)]}/></div>
-                            <div class="">
+                            <div className="">
                                     <h4 className="h4 hidden-xs hidden-sm"><span style={{ color: 'rgb(241, 159, 77)' }} className='glyphicon glyphicon-globe'></span> {title}</h4>
                           
                                 <hr />
@@ -102,7 +102,7 @@ export default class RenderNewsPage extends React.Component {
                                             &nbsp;{fullname}</h5></strong></small>
                                 <hr />
                                 <div key={news_id}>
-                                <p class="text-justify">{text}<br /><br />
+                                <p className="text-justify">{text}<br /><br />
                                 </p>
                                  <Modal
                                         show={this.state.isUserLogged}
