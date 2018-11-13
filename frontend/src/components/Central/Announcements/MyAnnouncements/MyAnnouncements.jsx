@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import RenderAnnouncementsBox from "./RenderAnnouncementsBox";
+import RenderMyAnnouncementsBox from "./RenderMyAnnouncementsBox";
 
 export default class MyAnnouncements extends React.Component {
     constructor() {
@@ -31,32 +31,6 @@ export default class MyAnnouncements extends React.Component {
         this.setState({
             [e.target.name]: e.target.value
         })
-    }
-
-    handleSubmitEditAnnouncement = (e) => {
-        e.preventDefault();
-        const { newTitle, newAnnouncement } = this.state;
-        axios
-            .patch(`/users/editannouncement`, {
-                announcement_id: e.target.id,
-                title: newTitle,
-                announcement: newAnnouncement,
-            })
-            .then(() => {
-                axios
-                    .get("/users/getUsersAnnouncement")
-                    .then((res) => {
-                        this.setState({
-                            announcements: res.data
-                        })
-                    })
-                    .catch((err) => {
-                        console.log(err);
-                    })
-            })
-            .catch((err) => {
-                console.log(err);
-            })
     }
 
     handleSubmitDeleteAnnouncement = (e) => {
@@ -145,10 +119,9 @@ export default class MyAnnouncements extends React.Component {
                     </div>
                 </div>
                 <h3>Менинг эълонларим</h3>
-                <RenderAnnouncementsBox
+                <RenderMyAnnouncementsBox
                     announcements={announcements}
                     handleInput={this.handleInput}
-                    handleSubmitEditAnnouncement={this.handleSubmitEditAnnouncement}
                     handleSubmitDeleteAnnouncement={this.handleSubmitDeleteAnnouncement}
                 />
             </div>

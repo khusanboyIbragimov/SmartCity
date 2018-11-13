@@ -14,7 +14,7 @@ export default class RenderMySurveys extends React.Component {
                             >
                             </i>
                                 &nbsp;{this.props.survey_question}</h4>
-                           <p>{this.props.option}</p> <br />
+                           <p>{this.props.option}</p> <hr />
                             <form
                                 onSubmit={this.props.handleSubmitDeleteMySurvey}
                                 id={this.props.survey_question_id}>

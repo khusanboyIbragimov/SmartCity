@@ -12,7 +12,7 @@ export default class RenderMySurveysBox extends React.Component {
                                     key={Math.random()}
                                     survey_question_id={elem.survey_question_id}
                                     survey_question={elem.survey_question}
-                                    option={elem.options !== null ? elem.options.split(",").map((o) => (<div>{o}</div>)) : ""}
+                                    option={elem.options !== null ? elem.options.split(",").map((o) => (<li>{o}</li>)): ""}
                                     handleSubmitDeleteMySurvey={this.props.handleSubmitDeleteMySurvey}
                                 />
                         </div>

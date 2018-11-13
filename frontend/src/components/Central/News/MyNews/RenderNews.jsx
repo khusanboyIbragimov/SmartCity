@@ -56,28 +56,14 @@ export default class RenderNews extends React.Component {
                                     </textarea>
                                 }
                             </div>
-                            <div className='col-sm-6 '>
+                            <div className='col-sm-12'>
+                            <hr></hr>
+                                <p style={{ color: "grey", fontSize: "12px", textAlign: "right" }}>
+                                    {Moment(this.props.news_timestamp).format("LLLL")}
+                                </p>
+                            </div>
                                 <div className='row'>
-                                    <form onSubmit={this.props.handleSubmitEditNews} id={this.props.news_id}>
-                                        <div className='col-sm-6 col-xs-6'>
-                                            {!toggleEditNews ?
-                                                <button
-                                                    style={{ width: '100%' }}
-                                                    className='btn btn-success'
-                                                    onClick={this.handleClickEditNews}
-                                                    id={this.props.news_id}>
-                                                    <span className='glyphicon glyphicon-edit'></span> ўзгартириш
-                                                </button> :
-                                                <button
-                                                    style={{ width: '100%' }}
-                                                    className='btn btn-success'
-                                                    onClick={this.handleClickEditNews2}>
-                                                    <span className='glyphicon glyphicon-floppy-saved'></span> сақлаш
-                                                </button>
-                                            }
-                                        </div>
-                                    </form>
-                                    <div className='col-sm-6 col-xs-6'>
+                                    <div className='col-sm-12 col-xs-12'>
                                         <form onSubmit={this.props.handleSubmitDeleteNews} id={this.props.news_id}>
                                             <button
                                                 style={{ width: '100%' }}
@@ -88,12 +74,6 @@ export default class RenderNews extends React.Component {
                                         </form>
                                     </div>
                                 </div>
-                            </div><br/>
-                            <div className='col-sm-6'>
-                                <p style={{ color: "grey", fontSize: "12px", textAlign: "right" }}>
-                                    {Moment(this.props.news_timestamp).format("LLLL")}
-                                </p>
-                            </div>
                         </div>
                     </div>
                 </div>

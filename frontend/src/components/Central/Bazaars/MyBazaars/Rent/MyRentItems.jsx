@@ -100,33 +100,6 @@ export default class MyRentItems extends React.Component {
             })
     }
 
-    handleSubmitEditRentItem = (e) => {
-        e.preventDefault();
-        const { newTitle, newDescription, newPrice } = this.state;
-        axios
-            .patch(`/users/edit_rent_item`, {
-                item_id: e.target.id,
-                title: newTitle,
-                description: newDescription,
-                price: newPrice
-            })
-            .then(() => {
-                axios
-                    .get("/users/getUsersRentItems")
-                    .then((res) => {
-                        this.setState({
-                            my_rent_items: res.data
-                        })
-                    })
-                    .catch((err) => {
-                        console.log(err);
-                    })
-            })
-            .catch((err) => {
-                console.log(err);
-            })
-    }
-
     handleSubmitDeleteRentItem = (e) => {
         e.preventDefault();
         axios
@@ -187,7 +160,6 @@ export default class MyRentItems extends React.Component {
                 <RenderRentBox
                     my_rent_items={my_rent_items}
                     handleSubmitDeleteRentItem={this.handleSubmitDeleteRentItem}
-                    handleSubmitEditRentItem={this.handleSubmitEditRentItem}
                     handleInput={this.handleInput}
                 />
             </div>

@@ -13,7 +13,6 @@ export default class RenderServiceBox extends React.Component {
                         title={elem.title}
                         price={elem.price}
                         handleInput={this.props.handleInput}
-                        handleSubmitEditService={this.props.handleSubmitEditService}
                         handleSubmitDeleteService={this.props.handleSubmitDeleteService}
                     />
                 }) : ""}

@@ -98,7 +98,7 @@ export default class RenderSurvey extends React.Component {
                                     //             value={survey_question_options_id}
                                     //         ><span >{text}</span>&nbsp;&nbsp;&nbsp;
                                     // <span >{value}</span>
-                                    //         </button> 
+                                    //         </button>
                                     :
                                     // <button
                                     //     style={{ backgroundColor: "green" }}
@@ -158,7 +158,7 @@ export default class RenderSurvey extends React.Component {
                         Илтимос    {!isLogged ?
                                     <a
                                         onClick={this.handleLogin}>
-                                       
+
                                             <p className='pointer'>аккаунтингизга</p>
                                         </a> :
                                     <li onClick={this.handleLogout} >

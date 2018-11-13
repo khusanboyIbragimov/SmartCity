@@ -97,33 +97,6 @@ export default class MyServices extends React.Component {
             })
     }
 
-    handleSubmitEditService = (e) => {
-        e.preventDefault();
-        const { newTitle, newDescription, newPrice } = this.state;
-        axios
-            .patch(`/users/edit_service`, {
-                service_id: e.target.id,
-                title: newTitle,
-                description: newDescription,
-                price: newPrice,
-            })
-            .then( () => {
-                axios
-                    .get("/users/getUsersServices")
-                    .then( (res) => {
-                        this.setState({
-                            my_services: res.data
-                        })
-                    })
-                    .catch( (err) => {
-                        console.log(err);
-                    })
-            })
-            .catch( (err) => {
-                console.log(err);
-            })
-    }
-
     handleSubmitDeleteService = (e) => {
         e.preventDefault();
         axios
@@ -167,10 +140,9 @@ export default class MyServices extends React.Component {
                 </div>
                 <h3>Xизматларим</h3>
                 <hr/>
-                <RenderServiceBox 
+                <RenderServiceBox
                     my_services={my_services}
                     handleSubmitDeleteService={this.handleSubmitDeleteService}
-                    handleSubmitEditService={this.handleSubmitEditService}
                     handleInput={this.handleInput}
                 />
             </div>

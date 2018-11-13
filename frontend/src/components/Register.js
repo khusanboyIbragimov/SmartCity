@@ -31,13 +31,9 @@ export default class Register extends React.Component {
             .get("/users/userInfo")
             .then(res => {
                 this.setState({
-                    nickname: res.data[0].username
+                    nickname: res.data[0].username,
+                    redirect_user: true
                 })
-                if (this.state.nickname === this.state.nickname) {
-                    this.setState({
-                        redirect_user: true
-                    })
-                }
             })
             .catch(err => {
                 console.log(err);

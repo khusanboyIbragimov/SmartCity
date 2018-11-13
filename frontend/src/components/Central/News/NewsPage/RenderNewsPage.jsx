@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Modal } from 'react-bootstrap';
+import { Modal } from 'react-bootstrap';
 import axios from 'axios';
 import { Link } from "react-router-dom";
 const photo = require('../../../logo3.png');
@@ -7,7 +7,7 @@ var Moment = require("moment");
 require('moment/locale/uz');
 let gulakandozFiles = require("./gulakandozFiles");
 let api = gulakandozFiles.default;
-let gulakandozHistory = api[0];
+// let gulakandozHistory = api[0];
 let images = api[1];
 
 
@@ -17,7 +17,6 @@ export default class RenderNewsPage extends React.Component {
         super();
         this.state = {
             isUserLogged: false,
-            showHistoryText: false
         }
     }
 
@@ -27,11 +26,12 @@ export default class RenderNewsPage extends React.Component {
         })
     }
 
-    handleClickHistoryText = (e) => {
-        this.setState({
-            showHistoryText: !this.state.showHistoryText
-        })
-    }
+    // handleClickHistoryText = (e) => {
+    //     this.setState({
+    //         showHistoryText: !this.state.showHistoryText
+    //     })
+    // }
+
     handleLogin = () => {
         this.setState({
             isLogin: !this.state.isLogin
@@ -83,7 +83,6 @@ export default class RenderNewsPage extends React.Component {
             fullname, rightees, wrongees,
             handleSubmitRightNews, handleSubmitWrongNews, isLogged
         } = this.props;
-        const { showHistoryText } = this.state;
         return (
             <div className='container'>
                 <div className="well">
@@ -91,14 +90,14 @@ export default class RenderNewsPage extends React.Component {
                         <div className="col-md-12">
                             <div className="row hidden-md hidden-lg"><h4 className="row hidden-md hidden-lg"><span style={{ color: 'rgb(241, 159, 77)' }} className='glyphicon glyphicon-globe'></span> {title}</h4></div>
 
-                            <div className="pull-left col-md-4 col-xs-12 thumb-contenido"><img style={{ height: "200px", width: "100%" }} className="center-block img-responsive" src={news_imgurl ? news_imgurl :
+                            <div className="pull-left col-md-4 col-xs-12 thumb-contenido"><img style={{ height: "200px", width: "100%" }} alt="yangilik surati" className="center-block img-responsive" src={news_imgurl ? news_imgurl :
                                     images[Math.floor(Math.random() * images.length)]}/></div>
                             <div className="">
                                     <h4 className="h4 hidden-xs hidden-sm"><span style={{ color: 'rgb(241, 159, 77)' }} className='glyphicon glyphicon-globe'></span> {title}</h4>
-                          
+
                                 <hr />
                                 <small><p id='time'><i className="fa fa-clock-o" aria-hidden="true"></i>&nbsp;{Moment(news_timestamp).format("LLLL")}</p></small>
-                                <small><strong><h5 className='author'><i className="fa fa-pencil " aria-hidden="true"></i>
+                                <small><strong><h5 className='author blue_font'><i className="fa fa-pencil " aria-hidden="true"></i>
                                             &nbsp;{fullname}</h5></strong></small>
                                 <hr />
                                 <div key={news_id}>
@@ -119,7 +118,7 @@ export default class RenderNewsPage extends React.Component {
                                             Илтимос {!isLogged ?
                                     <a
                                         onClick={this.handleLogin}>
-                                       
+
                                             <p className='pointer'>аккаунтингизга</p>
                                        </a> :
                                     <li onClick={this.handleLogout} >
@@ -194,7 +193,7 @@ export default class RenderNewsPage extends React.Component {
 
                                 </div>
                                 </div>
-                           
+
                         </div>
                     </div>
                     {userId ? <div className='row'>
@@ -228,7 +227,7 @@ export default class RenderNewsPage extends React.Component {
                                 }
                 </div>
 
-                
+
                 {/* <div className='row'>
                     <div className="panel panel-default">
                         <div className="panel-heading">

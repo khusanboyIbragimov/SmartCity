@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { Redirect } from "react-router";
-import { Button, Modal } from 'react-bootstrap';
+import { Modal } from 'react-bootstrap';
 const photo = require('./logo3.png');
 
 export default class Login extends React.Component {

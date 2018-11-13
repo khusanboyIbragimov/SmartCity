@@ -146,7 +146,7 @@ export default class Navbar extends React.Component {
                     <div style={{paddingBottom: "0px", paddingLeft: '30px', paddingRight: '30px'}} className="container-fluid">
                         <div className="navbar-header">
                             <button  type="button" className="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                               <span style={{ color: 'rgb(241, 159, 77)' }}>Меню</span> 
+                               <span style={{ color: 'rgb(241, 159, 77)' }}>Меню</span>
                                 &nbsp;<i style={{ color: '#0093d3' }} className="fa fa-bars"></i>
                             </button>
                             <Link to='/'>
@@ -169,7 +169,7 @@ export default class Navbar extends React.Component {
                                     to="/sc/news"
                                     data-toggle="collapse"
                                     data-target=".navbar-collapse.in">
-                                    <b><span className='glyphicon glyphicon-globe nav-icons'></span><span style={{letterSpacing: '1px'}} className='nav-tabz'>Янгиликлар</span></b> 
+                                    <b><span className='glyphicon glyphicon-globe nav-icons'></span><span style={{letterSpacing: '1px'}} className='nav-tabz'>Янгиликлар</span></b>
                                     </Link>
                                 </li>
                                 <li><Link
@@ -177,7 +177,7 @@ export default class Navbar extends React.Component {
                                     to="/sc/announcement"
                                     data-toggle="collapse"
                                     data-target=".navbar-collapse.in">
-                                    <b><span className='glyphicon glyphicon-bullhorn nav-icons'></span><span style={{letterSpacing: '1px'}} className='nav-tabz'>Эълонлар</span></b> 
+                                    <b><span className='glyphicon glyphicon-bullhorn nav-icons'></span><span style={{letterSpacing: '1px'}} className='nav-tabz'>Эълонлар</span></b>
                                     </Link>
                                 </li>
                                 <li><Link
@@ -185,7 +185,7 @@ export default class Navbar extends React.Component {
                                     to="/sc/ratings"
                                     data-toggle="collapse"
                                     data-target=".navbar-collapse.in">
-                                    <b><span className='glyphicon glyphicon-star nav-icons'></span><span style={{letterSpacing: '1px'}} className='nav-tabz'>Рейтинг</span></b> 
+                                    <b><span className='glyphicon glyphicon-star nav-icons'></span><span style={{letterSpacing: '1px'}} className='nav-tabz'>Рейтинг</span></b>
                                     </Link>
                                 </li>
                                 <li><Link
@@ -250,7 +250,7 @@ export default class Navbar extends React.Component {
                                 >
                                     <Modal.Header closeButton>
                                         <Modal.Title id="contained-modal-title">
-                                        <h4><img alt="" style={{height: '16px'}}src={photo}/> маъмурияти</h4>
+                                        <div><img alt="" style={{height: '16px'}} src={photo}/> маъмурияти</div>
                                     </Modal.Title>
                                     </Modal.Header>
                                     <Modal.Body>
@@ -283,7 +283,7 @@ export default class Navbar extends React.Component {
                                                 >
                                                     <Modal.Header closeButton>
                                                         <Modal.Title id="contained-modal-title">
-                                                        <h4><img alt="" style={{height: '16px'}}src={photo}/> маъмурияти</h4>
+                                                        <div><img alt="" style={{height: '16px'}}src={photo}/> маъмурияти</div>
                                                     </Modal.Title>
                                                     </Modal.Header>
                                                     <Modal.Body>
@@ -300,7 +300,7 @@ export default class Navbar extends React.Component {
                             </ul>
                         </div>
                     </div>
-                    <b><footer className='text-right' style={{ fontFamily: 'san-serif', fontSize: '12px', paddingRight: '45px', letterSpacing: '-0.1px'}} >{isLogged ? <span style={{color: 'rgb(241, 159, 77)'}}>Хуш келибсиз! </span>:''}<span style={{ color: 'rgb(241, 159, 77)' }}></span><span style={{ color: '#0093d3' }}>{firstName[0]}</span></footer></b>
+                    <b><footer className='text-right' style={{ fontFamily: 'san-serif', fontSize: '12px', paddingRight: '45px', letterSpacing: '-0.1px'}} >{isLogged ? <span style={{color: 'rgb(241, 159, 77)'}}>Хуш келибсиз </span>:''}<span style={{ color: 'rgb(241, 159, 77)' }}></span><span style={{ color: '#0093d3' }}>{firstName[0]?firstName[0]+"!":""}</span></footer></b>
                 </nav>
                 <div className="container-fluid bg-1 text-center">
                     <div id="myCarousel" className="carousel slide" data-ride="carousel">
@@ -340,4 +340,3 @@ export default class Navbar extends React.Component {
         )
     }
 }
-

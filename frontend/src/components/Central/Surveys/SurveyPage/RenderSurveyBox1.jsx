@@ -10,7 +10,7 @@ export default class RenderSurveyBox1 extends React.Component {
                     this.props.surveyAndOptions !== undefined ?
                         this.props.surveyAndOptions.map((ele, i) => (
                             <div key={Math.random()} className='container'>
-                                <div className="panel panel-default">
+                                <div className="panel panel-default gold_border">
                                 <div className="panel-heading">
                                 <h4 style={{ color: '#0093d3' }}
                                            className='text-left'>
@@ -28,8 +28,8 @@ export default class RenderSurveyBox1 extends React.Component {
                                             handleVote={this.props.handleVote}
                                             user_id={this.props.user_id}
                                         />
-                                        <p style={{ fontSize: '12px', color: '#999' }}
-                                           className='text-right'>
+                                        <p style={{ fontSize: '12px'}}
+                                           className='text-right blue_font'>
                                            <i className="fa fa-pencil" aria-hidden="true"></i>
                                            &nbsp;{ele[i] !== undefined? ele[i].fullname:""}
                                         </p>

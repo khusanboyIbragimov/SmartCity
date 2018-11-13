@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default class RenderService extends React.Component {
-    
+
     constructor(props) {
         super(props);
         this.state = {
@@ -85,28 +85,10 @@ export default class RenderService extends React.Component {
                         <div className="panel-footer">
                             <div className="row">
                                 <form
-                                    onSubmit={this.props.handleSubmitEditService}
-                                    id={this.props.service_id}>
-                                    {!toggleEditService ?
-                                        <button
-                                            className="col-sm-6 col-xs-6 btn btn-success"
-                                            onClick={this.handleClickEditService}
-                                            id={this.props.service_id}>
-                                            <span className='glyphicon glyphicon-edit'></span>
-                                            &nbsp;ўзгартириш
-                                                    </button> :
-                                        <button
-                                            className="col-sm-6 col-xs-6 btn btn-success"
-                                            onClick={this.handleClickEditService2}>
-                                            <span className='glyphicon glyphicon-floppy-saved'></span>
-                                            &nbsp;сақлаш
-                                                    </button>}
-                                </form>
-                                <form
                                     onSubmit={this.props.handleSubmitDeleteService}
                                     id={this.props.service_id}>
                                     <button
-                                        className="col-sm-6 col-xs-6 btn btn-danger"
+                                        className="col-sm-12 col-xs-12 btn btn-danger"
                                         onClick={this.handleClickEditService2}>
                                         <span className='glyphicon glyphicon-trash'></span>
                                         &nbsp;ўчириш

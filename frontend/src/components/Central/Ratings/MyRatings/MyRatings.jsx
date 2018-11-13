@@ -56,35 +56,9 @@ export default class MyRatings extends React.Component {
             })
     }
 
-    handleSubmitEditMyRating = (e) => {
-        e.preventDefault();
-        const { newRatingQuestion } = this.state;
-        axios
-            .patch(`/users/edit_my_rating`, {
-                rating_question_id: e.target.id,
-                rating_question: newRatingQuestion,
-            })
-            .then(() => {
-                axios
-                    .get("/users/getMyRatings")
-                    .then((res) => {
-                        this.setState({
-                            my_ratings: res.data
-                        })
-                    })
-                    .catch((err) => {
-                        console.log(err);
-                    })
-            })
-            .catch((err) => {
-                console.log(err);
-            })
-    }
-
     handleSubmitDeleteMyRating = (e) => {
         e.preventDefault();
         let ratingQuestionId = e.target.id;
-        console.log(ratingQuestionId)
         axios
             .patch("/users/delete_feedback_4my_rating", {
                 rating_question_id: e.target.id
@@ -131,7 +105,7 @@ export default class MyRatings extends React.Component {
                                 className="form-control"
                                 placeholder="рэйтинг матни"
                             ></input><br />
-                            <button className='btn btn-success form-control'> 
+                            <button className='btn btn-success form-control'>
                                 Рэйтинг тарқатиш
                             </button>
                         </form>
@@ -142,11 +116,10 @@ export default class MyRatings extends React.Component {
                 <RenderMyRatingsBox
                     my_ratings={my_ratings}
                     handleInput={this.handleInputRatingQuestion}
-                    handleSubmitEditMyRating={this.handleSubmitEditMyRating}
                     handleSubmitDeleteMyRating={this.handleSubmitDeleteMyRating}
                 />
             </div>
-            
+
         )
     }
 }

@@ -96,32 +96,14 @@ export default class RenderSale extends React.Component {
                                 </p>
                             </div>
                         </div>
-                        
+
                         <div className="panel-footer">
                             <div className="row">
-                                <form
-                                    onSubmit={this.props.handleSubmitEditSaleItem}
-                                    id={this.props.item_id}>
-                                    {!toggleEditSaleItem ?
-                                        <button
-                                            className="col-sm-6 col-xs-6 btn btn-success"
-                                            onClick={this.handleClickEditSaleItem}
-                                            id={this.props.item_id}>
-                                            <span className='glyphicon glyphicon-edit'></span>
-                                            &nbsp;ўзгартириш
-                                                    </button> :
-                                        <button
-                                            className="col-sm-6 col-xs-6 btn btn-success"
-                                            onClick={this.handleClickEditSaleItem2}>
-                                            <span className='glyphicon glyphicon-floppy-saved'></span>
-                                            &nbsp;сақлаш
-                                                    </button>}
-                                </form>
                                 <form
                                     onSubmit={this.props.handleSubmitDeleteSaleItem}
                                     id={this.props.item_id}>
                                     <button
-                                        className="col-sm-6 col-xs-6 btn btn-danger"
+                                        className="col-sm-12 col-xs-12 btn btn-danger"
                                         onClick={this.handleClickEditSaleItem2}>
                                         <span className='glyphicon glyphicon-trash'></span>
                                         &nbsp;ўчириш
@@ -133,7 +115,7 @@ export default class RenderSale extends React.Component {
                 </div>
             </div>
             </div>
-           
+
         )
     }
 }

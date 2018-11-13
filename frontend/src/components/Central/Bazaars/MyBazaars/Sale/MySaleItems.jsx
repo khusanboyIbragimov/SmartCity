@@ -102,34 +102,6 @@ export default class MyRentItems extends React.Component {
             })
     }
 
-    handleSubmitEditSaleItem = (e) => {
-        e.preventDefault();
-        const { newTitle, newDescription, newPrice, newCondition } = this.state;
-        axios
-            .patch(`/users/edit_sale_item`, {
-                item_id: e.target.id,
-                title: newTitle,
-                description: newDescription,
-                price: newPrice,
-                condition: newCondition
-            })
-            .then(() => {
-                axios
-                    .get("/users/getUsersSaleItems")
-                    .then((res) => {
-                        this.setState({
-                            my_sale_items: res.data
-                        })
-                    })
-                    .catch((err) => {
-                        console.log(err);
-                    })
-            })
-            .catch((err) => {
-                console.log(err);
-            })
-    }
-
     handleSubmitDeleteSaleItem = (e) => {
         e.preventDefault();
         axios
@@ -199,7 +171,6 @@ export default class MyRentItems extends React.Component {
                 <RenderSaleBox
                     my_sale_items={my_sale_items}
                     handleSubmitDeleteSaleItem={this.handleSubmitDeleteSaleItem}
-                    handleSubmitEditSaleItem={this.handleSubmitEditSaleItem}
                     handleInput={this.handleInput}
                 />
             </div>
