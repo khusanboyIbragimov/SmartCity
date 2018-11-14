@@ -15,7 +15,6 @@ export default class RenderSaleBox extends React.Component {
                         condition={elem.condition}
                         item_timestamp={elem.item_timestamp}
                         handleInput={this.props.handleInput}
-                        handleSubmitEditSaleItem={this.props.handleSubmitEditSaleItem}
                         handleSubmitDeleteSaleItem={this.props.handleSubmitDeleteSaleItem}
                     />
                 )) : ""}

@@ -78,10 +78,10 @@ export default class RenderRating extends React.Component {
                 <div className='row'>
                     <div className='col-sm-3'></div>
                     <div className='col-sm-6'>
-                        <div className="panel panel-default">
+                        <div className="panel panel-default gold_border">
                             <div className="panel-heading">
                                 <h4 className="panel-title" style={{ color: "#0093d3" }}>
-                                <span style={{color: 'rgb(241, 159, 77)'}} className='glyphicon glyphicon-star'></span> 
+                                <span style={{color: 'rgb(241, 159, 77)'}} className='glyphicon glyphicon-star'></span>
                                 &nbsp;{this.props.rating_question}
                                 </h4>
                             </div>
@@ -121,13 +121,13 @@ export default class RenderRating extends React.Component {
                                     >
                                         <Modal.Header closeButton>
                                             <Modal.Title id="contained-modal-title">
-                                                <div 
-                                                    className="panel-title" 
+                                                <div
+                                                    className="panel-title"
                                                     style={{ color: "#0093d3", fontSize: '22px' }}
-                                                    > 
-                                                    <b><span className='glyphicon glyphicon-list-alt'></span></b> 
+                                                    >
+                                                    <b><span className='glyphicon glyphicon-list-alt'></span></b>
                                                     &nbsp;{this.props.rating_question}
-                                                </div>                                            
+                                                </div>
                                             </Modal.Title>
                                         </Modal.Header>
                                         <Modal.Body>

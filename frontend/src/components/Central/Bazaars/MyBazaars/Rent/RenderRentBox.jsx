@@ -14,7 +14,6 @@ export default class RenderRentBox extends React.Component {
                         price={elem.price}
                         item_timestamp={elem.item_timestamp}
                         handleInput={this.props.handleInput}
-                        handleSubmitEditRentItem={this.props.handleSubmitEditRentItem}
                         handleSubmitDeleteRentItem={this.props.handleSubmitDeleteRentItem}
                     />
                 )) : ""}

@@ -3,7 +3,8 @@ import io from 'socket.io-client';
 import { USER_CONNECTED, LOGOUT } from '../Events';
 import LoginForm from './LoginForm';
 import ChatContainer from './chats/ChatContainer';
-const socketUrl = 'http://172.20.10.11:3100/';
+const socketUrl = 'http://localhost:3100/';
+// const socketUrl = 'http://192.168.43.95:3100/';
 var socket = io(socketUrl);
 
 export default class Layout extends Component {

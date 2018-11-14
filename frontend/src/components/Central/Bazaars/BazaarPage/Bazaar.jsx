@@ -110,7 +110,7 @@ export default class Bazaar extends React.Component {
                                 <div key={Math.random()}>
                                     <Link to={`/sc/bazaar/${ele.item_id || ele.service_id}/${ele.section}`}>
                                         <div className="col-sm-3 col-xs-12">
-                                            <div className="panel panel-default text-center listing listing-radius listing-success">
+                                            <div className="panel panel-default text-center listing listing-radius listing-success gold_border">
                                                 <div className="shape">
                                                     {ele.section && ele.section === "sale" ? <div className="shape-text">сотилади</div> : ""}
                                                     {ele.section && ele.section === "rent" ? <div className="shape-text">ижара</div> : ""}
@@ -146,4 +146,3 @@ export default class Bazaar extends React.Component {
         )
     }
 }
-

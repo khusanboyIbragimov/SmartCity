@@ -122,4 +122,3 @@ export default class Survey extends React.Component {
         )
     }
 }
-

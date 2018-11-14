@@ -62,33 +62,6 @@ export default class MyNews extends React.Component {
         })
     }
 
-
-    handleSubmitEditNews = (e) => {
-        e.preventDefault();
-        const { newTitle, newText } = this.state;
-        axios
-            .patch(`/users/editnews`, {
-                news_id: e.target.id,
-                title: newTitle,
-                text: newText,
-            })
-            .then(() => {
-                axios
-                    .get("/users/getUsersPosts")
-                    .then((res) => {
-                        this.setState({
-                            news: res.data
-                        })
-                    })
-                    .catch((err) => {
-                        console.log(err);
-                    })
-            })
-            .catch((err) => {
-                console.log(err);
-            })
-    }
-
     handleSubmitDeleteNews = (e) => {
         e.preventDefault();
         var user_id = e.target.id;
@@ -212,7 +185,6 @@ export default class MyNews extends React.Component {
                 <RenderNewsBox
                     news={news}
                     handleInput={this.handleInput}
-                    handleSubmitEditNews={this.handleSubmitEditNews}
                     handleSubmitDeleteNews={this.handleSubmitDeleteNews}
                 />
             </div>

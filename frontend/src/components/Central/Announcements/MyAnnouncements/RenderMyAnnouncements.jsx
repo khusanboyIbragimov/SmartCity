@@ -2,7 +2,7 @@ import React from 'react';
 var Moment = require("moment");
 require('moment/locale/uz');
 
-export default class RenderAnnouncements extends React.Component {
+export default class RenderMyAnnouncements extends React.Component {
 
     constructor(props) {
         super(props);
@@ -27,8 +27,7 @@ export default class RenderAnnouncements extends React.Component {
         const { toggleEditAnnouncements } = this.state;
         return (
             <div>
-               
-                <div className="panel panel-default">
+              <div className="panel panel-default">
                     <div className="panel-body">
                         <div className='row'>
                             <div className='col-sm-12 text-left' id={this.props.announcement_id}>
@@ -59,30 +58,14 @@ export default class RenderAnnouncements extends React.Component {
                                     </textarea>
                                 }
                             </div>
+                        </div><hr />
+                        <div className='col-sm-12'>
+                            <p style={{ color: "grey", fontSize: "12px", textAlign: "right" }}>
+                                {Moment(this.props.announ_timestamp).format("LLLL")}
+                            </p>
                         </div>
                         <div className='row'>
-                            <div className='col-sm-6 '>
-                                <div className='row'>
-                                    <div className='col-sm-6 col-xs-6'>
-                                        <form onSubmit={this.props.handleSubmitEditAnnouncement} id={this.props.announcement_id}>
-                                            {!toggleEditAnnouncements ?
-                                                <button
-                                                    style={{ width: '100%' }}
-                                                    className='btn btn-success'
-                                                    onClick={this.handleClickEditAnnouncements}
-                                                    id={this.props.announcement_id}>
-                                                    <span className='glyphicon glyphicon-edit'></span> ўзгартираман
-                                                    </button> :
-                                                <button
-                                                    style={{ width: '100%' }}
-                                                    className='btn btn-success'
-                                                    onClick={this.handleClickEditAnnouncements2}>
-                                                    <span className='glyphicon glyphicon-floppy-saved'></span> сақлайман
-                                                    </button>
-                                            }
-                                        </form>
-                                    </div>
-                                    <div className='col-sm-6 col-xs-6'>
+                            <div className='col-sm-12 col-xs-12 '>
                                         <form
                                             onSubmit={this.props.handleSubmitDeleteAnnouncement}
                                             id={this.props.announcement_id}>
@@ -90,17 +73,9 @@ export default class RenderAnnouncements extends React.Component {
                                                 style={{ width: '100%' }}
                                                 className='btn btn-danger'
                                                 onClick={this.handleClickEditAnnouncements2}>
-                                                <span className='glyphicon glyphicon-trash'></span> ўчираман
-                                                    </button>
+                                                <span className='glyphicon glyphicon-trash'></span> ўчириш
+                                            </button>
                                         </form>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className='col-sm-6'>
-                                <hr />
-                                <p style={{ color: "grey", fontSize: "12px", textAlign: "right" }}>
-                                    {Moment(this.props.announ_timestamp).format("LLLL")}
-                                </p>
                             </div>
                         </div>
                     </div>

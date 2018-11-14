@@ -56,7 +56,9 @@ CREATE TABLE services(
 CREATE TABLE rating_question(
   rating_question_id SERIAL PRIMARY KEY,
   rating_question VARCHAR,
-  user_id INTEGER REFERENCES users);
+  user_id INTEGER REFERENCES users,
+  rating_timestamp timestamp not null default CURRENT_TIMESTAMP);
+
 
 CREATE TABLE rating_question_score(
   rating_question_score_id SERIAL PRIMARY KEY,
@@ -68,7 +70,8 @@ CREATE TABLE rating_question_score(
 CREATE TABLE survey_question(
   survey_question_id SERIAL PRIMARY KEY,
   survey_question VARCHAR,
-  user_id INTEGER REFERENCES users);
+  user_id INTEGER REFERENCES users,
+  survey_timestamp timestamp not null default CURRENT_TIMESTAMP);
 
 CREATE TABLE survey_question_options(
   survey_question_options_id SERIAL PRIMARY KEY,

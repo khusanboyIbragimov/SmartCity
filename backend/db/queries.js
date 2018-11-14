@@ -24,7 +24,7 @@ function userInfo(req, res, next) {
 
 function getAllNews(req, res, next) {
   db.any(
-   `SELECT news.news_id, title, news_timestamp, FULLname, news_imgurl, text, 
+   `SELECT news.news_id, title, news_timestamp, FULLname, news_imgurl, text,
     string_agg(DISTINCT rightnews.USER_id::CHARACTER VARYING, ', ') AS users_who_agree,
     string_agg(DISTINCT wrongnews.USER_id::CHARACTER VARYING, ', ') AS users_who_disagree
     FROM rightnews
@@ -45,8 +45,8 @@ function getAllNews(req, res, next) {
 function getAllRentItems(req, res, next) {
   db.any(
    `SELECT title, description, item_timestamp, FULLname, item_id, phone_number, price, item4rent_imgurl, section
-    FROM item4rent 
-    INNER JOIN users 
+    FROM item4rent
+    INNER JOIN users
     ON(users.user_id=item4rent.user_id)
     ORDER BY item_timestamp DESC;`
   )
@@ -61,8 +61,8 @@ function getAllRentItems(req, res, next) {
 function getAllServices(req, res, next) {
   db.any(
    `SELECT title, description, FULLname, service_id, phone_number, price, service_imgurl, section
-    FROM services 
-    INNER JOIN users 
+    FROM services
+    INNER JOIN users
     ON(users.user_id=services.user_id);`
   )
   .then( data => {
@@ -76,8 +76,8 @@ function getAllServices(req, res, next) {
 function getAllSaleItems(req, res, next) {
   db.any(
    `SELECT title, condition, description, item_timestamp, FULLname, item_id, phone_number, price, item4sale_imgurl, section
-    FROM item4sale 
-    INNER JOIN users 
+    FROM item4sale
+    INNER JOIN users
     ON(users.user_id=item4sale.user_id)
     ORDER BY item_timestamp DESC;`
   )
@@ -101,7 +101,7 @@ function getAllSaleItems(req, res, next) {
 
 function getAllSurveys(req, res, next) {
   db.any(
-   `SELECT survey_question.survey_question_id, survey_question, 
+   `SELECT survey_question.survey_question_id, survey_question,survey_timestamp,
     survey_question_options.survey_question_options_id, fullname, options AS text,
     string_agg(DISTINCT votes_of_options.USER_id::CHARACTER VARYING, ',') AS users
     FROM votes_of_options
@@ -111,8 +111,9 @@ function getAllSurveys(req, res, next) {
     ON (survey_question.survey_question_id=survey_question_options.survey_question_id)
     INNER JOIN users
     ON (survey_question.user_id=users.user_id)
-    GROUP BY survey_question.survey_question_id, survey_question_options.options, 
-    survey_question_options.survey_question_options_id, users.fullname;`
+    GROUP BY survey_question.survey_question_id, survey_question_options.options,
+    survey_question_options.survey_question_options_id, users.fullname
+    ORDER BY survey_timestamp desc;`
   )
   .then( data => {
     res.json(data);
@@ -126,8 +127,8 @@ function getSingleItem(req, res, next) {
   if (req.params.section === 'sale') {
     db.any(
       `SELECT title, condition, description, item_timestamp, fullname, phone_number, price, item4sale_imgurl, views
-       FROM item4sale 
-       INNER JOIN users 
+       FROM item4sale
+       INNER JOIN users
        ON(users.user_id=item4sale.user_id)
        WHERE item_id=${req.params.id}`
     )
@@ -140,8 +141,8 @@ function getSingleItem(req, res, next) {
   } else if (req.params.section === 'rent') {
     db.any(
       `SELECT title, condition, description, item_timestamp, fullname, phone_number, price, item4rent_imgurl, views
-       FROM item4rent 
-       INNER JOIN users 
+       FROM item4rent
+       INNER JOIN users
        ON(users.user_id=item4rent.user_id)
        WHERE item_id=${req.params.id}`
     )
@@ -154,8 +155,8 @@ function getSingleItem(req, res, next) {
   } else if (req.params.section === 'service') {
     db.any(
       `SELECT title, description, fullname, phone_number, price, service_imgurl, views
-       FROM services 
-       INNER JOIN users 
+       FROM services
+       INNER JOIN users
        ON(users.user_id=services.user_id)
        WHERE service_id=${req.params.id}`
     )
@@ -171,8 +172,8 @@ function getSingleItem(req, res, next) {
 function getAllAnnouncements(req, res, next) {
   db.any(
     `SELECT title, announcement, announ_timestamp, FULLname, announcement_id
-     FROM announcement 
-     INNER JOIN users 
+     FROM announcement
+     INNER JOIN users
      ON(users.user_id=announcement.user_id)
      ORDER BY announ_timestamp DESC;`
    )
@@ -186,8 +187,8 @@ function getAllAnnouncements(req, res, next) {
 
 function getUsersPosts(req, res, next) {
   db.any(
-    `SELECT * 
-     FROM news 
+    `SELECT *
+     FROM news
      WHERE user_id=${req.user.user_id}
      ORDER BY news_timestamp DESC;`
   )
@@ -201,8 +202,8 @@ function getUsersPosts(req, res, next) {
 
 function getUsersAnnouncement(req, res, next) {
   db.any(
-    `SELECT * 
-     FROM announcement 
+    `SELECT *
+     FROM announcement
      WHERE user_id=${req.user.user_id}
      ORDER BY announ_timestamp DESC;`
   )
@@ -291,7 +292,7 @@ function getUsersSaleItems(req, res, next) {
 
 // SELECT survey_question.survey_question_id, survey_question, fullname,  AVG(rating_score), array(SELECT feedback FROM survey_rating WHERE survey_rating.survey_question_id IN(SELECT survey_question_id FROM survey_rating))
 //    FROM survey_question
-//    INNER JOIN users 
+//    INNER JOIN users
 //    ON(users.user_id=survey_question.user_id)
 // FULL JOIN survey_rating
 // ON(survey_question.survey_question_id=survey_rating.survey_question_id)
@@ -299,30 +300,31 @@ function getUsersSaleItems(req, res, next) {
 
 // SELECT feedback, survey_rating.survey_question_id
 // FROM survey_rating
-// WHERE survey_rating.survey_question_id 
+// WHERE survey_rating.survey_question_id
 // IN (SELECT survey_question.survey_question_id
-// FROM survey_question 
+// FROM survey_question
 // INNER JOIN survey_rating
 // ON (survey_question.survey_question_id=survey_rating.survey_question_id))
 // GROUP BY survey_rating.survey_question_id, survey_rating.feedback
 
 
-// SELECT survey_question_id , string_agg(user_id::CHARACTER varying, ',') 
-// FROM survey_rating 
+// SELECT survey_question_id , string_agg(user_id::CHARACTER varying, ',')
+// FROM survey_rating
 // GROUP BY survey_question_id;
 
 function getAllRatings(req, res, next) {
   if (req.user !== undefined) {
     db.any(
-      `SELECT rating_question.rating_question_id, rating_question, fullname,  
+      `SELECT rating_question.rating_question_id, rating_question, fullname, rating_timestamp,
        AVG(rating_score), string_agg(rating_question_score.user_id::CHARACTER varying, ',') AS users_who_rated,
        string_agg(DISTINCT feedback, ' ~* ') AS feedbacks
        FROM rating_question
-       INNER JOIN users 
+       INNER JOIN users
        ON(users.user_id=rating_question.user_id)
        FULL JOIN rating_question_score
        ON(rating_question.rating_question_id=rating_question_score.rating_question_id)
-       GROUP BY rating_question.rating_question_id, users.fullname, rating_question_score.rating_question_id;`
+       GROUP BY rating_question.rating_question_id, users.fullname, rating_question_score.rating_question_id
+			 ORDER BY rating_timestamp DESC;`
      )
      .then( data => {
        if (data !== null) {
@@ -332,13 +334,13 @@ function getAllRatings(req, res, next) {
      .catch( err => {
        console.log(err);
      })
-  } 
+  }
   else {
     db.any(
       `SELECT rating_question.rating_question_id, rating_question, fullname,  AVG(rating_score),
        string_agg(DISTINCT feedback, ' ~* ') AS feedbacks
        FROM rating_question
-       INNER JOIN users 
+       INNER JOIN users
        ON(users.user_id=rating_question.user_id)
        FULL JOIN rating_question_score
        ON(rating_question.rating_question_id=rating_question_score.rating_question_id)
@@ -369,7 +371,7 @@ function getWrongCounts(req, res, next) {
   .catch( err => {
     console.log(err);
   })
-} 
+}
 
 function getRightCounts(req, res, next) {
     db.any(
@@ -499,7 +501,7 @@ function postSurveyOptions(req, res, next) {
       const options = req.body.options;
       const queries = options.map( option => {
         return t.none(
-          "INSERT INTO survey_question_options (survey_question_id, options) VALUES (${survey_question_id}, ${options})", 
+          "INSERT INTO survey_question_options (survey_question_id, options) VALUES (${survey_question_id}, ${options})",
           {
             survey_question_id: req.body.survey_question_id,
             options: option.name
@@ -644,7 +646,7 @@ function postSurveyVote(req, res, next) {
 
 function insertRightNews(req, res, next) {
   return db.none(
-    "INSERT INTO rightnews (user_id, news_id) VALUES (${user_id}, ${news_id})", 
+    "INSERT INTO rightnews (user_id, news_id) VALUES (${user_id}, ${news_id})",
     {
       user_id: req.user.user_id,
       news_id: req.body.news_id
@@ -652,7 +654,7 @@ function insertRightNews(req, res, next) {
   )
     .then( (data) => {
       return db.none(
-        `DELETE 
+        `DELETE
          FROM wrongnews
          WHERE user_id=${req.user.user_id} AND news_id=${req.body.news_id}
          `
@@ -668,7 +670,7 @@ function insertRightNews(req, res, next) {
 
 function insertWrongNews(req, res, next) {
   return db.none(
-    "INSERT INTO wrongnews (user_id, news_id) VALUES (${user_id}, ${news_id})", 
+    "INSERT INTO wrongnews (user_id, news_id) VALUES (${user_id}, ${news_id})",
     {
       user_id: req.user.user_id,
       news_id: req.body.news_id
@@ -676,7 +678,7 @@ function insertWrongNews(req, res, next) {
   )
     .then( (data) => {
       return db.none(
-        `DELETE 
+        `DELETE
          FROM rightnews
          WHERE user_id=${req.user.user_id} AND news_id=${req.body.news_id}
          `
@@ -775,7 +777,7 @@ function deleteNews(req, res, next) {
   return db
     .none(
       `DELETE
-       FROM news 
+       FROM news
        WHERE news_id=${req.body.news_id}`
     )
     .then( (data) => {
@@ -790,7 +792,7 @@ function deleteRightNews(req, res, next) {
   console.log("deleterightNews: ", req.body.news_id)
   return db
     .none(
-      `DELETE 
+      `DELETE
        FROM rightnews
        WHERE news_id=${req.body.news_id};`
     )
@@ -806,7 +808,7 @@ function deleteWrongNews(req, res, next) {
   console.log("deletewrongNews: ", req.body.news_id)
   return db
     .none(
-      `DELETE 
+      `DELETE
        FROM wrongnews
        WHERE news_id=${req.body.news_id};`
     )
@@ -822,7 +824,7 @@ function deleteAnnouncement(req, res, next) {
   return db
   .none(
     `DELETE
-     FROM announcement 
+     FROM announcement
      WHERE announcement_id=${req.body.announcement_id}`
   )
   .then( (data) => {
@@ -836,7 +838,7 @@ function deleteAnnouncement(req, res, next) {
 function deleteMyRating(req, res, next) {
   return db
     .none(
-      `DELETE 
+      `DELETE
        FROM rating_question
        WHERE rating_question_id=${req.body.rating_question_id};`
     )
@@ -851,7 +853,7 @@ function deleteMyRating(req, res, next) {
 function deleteMySurvey(req, res, next) {
   return db
     .none(
-      `DELETE 
+      `DELETE
        FROM survey_question
        WHERE survey_question_id=${req.body.survey_question_id};`
     )
@@ -866,7 +868,7 @@ function deleteMySurvey(req, res, next) {
 function deleteFeedback4MyRating(req, res, next) {
   return db
     .none(
-      `DELETE 
+      `DELETE
        FROM rating_question_score
        WHERE rating_question_id=${req.body.rating_question_id};`
     )
@@ -881,7 +883,7 @@ function deleteFeedback4MyRating(req, res, next) {
 function deleteRentItem(req, res, next) {
   return db
     .none(
-      `DELETE 
+      `DELETE
        FROM item4rent
        WHERE item_id=${req.body.item_id};`
     )
@@ -896,7 +898,7 @@ function deleteRentItem(req, res, next) {
 function deleteService(req, res, next) {
   return db
     .none(
-      `DELETE 
+      `DELETE
        FROM services
        WHERE service_id=${req.body.service_id};`
     )
@@ -911,7 +913,7 @@ function deleteService(req, res, next) {
 function deleteSaleItem(req, res, next) {
   return db
     .none(
-      `DELETE 
+      `DELETE
        FROM item4sale
        WHERE item_id=${req.body.item_id};`
     )

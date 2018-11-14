@@ -15,17 +15,17 @@
    height: 34px;
    width: 34px;
    }
-   
+
    .member_list li:last-child {
    border-bottom:none;
-   } 
+   }
 .chat_area {
   float: left;
   height: 300px;
   overflow-x: hidden;
   overflow-y: auto;
   width: 100%;
-  background-image: url("http://hasshe.com/img/s/ex2Ohl2iwRt4iiGg-1HVQgHaKi.jpg"); 
+  background-image: url("http://hasshe.com/img/s/ex2Ohl2iwRt4iiGg-1HVQgHaKi.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -45,7 +45,7 @@
 
 .giychat_body{
   margin-top:20px;
-  background:#eee; 
+  background:#eee;
 }
 
 .medium-image {
@@ -84,11 +84,11 @@ width: auto;
 max-width: calc(100% - 150px);
 float: left;
 /* chap message bodysi */
-background-color: #fff;
+background-color: rgb(241, 159, 77);
 border-radius: 4px;
 border: 1px solid #dbe3e8;
 margin: 0 5px 20px 15px;
-color: #788288;
+color: #fff;
 }
 
 .message:after {
@@ -129,7 +129,7 @@ height: 20px;
 
 
 .message .message-info > h5 {
-color: #a2b8c5;
+color: #fff;
 margin: 8px 0 0 0;
 font-size: 10px;
 float: right;
@@ -140,7 +140,7 @@ padding-right: 10px;
 font-size: 12px;
 font-weight: 600;
 margin: 7px 13px 0 10px;
-color: #65addd;
+color: #fff;
 float: left;
 }
 
@@ -170,7 +170,7 @@ right: 63px;
 float: left;
 z-index: 100;
 border-top: 10px solid transparent;
-border-left: 13px solid #fff;
+border-left: 13px solid rgb(241, 159, 77);
 border-bottom: 10px solid transparent;
 border-right: none;
 }
@@ -291,5 +291,3 @@ opacity: 0.9;
 .footer-away{
   height: 200px;
 }
-
-

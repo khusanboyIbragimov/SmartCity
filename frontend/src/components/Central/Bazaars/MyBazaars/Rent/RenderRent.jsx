@@ -86,8 +86,8 @@ export default class RenderRent extends React.Component {
                                                 onChange={this.props.handleInput}>
                                             </input>}<br />
                                     </div>
-                                    <div className="col-sm-6 col-xs-6"> 
-                                                    {/* {!toggleEditRentItem ? 
+                                    <div className="col-sm-6 col-xs-6">
+                                                    {/* {!toggleEditRentItem ?
                                                         <p><i className="fa fa-heartbeat" aria-hidden="true"></i>
                                                             &nbsp;{this.props.condition}
                                                         </p> :
@@ -118,28 +118,10 @@ export default class RenderRent extends React.Component {
                         <div className="panel-footer">
                             <div className="row">
                                 <form
-                                    onSubmit={this.props.handleSubmitEditRentItem}
-                                    id={this.props.item_id}>
-                                    {!toggleEditRentItem ?
-                                        <button
-                                            className="col-sm-6 col-xs-6 btn btn-success"
-                                            onClick={this.handleClickEditRentItem}
-                                            id={this.props.item_id}>
-                                            <span className='glyphicon glyphicon-edit'></span>
-                                            &nbsp;ўзгартириш
-                                                    </button> :
-                                        <button
-                                            className="col-sm-6 col-xs-6 btn btn-success"
-                                            onClick={this.handleClickEditRentItem2}>
-                                            <span className='glyphicon glyphicon-floppy-saved'></span>
-                                            &nbsp;сақлаш
-                                                    </button>}
-                                </form>
-                                <form
                                     onSubmit={this.props.handleSubmitDeleteRentItem}
                                     id={this.props.item_id}>
                                     <button
-                                        className="col-sm-6 col-xs-6 btn btn-danger"
+                                        className="col-sm-12 col-xs-12 btn btn-danger"
                                         onClick={this.handleClickEditRentItem2}>
                                         <span className='glyphicon glyphicon-trash'></span>
                                         &nbsp;ўчириш

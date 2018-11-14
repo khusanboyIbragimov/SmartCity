@@ -1,6 +1,6 @@
  .App {
   text-align: center;
-} 
+}
 body{
   background-color: #f0eeec;
   font-family:  'Market Sans', 'Helvetica Neue', Helvetica, Arial, Roboto, sans-serif;
@@ -177,7 +177,7 @@ span.round-tab:hover {
 
 
 .thumb-contenido{
-    
+
   margin-bottom:1%;
   margin-left: 0px;
   padding-left: 0px;
@@ -189,4 +189,19 @@ span.round-tab:hover {
   color: grey;
   letter-spacing: 1px;
   font-size: 10px;
+}
+
+.well {
+  border-color: rgb(241, 159, 77);
+}
+
+.card {
+  border-color: rgb(241, 159, 77);
+}
+
+.gold_border {
+  border-color: rgb(241, 159, 77);
+}
+.blue_font {
+  color: #0093d3;
 }
