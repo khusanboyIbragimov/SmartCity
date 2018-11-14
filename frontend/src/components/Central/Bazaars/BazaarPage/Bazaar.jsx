@@ -117,9 +117,9 @@ export default class Bazaar extends React.Component {
                                                     {ele.section && ele.section === "service" ? <div className="shape-text">хизмат</div> : ""}
                                                 </div>
                                                 <div className="panel-heading">
-                                                    {ele.section && ele.section === "service" ? <h4 className='text-left' id='title'><i style={{color: 'rgb(241, 159, 77)'}} className="fa fa-wrench" aria-hidden="true"></i> {ele.title}</h4> : ""}
-                                                    {ele.section && ele.section === "rent" ? <h4 className='text-left' id='title'><i style={{color: 'rgb(241, 159, 77)'}} className="fa fa-handshake-o" aria-hidden="true"></i> {ele.title}</h4> : ""}
-                                                    {ele.section && ele.section === "sale" ? <h4 className='text-left' id='title'><i style={{color: 'rgb(241, 159, 77)'}} className="fa fa-shopping-cart" aria-hidden="true"></i> {ele.title}</h4> : ""}
+                                                {ele.section && ele.section === "service" ? <h4 className='text-left' id='title'><i style={{color: 'rgb(241, 159, 77)'}} className="fa fa-wrench" aria-hidden="true"></i> </h4> : ""}
+                                                    {ele.section && ele.section === "rent" ? <h4 className='text-left' id='title'><i style={{color: 'rgb(241, 159, 77)'}} className="fa fa-handshake-o" aria-hidden="true"></i> </h4> : ""}
+                                                    {ele.section && ele.section === "sale" ? <h4 className='text-left' id='title'><i style={{color: 'rgb(241, 159, 77)'}} className="fa fa-shopping-cart" aria-hidden="true"></i> </h4> : ""}
 
                                                 </div>
                                                 <div className="panel-body">
@@ -128,7 +128,10 @@ export default class Bazaar extends React.Component {
                                                     {ele.service_imgurl ? <img src={ele.service_imgurl} alt="hizmat surati" style={{ height: "200px", width: "100%" }} /> : ""}
                                                 </div>
                                                 <div className="panel-footer">
-                                                    <h4 className='text-left' id="price"><i className="fa fa-money" aria-hidden="true"></i>&nbsp;{ele.price}{" "}<span id='somon'>сомони</span></h4>
+                                                    {ele.section && ele.section === "service" ? <h5 className='text-left' id='title'> {ele.title}</h5> : ""}
+                                                    {ele.section && ele.section === "rent" ? <h5 className='text-left' id='title'> {ele.title}</h5> : ""}
+                                                    {ele.section && ele.section === "sale" ? <h5 className='text-left' id='title'>{ele.title}</h5> : ""}
+                                                    <h5 className='text-left' id="price"><i className="fa fa-money" aria-hidden="true"></i>&nbsp;{ele.price}{" "}<span id='somon'>сомони</span></h5>
                                                     <p className='text-right' id='time'><i className="fa fa-clock-o" aria-hidden="true"></i>&nbsp;{Moment(ele.item_timestamp).format("LLLL")}</p>
                                                 </div>
                                             </div>

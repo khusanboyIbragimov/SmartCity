@@ -53,7 +53,7 @@ export default class RenderSale extends React.Component {
                                         onChange={this.props.handleInput}>
                                     </textarea>}<br />
                                 <div className='row'>
-                                    <div className="col-sm-6 col-xs-12">
+                                    <div className="col-sm-12 col-xs-12">
                                         {!toggleEditSaleItem ?
                                             <p className='text-left'><i className="fa fa-money" aria-hidden="true"></i>&nbsp;қиймати:
                                                     &nbsp;{this.props.price} сомони
@@ -68,7 +68,7 @@ export default class RenderSale extends React.Component {
                                                 onChange={this.props.handleInput}>
                                             </input>}
                                     </div>
-                                    <div className="col-sm-6 col-xs-12">
+                                    <div className="col-sm-12 col-xs-12">
                                         {!toggleEditSaleItem ?
                                             <p className='text-left'><i className="fa fa-heartbeat" aria-hidden="true"></i>&nbsp;аҳволи:
                                                 &nbsp;{this.props.condition}
