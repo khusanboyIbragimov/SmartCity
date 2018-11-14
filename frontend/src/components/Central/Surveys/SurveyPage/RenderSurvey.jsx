@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import axios from 'axios';
 const photo = require('../../../logo3.png');
 
-
 export default class RenderSurvey extends React.Component {
     constructor() {
         super();
@@ -130,6 +129,7 @@ export default class RenderSurvey extends React.Component {
                         </div>
                         <div className='col-sm-9 col-xs-9 text-left'>
                             {text}
+
                         </div>
                         <div className='col-sm-1 col-xs-1 text-right'>
                             <i style={{color: 'rgb(241, 159, 77)'}} className="fa fa-line-chart" aria-hidden="true">&nbsp;{value}</i>
