@@ -1,5 +1,5 @@
-DROP DATABASE IF EXISTS db_smartcity;
-CREATE DATABASE db_smartcity;
+-- DROP DATABASE IF EXISTS db_smartcity;
+-- CREATE DATABASE db_smartcity;
 
 \c db_smartcity
 
