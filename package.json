@@ -1,0 +1,23 @@
+{
+  "name": "chatterbox",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "cd back-end && npm install && node ./bin/www",
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mail4inom/GulApp"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mail4inom/GulApp/issues"
+  },
+  "homepage": "https://github.com/susanahan/ChatterBox#readme",
+  "dependencies": {
+    "axios": "^0.18.0"
+  }
+}
