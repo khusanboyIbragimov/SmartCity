@@ -16,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/mail4inom/GulApp/issues"
   },
-  "homepage": "https://github.com/mail4inom/GulApp/issues",
+  "homepage": "https://github.com/mail4inom/GulApp/",
   "dependencies": {
     "axios": "^0.18.0"
   },
