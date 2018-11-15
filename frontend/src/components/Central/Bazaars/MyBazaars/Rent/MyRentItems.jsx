@@ -53,7 +53,7 @@ export default class MyRentItems extends React.Component {
 
     onUploadFinish = (img) => {
         this.setState({
-            item4rent_imgurl: "https://s3.us-east-2.amazonaws.com/gulapp/" + img.filename,
+            item4rent_imgurl: "https://s3.us-east-2.amazonaws.com/gulapp2/" + img.filename,
             showWaitMessage: false,
             showSubmitButton: true
         })

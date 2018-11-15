@@ -48,7 +48,7 @@ export default class Announcement extends React.Component {
                                     <div className="col-sm-4" key={announcement.announcement_id}>
                                         <div className="card" >
                                             <div className="avatar">
-                                                <img className='annon_img' src="https://scontent-frt3-2.cdninstagram.com/vp/3ca2fb4fd8fb9e90234d42da07f63fed/5C505CC9/t51.2885-15/e35/41349438_869720689897963_6915892188155667819_n.jpg" alt="" />
+                                                <img className='annon_img' src={announcement.user_imgurl} alt="" />
                                             </div>
                                             <div className="content">
                                                 <p className="personName">{announcement.fullname}</p>

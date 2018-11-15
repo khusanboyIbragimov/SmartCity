@@ -58,7 +58,7 @@ const s3 = new AWS.S3({
 })
 
 app.use('/s3', require('react-s3-uploader/s3router')({
-  bucket: "gulapp",
+  bucket: "gulapp2",
   region: "us-east-2",
   headers: {'Access-Control-Allow-Origin': '*'},
   ACL: 'public-read'

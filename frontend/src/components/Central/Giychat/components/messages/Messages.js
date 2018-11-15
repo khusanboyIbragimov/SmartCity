@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { css } from "glamor";
 import ScrollToBottom from "react-scroll-to-bottom";
+import axios from 'axios';
 
 const ROOT_CSS = css({
 	height: 300,
@@ -8,6 +9,29 @@ const ROOT_CSS = css({
 });
 
 export default class Messages extends Component {
+
+	constructor(props) {
+		super(props);
+
+		this.state = {
+            user_imgurl: "",
+		};
+	}
+
+	componentDidMount() {
+		axios
+			.get("/users/userInfo")
+			.then(res => {
+				this.setState({
+					user_imgurl: res.data[0].user_imgurl
+                })
+			})
+			.catch(err => {
+				console.log(err);
+			})
+	}
+
+
 	render() {
 		const { messages, user, typingUsers } = this.props
 
@@ -24,7 +48,7 @@ export default class Messages extends Component {
 										// className={`message-container ${mes.sender === user.name && 'right'}`}
 										>
 											<div className="message my-message ">
-												<img alt="" className="img-circle medium-image" src='https://scontent-frt3-2.cdninstagram.com/vp/3ca2fb4fd8fb9e90234d42da07f63fed/5C505CC9/t51.2885-15/e35/41349438_869720689897963_6915892188155667819_n.jpg' />
+												<img alt="" className="img-circle medium-image" src={this.state.user_imgurl} />
 												<div className="message-body">
 													<div className="message-body-inner">
 														<div className="message-info">
@@ -45,7 +69,7 @@ export default class Messages extends Component {
 										// className={`message-container ${mes.sender === user.name && 'right'}`}
 										>
 											<div class="message info">
-												<img alt="" class="img-circle medium-image" src='https://scontent-frt3-2.cdninstagram.com/vp/3ca2fb4fd8fb9e90234d42da07f63fed/5C505CC9/t51.2885-15/e35/41349438_869720689897963_6915892188155667819_n.jpg' />
+												<img alt="" className="img-circle medium-image" src='https://scontent-frt3-2.cdninstagram.com/vp/3ca2fb4fd8fb9e90234d42da07f63fed/5C505CC9/t51.2885-15/e35/41349438_869720689897963_6915892188155667819_n.jpg' />
 
 												<div class="message-body">
 													<div class="message-info">

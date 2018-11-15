@@ -86,14 +86,9 @@ export default class Navbar extends React.Component {
             .get("/users/logoutUser")
             .then((res) => {
                 this.setState({
-                    isLogged: false
-                })
-            })
-            .then(() => {
-                window.location.reload();
-            }).then( (res) => {
-                this.setState({
+                    isLogged: false,
                     redirect: true
+
                 })
             })
             .catch((err) => {

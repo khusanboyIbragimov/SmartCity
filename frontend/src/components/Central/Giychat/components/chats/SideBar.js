@@ -1,10 +1,33 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 // import FAChevronDown from 'react-icons/lib/md/keyboard-arrow-down'
 // import FAMenu from 'react-icons/lib/fa/list-ul'
 // import FASearch from 'react-icons/lib/fa/search'
 // import MdEject from 'react-icons/lib/md/eject'
 
 export default class SideBar extends Component {
+
+
+	constructor(props) {
+		super(props);
+
+		this.state = {
+            user_imgurl: "",
+		};
+	}
+
+	componentDidMount() {
+		axios
+			.get("/users/userInfo")
+			.then(res => {
+				this.setState({
+					user_imgurl: res.data[0].user_imgurl
+                })
+			})
+			.catch(err => {
+				console.log(err);
+			})
+	}
 
 	render() {
 		const { logout } = this.props
@@ -19,7 +42,7 @@ export default class SideBar extends Component {
 							<ul key={Math.random()} className="list-unstyled">
 								<li  className="left clearfix">
 									<span className="chat-img pull-left">
-										<img src='https://scontent-frt3-2.cdninstagram.com/vp/3ca2fb4fd8fb9e90234d42da07f63fed/5C505CC9/t51.2885-15/e35/41349438_869720689897963_6915892188155667819_n.jpg' alt="User Avatar" className="img-circle" />
+										<img src={this.state.user_imgurl} alt="User Avatar" className="img-circle" />
 									</span>
 									<div className="chat-body clearfix">
 										<div className="header_sec ">

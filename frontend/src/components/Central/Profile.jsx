@@ -120,7 +120,7 @@ export default class Profile extends React.Component {
 
     onUploadFinish = (img) => {
         this.setState({
-            user_imgurl: "https://s3.us-east-2.amazonaws.com/gulapp/" + img.filename
+            user_imgurl: "https://s3.us-east-2.amazonaws.com/gulapp2/" + img.filename
         })
     }
 

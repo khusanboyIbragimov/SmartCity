@@ -25,7 +25,7 @@ export default class LoginForm extends Component {
 			.then(res => {
 				this.setState({
 					nickname: res.data[0].username
-				})
+                })
 			})
 			.catch(err => {
 				console.log(err);

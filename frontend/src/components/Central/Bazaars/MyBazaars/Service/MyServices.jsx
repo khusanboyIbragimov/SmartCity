@@ -51,7 +51,7 @@ export default class MyServices extends React.Component {
 
     onUploadFinish = (img) => {
         this.setState({
-            service_imgurl: "https://s3.us-east-2.amazonaws.com/gulapp/" + img.filename,
+            service_imgurl: "https://s3.us-east-2.amazonaws.com/gulapp2/" + img.filename,
             showWaitMessage: false,
             showSubmitButton: true
         })

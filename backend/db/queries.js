@@ -171,7 +171,7 @@ function getSingleItem(req, res, next) {
 
 function getAllAnnouncements(req, res, next) {
   db.any(
-    `SELECT title, announcement, announ_timestamp, FULLname, announcement_id
+    `SELECT title, announcement, announ_timestamp, FULLname, user_imgurl, announcement_id
      FROM announcement
      INNER JOIN users
      ON(users.user_id=announcement.user_id)
@@ -179,6 +179,7 @@ function getAllAnnouncements(req, res, next) {
    )
    .then( data => {
      res.json(data);
+     console.log(data)
    })
    .catch( err => {
      console.log(err);

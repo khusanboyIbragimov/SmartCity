@@ -49,7 +49,7 @@ export default class MyNews extends React.Component {
 
     onUploadFinish = (img) => {
         this.setState({
-            news_imgurl: "https://s3.us-east-2.amazonaws.com/gulapp/" + img.filename,
+            news_imgurl: "https://s3.us-east-2.amazonaws.com/gulapp2/" + img.filename,
             showWaitMessage: false,
             showSubmitButtonWithPhoto: true
         })
