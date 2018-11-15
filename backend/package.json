@@ -3,8 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www",
-    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
+    "start": "node ./bin/www",
   },
   "dependencies": {
     "aws-sdk": "^2.334.0",
@@ -25,5 +24,9 @@
     "react-s3-uploader": "^4.8.0",
     "socket.io": "^2.1.1",
     "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "concurrently": "^4.0.1",
+    "nodemon": "^1.14.11"
   }
 }

@@ -1,11 +1,11 @@
 {
-  "name": "chatterbox",
+  "name": "gulakapp",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "cd back-end && npm install && node ./bin/www",
-    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
+    "start": "cd backend && npm install && node ./bin/www",
+    "heroku-postbuild": "cd frontend && npm install --only=dev && npm install && npm run build"
   },
   "repository": {
     "type": "git",
@@ -16,8 +16,11 @@
   "bugs": {
     "url": "https://github.com/mail4inom/GulApp/issues"
   },
-  "homepage": "https://github.com/susanahan/ChatterBox#readme",
+  "homepage": "https://github.com/mail4inom/GulApp/issues",
   "dependencies": {
     "axios": "^0.18.0"
+  },
+  "engines": {
+    "node": "8.11.3"
   }
 }
