@@ -27,7 +27,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 // app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, '/frontend/build'))); //this is the only thing that's different - 'client/build'
+app.use(express.static(path.join('../backend/frontend/build'))); //this is the only thing that's different - 'client/build'
 
 app.use(session({
   secret: "\x02\xf3\xf7r\t\x9f\xee\xbbu\xb1\xe1\x90\xfe'\xab\xa6L6\xdd\x8d[\xcc0\xfe",
@@ -42,7 +42,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '/frontend/build/', 'index.html'));
+  res.sendFile(path.join(__dirname + '../backend/frontend/build/index.html'));
 });
 
 
