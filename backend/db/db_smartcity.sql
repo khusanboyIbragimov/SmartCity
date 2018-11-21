@@ -1,7 +1,7 @@
-DROP DATABASE IF EXISTS db_smartcity;
-CREATE DATABASE db_smartcity;
-
-\c db_smartcity
+-- DROP DATABASE IF EXISTS db_smartcity;
+-- CREATE DATABASE db_smartcity;
+--
+-- \c db_smartcity
 
 CREATE TABLE users(
   user_id SERIAL PRIMARY KEY,
