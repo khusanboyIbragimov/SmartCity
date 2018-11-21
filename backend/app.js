@@ -43,6 +43,7 @@ app.use(passport.session());
 
 app.get('*', (req, res) => {
   res.sendFile(path.join('../backend/frontend/build/index.html'));
+  res.sendFile(index);
 });
 
 
