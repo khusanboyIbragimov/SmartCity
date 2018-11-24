@@ -3,8 +3,8 @@ import axios from 'axios';
 import RenderNewsPageBox from "./RenderNewsPageBox";
 import io from 'socket.io-client';
 import { LOGOUT } from '../../Giychat/Events';
-const socketUrl = "http://192.168.43.95:3100";
-// const socketUrl = "http://localhost:3100";
+// const socketUrl = "http://192.168.43.95:3100";
+const socketUrl = "http://localhost:3100";
 
 export default class News extends React.Component {
 

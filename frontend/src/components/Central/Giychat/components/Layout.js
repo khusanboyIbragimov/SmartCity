@@ -57,6 +57,7 @@ export default class Layout extends Component {
 		for (let key in onlineUsers) {
 			onlineUserNames.push(key);
 		}
+		console.log("herokuuuuuuu=======>>>>>>>>>   ", user);
 		return (
 			<div className="container giychat_body">
 				<div className='row'>
