@@ -36,14 +36,10 @@ app.use(session({
 }));
 
 app.use(cookieParser());
-// app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(passport.initialize());
 app.use(passport.session());
-
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname + '../frontend/build/index.html'));
-});
 
 
 app.get("/isloggedin", function(req, res) {
@@ -55,8 +51,13 @@ app.get("/isloggedin", function(req, res) {
 });
 
 
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname + '../frontend/build/index.html'));
+});
 
 const s3 = new AWS.S3({
   accessKeyId: process.env.AWS_ACCESS_KEY,
