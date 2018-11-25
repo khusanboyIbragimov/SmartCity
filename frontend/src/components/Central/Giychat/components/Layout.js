@@ -3,9 +3,9 @@ import io from 'socket.io-client';
 import { USER_CONNECTED, LOGOUT } from '../Events';
 import LoginForm from './LoginForm';
 import ChatContainer from './chats/ChatContainer';
-const socketUrl = 'https://g-smartcity.herokuapp.com/socket.io/socket.io.js';
+const socketUrl = 'http://localhost:3100/';
 // const socketUrl = 'http://192.168.43.95:3100/';
-var socket = io(socketUrl);
+var socket = io();
 
 export default class Layout extends Component {
 
