@@ -5,7 +5,7 @@ import { Modal } from 'react-bootstrap';
 import io from 'socket.io-client';
 import { LOGOUT } from './Central/Giychat/Events';
 import { Redirect } from "react-router";
-const socketUrl = "http://localhost:3100";
+// const socketUrl = "http://localhost:3100";
 const photo = require('./logo3.png');
 
 export default class Navbar extends React.Component {
@@ -97,7 +97,7 @@ export default class Navbar extends React.Component {
     }
 
     logout = () => {
-        const socket = io(socketUrl);
+        const socket = io();
         let username = this.state.loggedUsername.length > 0 ? this.state.loggedUsername : ""
         socket.emit(LOGOUT, username);
     }

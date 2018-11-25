@@ -2,7 +2,7 @@ import React from "react";
 import io from 'socket.io-client';
 import { LOGOUT } from '../components/Central/Giychat/Events';
 import { Link } from "react-router-dom";
-const socketUrl = "http://localhost:3100";
+// const socketUrl = "http://localhost:3100";
 const photo = require('./logo2.png');
 
 export default class Home extends React.Component {
@@ -12,7 +12,7 @@ export default class Home extends React.Component {
     }
 
     logout = () => {
-        const socket = io(socketUrl);
+        const socket = io();
         let username = this.props.userInfo.length > 0 ? this.props.userInfo[0].username : ""
         socket.emit(LOGOUT, username);
     }

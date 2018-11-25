@@ -4,7 +4,7 @@ import io from 'socket.io-client';
 import { LOGOUT } from '../../Giychat/Events';
 import { Link } from 'react-router-dom'
 import './Bazaar.css'
-const socketUrl = "http://localhost:3100";
+// const socketUrl = "http://localhost:3100";
 var Moment = require("moment");
 require('moment/locale/uz');
 
@@ -57,7 +57,7 @@ export default class Bazaar extends React.Component {
     }
 
     logout = () => {
-        const socket = io(socketUrl);
+        const socket = io();
         let username = this.props.userInfo.length > 0 ? this.props.userInfo[0].username : ""
         socket.emit(LOGOUT, username)
     }

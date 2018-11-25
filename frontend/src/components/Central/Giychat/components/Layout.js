@@ -3,7 +3,7 @@ import io from 'socket.io-client';
 import { USER_CONNECTED, LOGOUT } from '../Events';
 import LoginForm from './LoginForm';
 import ChatContainer from './chats/ChatContainer';
-const socketUrl = 'http://localhost:3100/';
+// const socketUrl = 'http://localhost:3100/';
 // const socketUrl = 'http://192.168.43.95:3100/';
 var socket = io();
 
@@ -57,7 +57,6 @@ export default class Layout extends Component {
 		for (let key in onlineUsers) {
 			onlineUserNames.push(key);
 		}
-		console.log("herokuuuuuuu=======>>>>>>>>>   ", user);
 		return (
 			<div className="container giychat_body">
 				<div className='row'>

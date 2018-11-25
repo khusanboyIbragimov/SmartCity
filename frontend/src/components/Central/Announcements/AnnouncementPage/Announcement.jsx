@@ -2,7 +2,7 @@ import React from "react";
 import axios from 'axios';
 import io from 'socket.io-client';
 import { LOGOUT } from '../../Giychat/Events';
-const socketUrl = "http://localhost:3100";
+// const socketUrl = "http://localhost:3100";
 var Moment = require("moment");
 require('moment/locale/uz');
 
@@ -30,7 +30,7 @@ export default class Announcement extends React.Component {
     }
 
     logout = () => {
-        const socket = io(socketUrl);
+        const socket = io();
         let username = this.props.userInfo.length > 0 ? this.props.userInfo[0].username : ""
         socket.emit(LOGOUT, username);
     }
@@ -44,7 +44,7 @@ export default class Announcement extends React.Component {
                     <div  className="row ">
                         {announcements.map(announcement => {
                             return (
-                                
+
                                     <div className="col-sm-4" key={announcement.announcement_id}>
                                         <div className="card" >
                                             <div className="avatar">
@@ -54,11 +54,11 @@ export default class Announcement extends React.Component {
                                                 <p className="personName">{announcement.fullname}</p>
                                                 <p className='title'><span style={{ color: 'rgb(241, 159, 77)' }} className='glyphicon glyphicon-bullhorn'></span> {announcement.title}</p>
                                                 <p className="text_box">{announcement.announcement} </p>
-                                                <footer id='footer'><p className='text-right' id='time'><i className="fa fa-clock-o" aria-hidden="true"></i>&nbsp;{Moment(announcement.announ_timestamp).format("LLLL")}</p></footer> 
+                                                <footer id='footer'><p className='text-right' id='time'><i className="fa fa-clock-o" aria-hidden="true"></i>&nbsp;{Moment(announcement.announ_timestamp).format("LLLL")}</p></footer>
                                             </div>
                                         </div>
                                     </div>
-                                
+
                             )
                         })}
                     </div>
