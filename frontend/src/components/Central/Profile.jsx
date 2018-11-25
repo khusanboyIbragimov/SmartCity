@@ -8,7 +8,7 @@ import MyAnnouncements from "./Announcements/MyAnnouncements/MyAnnouncements";
 import MyBazaars from "./Bazaars/MyBazaars/MyBazaars";
 import io from 'socket.io-client';
 import { LOGOUT } from './Giychat/Events';
-const socketUrl = "http://localhost:3100";
+// const socketUrl = "http://localhost:3100";
 const photo = require('./logo_for_profile.png');
 
 var ReactS3Uploader = require("react-s3-uploader");
@@ -71,7 +71,7 @@ export default class Profile extends React.Component {
     }
 
     logout = () => {
-        const socket = io(socketUrl);
+        const socket = io();
         let username = this.props.userInfo.length > 0 ? this.props.userInfo[0].username : ""
         socket.emit(LOGOUT, username);
     }

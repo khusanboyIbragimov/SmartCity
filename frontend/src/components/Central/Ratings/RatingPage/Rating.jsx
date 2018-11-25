@@ -3,7 +3,7 @@ import axios from 'axios';
 import RenderRatingBox from "./RenderRatingBox";
 import io from 'socket.io-client';
 import { LOGOUT } from '../../Giychat/Events';
-const socketUrl = "http://localhost:3100";
+// const socketUrl = "http://localhost:3100";
 
 export default class Rating extends React.Component {
     constructor() {
@@ -42,7 +42,7 @@ export default class Rating extends React.Component {
     }
 
     logout = () => {
-        const socket = io(socketUrl);
+        const socket = io();
         let username = this.props.userInfo.length > 0? this.props.userInfo[0].username:""
         socket.emit(LOGOUT, username);
 	}
@@ -87,7 +87,7 @@ export default class Rating extends React.Component {
         this.setState({
           ratingScore: newRating
         })
-        
+
     }
 
     moreComments = (e) => {
@@ -116,4 +116,3 @@ export default class Rating extends React.Component {
         )
     }
 }
-

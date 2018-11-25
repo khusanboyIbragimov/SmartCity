@@ -4,7 +4,7 @@ import RenderNewsPageBox from "./RenderNewsPageBox";
 import io from 'socket.io-client';
 import { LOGOUT } from '../../Giychat/Events';
 // const socketUrl = "http://192.168.43.95:3100";
-const socketUrl = "http://localhost:3100";
+// const socketUrl = "http://localhost:3100";
 
 export default class News extends React.Component {
 
@@ -65,7 +65,7 @@ export default class News extends React.Component {
     }
 
     logout = () => {
-        const socket = io(socketUrl);
+        const socket = io();
         let username = this.props.userInfo.length > 0? this.props.userInfo[0].username:""
         socket.emit(LOGOUT, username);
 	}

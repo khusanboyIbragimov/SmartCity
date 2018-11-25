@@ -3,7 +3,7 @@ import axios from 'axios';
 import RenderSurveyBox1 from "./RenderSurveyBox1";
 import io from 'socket.io-client';
 import { LOGOUT } from '../../Giychat/Events';
-const socketUrl = "http://localhost:3100";
+// const socketUrl = "http://localhost:3100";
 
 export default class Survey extends React.Component {
     constructor() {
@@ -50,7 +50,7 @@ export default class Survey extends React.Component {
     }
 
     logout = () => {
-        const socket = io(socketUrl);
+        const socket = io();
         let username = this.props.userInfo.length > 0 ? this.props.userInfo[0].username : ""
         socket.emit(LOGOUT, username);
     }
