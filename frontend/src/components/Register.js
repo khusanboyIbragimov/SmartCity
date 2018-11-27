@@ -163,7 +163,9 @@ export default class Register extends React.Component {
                                         />
                                     </div>
                                     <div className="form-group col-lg-6">
-                                        <label>Суратингизни юкланг</label>
+                                          {/*<label>Суратингизни юкланг</label>
+                                        <br/>
+
                                         <ReactS3Uploader
                                             signingUrl="/s3/sign"
                                             signingUrlMethod="GET"
@@ -176,6 +178,8 @@ export default class Register extends React.Component {
                                             onClick={this.handleClick}
                                         /><br />
                                         {this.state.showWaitMessage ? <h5 style={{ color: 'red' }}>илтимос кутиб туринг...{" "} {completed}</h5> : ""}
+                                        */}
+                                        <button onClick={()=> {alert("Баъзи техник сабабларга кура айни пайт сурат юклаб булмайди. ")}}>cурат юкланг</button>
                                     </div>
                                     <p>{password !== confirm_password && confirm_password ? "пароллар хар хил" : ""}</p>
                                 </div>

@@ -217,10 +217,10 @@ export default class Profile extends React.Component {
                     <h2 className="text-center">Биз билан богланинг</h2>
                     <div className="row">
                         <div className="col-sm-5">
-                            <p>Биз билан богланинг ва биз сизга 24 соат ичида ́жавоб кайтарамиз.</p>
+                            <p>Биз билан богланинг ва биз сизга 24 соат ичида жавоб кайтарамиз.</p>
                             <p><span className="glyphicon glyphicon-map-marker"></span> Гулакандоз, TJ</p>
                             <p><span className="glyphicon glyphicon-phone"></span> +00 1515151515</p>
-                            <p><span className="glyphicon glyphicon-envelope"></span> smartcity@smartcity.tj</p>
+                            <p><span className="glyphicon glyphicon-envelope"></span> g-smartcity@g-smartcity.tj</p>
                         </div>
                         <div className="col-sm-7 slideanim">
                             <div className="row">

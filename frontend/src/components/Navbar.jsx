@@ -88,8 +88,10 @@ export default class Navbar extends React.Component {
                 this.setState({
                     isLogged: false,
                     redirect: true
-
                 })
+            })
+            .then( () => {
+              window.location.reload();
             })
             .catch((err) => {
                 console.log(err);
@@ -230,7 +232,7 @@ export default class Navbar extends React.Component {
                                                 className="glyphicon glyphicon-log-in nav-icons">
                                             </span></b>
                                         </a></li> :
-                                    <li onClick={this.handleLogout} redirect='/'>
+                                    <li onClick={this.handleLogout}>
                                         <a data-toggle="collapse"
                                             data-target=".navbar-collapse.in">
                                             <b><span style={{ fontSize: '18px' }}

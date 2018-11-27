@@ -164,6 +164,7 @@ export default class MyNews extends React.Component {
                             >
                             </textarea>
                             <br />
+                            {/*
                             <ReactS3Uploader
                                 signingUrl="/s3/sign"
                                 signingUrlMethod="GET"
@@ -175,10 +176,12 @@ export default class MyNews extends React.Component {
                                 onProgress={this.onUploadProgress}
                                 onClick={this.handleClick}
                             /><br />
+                          */}
                             {this.state.showWaitMessage ? <h4>илтимос кутиб туринг...{" "} {completed}</h4> : ""}
                             {this.state.showSubmitButtonWithPhoto ? <button className='btn btn-success form-control'>Янгилик тарқатиш</button> : ""}
                             {this.state.showSubmitButtonWithoutPhoto ? <button className='btn btn-success form-control'>Янгилик тарқатиш</button> : ""}
                         </form>
+                        <button onClick={()=> {alert("Баъзи техник сабабларга кура айни пайт сурат юклаб булмайди. ")}}>cурат юкланг</button>
                     </div>
                 </div>
                 <h3>Mенинг янгиликларим</h3>

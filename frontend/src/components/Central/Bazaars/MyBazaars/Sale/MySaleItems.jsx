@@ -148,6 +148,7 @@ export default class MyRentItems extends React.Component {
                             </select><br /><br />
                             <input style={{ borderColor: '#0093d3' }}
                                 className='form-control' type="text" pattern="[0-9]*" placeholder="қиймати (фақат сон миллий пулда)" name="price" onChange={this.handleInput} value={price} /><br />
+                            {/*
                             <h5 className='text-left'><i className="fa fa-file-image-o" aria-hidden="true"></i>
                                 &nbsp;Расм юкланг:</h5>
                             <ReactS3Uploader
@@ -161,10 +162,12 @@ export default class MyRentItems extends React.Component {
                                 onProgress={this.onUploadProgress}
                                 onClick={this.handleClick}
                             /><br />
+                            */}
                             {this.state.showWaitMessage ? <h5>илтимос кутиб туринг...{" "} {completed}</h5> : ""}
                             {this.state.showSubmitButton ? <button className='btn btn-success form-control'>сотиш</button> : ""}
                             {this.state.showSubmitButtonWithoutPhoto ? <button className='btn btn-success form-control'>сотиш</button> : ""}
                         </form>
+                        <button onClick={()=> {alert("Баъзи техник сабабларга кура айни пайт сурат юклаб булмайди. ")}}>cурат юкланг</button>
                     </div>
                 </div>
                 <h3>Cотиладиган буюмларим</h3>
