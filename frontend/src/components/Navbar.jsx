@@ -5,6 +5,7 @@ import { Modal } from 'react-bootstrap';
 import io from 'socket.io-client';
 import { LOGOUT } from './Central/Giychat/Events';
 import { Redirect } from "react-router";
+import IdleTimer from 'react-idle-timer';
 // const socketUrl = "http://localhost:3100";
 const photo = require('./logo3.png');
 
@@ -131,6 +132,12 @@ export default class Navbar extends React.Component {
             })
     }
 
+    onIdle = (e) => {
+      if (this.state.isLogged !== false) {
+        this.handleLogout();
+      }
+    }
+
     render() {
         const { isLogged, fullname, redirect } = this.state;
         if (redirect) {
@@ -138,6 +145,13 @@ export default class Navbar extends React.Component {
         }
         const firstName = fullname.split(" ");
         return (
+          <div>
+            <IdleTimer
+                element={document}
+                onIdle={this.onIdle}
+                debounce={250}
+                timeout={24000}
+            />
             <div>
                 <nav className="navbar navbar-default">
                     <div style={{paddingBottom: "0px", paddingLeft: '30px', paddingRight: '30px'}} className="container-fluid">
@@ -334,6 +348,7 @@ export default class Navbar extends React.Component {
                     </div>
                 </div>
             </div>
+          </div>
         )
     }
 }
