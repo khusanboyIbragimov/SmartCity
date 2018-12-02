@@ -150,7 +150,7 @@ export default class Navbar extends React.Component {
                 element={document}
                 onIdle={this.onIdle}
                 debounce={250}
-                timeout={24000}
+                timeout={180000}
             />
             <div>
                 <nav className="navbar navbar-default">
