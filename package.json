@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mail4inom/GulApp"
+    "url": "git+https://github.com/khusanboyIbragimov/SmartCity"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mail4inom/GulApp/issues"
+    "url": "https://github.com/khusanboyIbragimov/SmartCity/issues"
   },
-  "homepage": "https://github.com/mail4inom/GulApp/",
+  "homepage": "https://github.com/khusanboyIbragimov/SmartCity",
   "dependencies": {
     "axios": "^0.18.0"
   },
