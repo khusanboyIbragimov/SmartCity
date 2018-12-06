@@ -1,5 +1,5 @@
 var pgp = require("pg-promise")({});
-// var connectionString = "postgres://localhost/db_smartcity";
+// var connectionString = "postgres://localhost/db_smartcity_eng";
 var connectionString = process.env.DATABASE_URL;
 var db = pgp(connectionString);
 

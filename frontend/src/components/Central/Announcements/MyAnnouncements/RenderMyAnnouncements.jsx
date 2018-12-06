@@ -1,6 +1,6 @@
 import React from 'react';
 var Moment = require("moment");
-require('moment/locale/uz');
+// require('moment/locale/uz');
 
 export default class RenderMyAnnouncements extends React.Component {
 
@@ -36,7 +36,7 @@ export default class RenderMyAnnouncements extends React.Component {
                                     <input
                                         className="form-control"
                                         name="newTitle"
-                                        placeholder="сарлавха"
+                                        placeholder="title"
                                         onChange={this.props.handleInput}
                                         defaultValue="">
                                     </input>
@@ -53,7 +53,7 @@ export default class RenderMyAnnouncements extends React.Component {
                                         id="comment"
                                         name="newAnnouncement"
                                         defaultValue=""
-                                        placeholder="эълон матни"
+                                        placeholder="announcement text"
                                         onChange={this.props.handleInput}>
                                     </textarea>
                                 }
@@ -73,7 +73,7 @@ export default class RenderMyAnnouncements extends React.Component {
                                                 style={{ width: '100%' }}
                                                 className='btn btn-danger'
                                                 onClick={this.handleClickEditAnnouncements2}>
-                                                <span className='glyphicon glyphicon-trash'></span> ўчириш
+                                                <span className='glyphicon glyphicon-trash'></span> delete
                                             </button>
                                         </form>
                             </div>

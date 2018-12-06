@@ -1,6 +1,6 @@
 import React from 'react';
 var Moment = require("moment");
-require('moment/locale/uz');
+// require('moment/locale/uz');
 
 export default class RenderRent extends React.Component {
 
@@ -55,7 +55,7 @@ export default class RenderRent extends React.Component {
                                     style={{ borderColor: '#0093d3' }}
                                     className="form-control"
                                     name="newTitle"
-                                    placeholder="буюм номи"
+                                    placeholder="name of item"
                                     onChange={this.props.handleInput}>
                                 </input>}<br />
                         </div>
@@ -67,14 +67,14 @@ export default class RenderRent extends React.Component {
                                         style={{ borderColor: '#0093d3' }}
                                         className="form-control"
                                         name="newDescription"
-                                        placeholder="батафсил маълумот"
+                                        placeholder="description"
                                         onChange={this.props.handleInput}>
                                     </textarea>}<br />
                                 <div className='row'>
                                     <div className="col-sm-12 col-xs-12 text-left">
                                         {!toggleEditRentItem ?
                                             <p><i className="fa fa-money " aria-hidden="true"></i>&nbsp;
-                                                    қиймати: {this.props.price} сомони
+                                                    price: {this.props.price} USD
                                             </p> :
                                             <input
                                                 style={{ borderColor: '#0093d3' }}
@@ -82,7 +82,7 @@ export default class RenderRent extends React.Component {
                                                 name="newPrice"
                                                 type="text"
                                                 pattern="[0-9]*"
-                                                placeholder="қиймати (фақат сон миллий пулда)"
+                                                placeholder="price (only number)"
                                                 onChange={this.props.handleInput}>
                                             </input>}<br />
                                     </div>
@@ -124,7 +124,7 @@ export default class RenderRent extends React.Component {
                                         className="col-sm-12 col-xs-12 btn btn-danger"
                                         onClick={this.handleClickEditRentItem2}>
                                         <span className='glyphicon glyphicon-trash'></span>
-                                        &nbsp;ўчириш
+                                        &nbsp;delete
                                     </button>
                                 </form>
                             </div>

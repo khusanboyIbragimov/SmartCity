@@ -57,7 +57,7 @@ export default class Survey extends React.Component {
                             .catch(err => {
                                 console.log(err);
                             })
-                            this.setState({ 
+                            this.setState({
                                 options: [{name: ""}],
                                 surveyQuestion: ""
                             })
@@ -134,7 +134,7 @@ export default class Survey extends React.Component {
                                         onChange={this.handleInputSurveyQuestion}
                                         className="form-control"
                                         value={surveyQuestion}
-                                        placeholder="Сўров матни"
+                                        placeholder="Survey question"
                                     />
                                 </div>
                                 <div className="col-sm-1"></div>
@@ -150,7 +150,7 @@ export default class Survey extends React.Component {
                                                 style={{borderColor: '#0093d3'}}
                                                 value={option.name}
                                                 onChange={this.handleOptionInput(idx)}
-                                                placeholder={`Вариант ${idx + 1}`}
+                                                placeholder={`Option ${idx + 1}`}
                                             />
                                         </div>
                                         <div className="col-sm-2 col-xs-6">
@@ -158,7 +158,7 @@ export default class Survey extends React.Component {
                                                 className="form-control btn btn-primary"
                                                 type="button"
                                                 onClick={this.handleAddOption}
-                                                >Вариант&nbsp;
+                                                >Option&nbsp;
                                                 <i className="fa fa-plus" aria-hidden="true"></i>
                                                 </button>
                                         </div>
@@ -167,7 +167,7 @@ export default class Survey extends React.Component {
                                                 className="form-control btn btn-danger"
                                                 type="button"
                                                 onClick={idx < 1 ? this.nothing : this.handleRemoveOption(idx)}
-                                            >Вариант&nbsp;
+                                            >Option&nbsp;
                                             <i className="fa fa-minus" aria-hidden="true"></i>
                                             </button>
                                         </div>
@@ -175,13 +175,13 @@ export default class Survey extends React.Component {
                                 </div>
                             ))} <br />
                             <button className="form-control btn btn-success">
-                                Сўров тарқатиш
+                              submit
                             </button>
                         </form>
                     </div>
                 </div>
                 <br />
-                <h3>Менинг сўровларим</h3>
+                <h3>Мy surveys</h3>
                 <RenderMySurveysBox
                     surveysAndOptions={surveysAndOptions}
                     handleSubmitDeleteMySurvey={this.handleSubmitDeleteMySurvey}

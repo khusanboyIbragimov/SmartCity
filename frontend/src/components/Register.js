@@ -106,59 +106,59 @@ export default class Register extends React.Component {
                         <div className="container-page">
                             <form onSubmit={this.handleSubmit} >
                                 <div className="col-md-6">
-                                    <h3 className="dark-grey">Aккаунт яратиш</h3>
+                                    <h3 className="dark-grey">Create an account</h3>
                                     <div className="form-group col-lg-12">
-                                        <label>Юзернэйм</label>
+                                        <label>Username</label>
                                         <input
                                             className="form-control"
                                             type="text"
                                             onChange={this.handleInput}
                                             name="username"
-                                            placeholder="юзернэйм"
+                                            placeholder="username"
                                             required
                                         />
                                     </div>
                                     <div className="form-group col-lg-6">
-                                        <label>Тўлиқ исмингиз</label>
+                                        <label>Fullname</label>
                                         <input
                                             className="form-control"
                                             type="text"
                                             onChange={this.handleInput}
                                             name="fullname"
-                                            placeholder="тулиқ исмингиз"
+                                            placeholder="fullname"
                                             required
                                         />
                                     </div>
                                     <div className="form-group col-lg-6">
-                                        <label>Телефон номер</label>
+                                        <label>Phone number</label>
                                         <input
                                             className="form-control"
                                             type="text"
                                             onChange={this.handleInput}
                                             name="phone_number"
-                                            placeholder="телефон номерингиз"
+                                            placeholder="phone number"
                                             required
                                         />
                                     </div>
                                     <div className="form-group col-lg-6">
-                                        <label>Пароль</label>
+                                        <label>Password</label>
                                         <input
                                             className="form-control"
                                             type="password"
                                             onChange={this.handleInput}
                                             name="password"
-                                            placeholder="парол"
+                                            placeholder="password"
                                             required
                                         />
                                     </div>
                                     <div className="form-group col-lg-6">
-                                        <label>Қайтадан пароль</label>
+                                        <label>Confirm password</label>
                                         <input
                                             className="form-control"
                                             type="password"
                                             onChange={this.handleInput}
                                             name="confirm_password"
-                                            placeholder="қайтадан парол"
+                                            placeholder="confirm password"
                                             required
                                         />
                                     </div>
@@ -179,9 +179,9 @@ export default class Register extends React.Component {
                                         /><br />
                                         {this.state.showWaitMessage ? <h5 style={{ color: 'red' }}>илтимос кутиб туринг...{" "} {completed}</h5> : ""}
                                         */}
-                                        <button onClick={()=> {alert("Баъзи техник сабабларга кура айни пайт сурат юклаб булмайди. ")}}>cурат юкланг</button>
+                                        <button onClick={()=> {alert("Due to technical issues photo can not be uploaded ")}}>upload photo</button>
                                     </div>
-                                    <p>{password !== confirm_password && confirm_password ? "пароллар хар хил" : ""}</p>
+                                    <p>{password !== confirm_password && confirm_password ? "passwords do not match" : ""}</p>
                                 </div>
                                 <div className="col-md-6 text-justify">
                                     <h4 className="dark-grey">Ушбу вебсайтдан фойдаланиш шартлари ва қонунлари.</h4>
@@ -227,8 +227,8 @@ export default class Register extends React.Component {
                                     <p>
                                         c) Мен <b><span style={{ color: '#0093d3' }}>{fullname}</span></b> ушбу ердаги келтирилган қонун қоидаларни ҳаммасига риоя киламан! Аккаунтимни яратишларингни сурайман!
                                    </p>
-                                    {this.state.showSubmitButton ? <button className="btn btn-primary">яратиш</button> : ""}
-                                    {this.state.showSubmitButtonWithoutPhoto ? <button className="btn btn-primary">яратиш</button> : ""}
+                                    {this.state.showSubmitButton ? <button className="btn btn-primary">create</button> : ""}
+                                    {this.state.showSubmitButtonWithoutPhoto ? <button className="btn btn-primary">create</button> : ""}
                                 </div>
                             </form>
                         </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 var Moment = require("moment");
-require('moment/locale/uz');
+// require('moment/locale/uz');
 
 export default class RenderNews extends React.Component {
 
@@ -36,7 +36,7 @@ export default class RenderNews extends React.Component {
                                     <input
                                         className="form-control"
                                         name="newTitle"
-                                        placeholder="сарлавха"
+                                        placeholder="title"
                                         type="text"
                                         onChange={this.props.handleInput}>
                                     </input>
@@ -50,7 +50,7 @@ export default class RenderNews extends React.Component {
                                         rows="5"
                                         id="comment"
                                         name="newText"
-                                        placeholder="янгилик матни"
+                                        placeholder="text"
                                         type="text"
                                         onChange={this.props.handleInput}>
                                     </textarea>
@@ -69,7 +69,7 @@ export default class RenderNews extends React.Component {
                                                 style={{ width: '100%' }}
                                                 className='btn btn-danger'
                                                 onClick={this.handleClickEditNews2}>
-                                                <span className='glyphicon glyphicon-trash'></span> ўчириш
+                                                <span className='glyphicon glyphicon-trash'></span> delete
                                             </button>
                                         </form>
                                     </div>

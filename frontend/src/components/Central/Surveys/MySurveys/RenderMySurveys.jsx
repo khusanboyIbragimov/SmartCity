@@ -22,7 +22,7 @@ export default class RenderMySurveys extends React.Component {
                                     style={{ width: '100%' }}
                                     className='btn btn-danger'
                                 >
-                                    <span className='glyphicon glyphicon-trash'></span> ўчириш
+                                    <span className='glyphicon glyphicon-trash'></span> delete
                                 </button>
                             </form>
                         </div>

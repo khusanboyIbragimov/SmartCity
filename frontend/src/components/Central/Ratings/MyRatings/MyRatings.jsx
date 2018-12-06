@@ -103,16 +103,16 @@ export default class MyRatings extends React.Component {
                                 onChange={this.handleInputRatingQuestion}
                                 value={this.state.ratingQuestion}
                                 className="form-control"
-                                placeholder="рэйтинг матни"
+                                placeholder="rating question"
                             ></input><br />
                             <button className='btn btn-success form-control'>
-                                Рэйтинг тарқатиш
+                                submit
                             </button>
                         </form>
                     </div>
                 </div>
                 </div>
-                <h3>Менинг рейтингларим</h3>
+                <h3>My ratings</h3>
                 <RenderMyRatingsBox
                     my_ratings={my_ratings}
                     handleInput={this.handleInputRatingQuestion}

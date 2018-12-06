@@ -132,11 +132,11 @@ export default class MyRentItems extends React.Component {
                     <div className="panel-body">
                         <form onSubmit={this.handleSubmit}>
                             <input style={{ borderColor: '#0093d3' }}
-                                className='form-control' placeholder="буюм номи" onChange={this.handleInput} name="title" value={title} /><br />
+                                className='form-control' placeholder="name of item" onChange={this.handleInput} name="title" value={title} /><br />
                             <textarea style={{ borderColor: '#0093d3' }}
-                                className='form-control' rows="5" id="comment" placeholder="батафсил маълумот" onChange={this.handleInput} name="description" value={description} /><br />
+                                className='form-control' rows="5" id="comment" placeholder="description" onChange={this.handleInput} name="description" value={description} /><br />
                             <input style={{ borderColor: '#0093d3' }}
-                                className='form-control' type="text" pattern="[0-9]*" placeholder="қиймати (фақат сон миллий пулда)" name="price" onChange={this.handleInput} value={price} /><br />
+                                className='form-control' type="text" pattern="[0-9]*" placeholder="price (only number)" name="price" onChange={this.handleInput} value={price} /><br />
                             {/*
                             <h5 className='text-left'><i className="fa fa-file-image-o" aria-hidden="true"></i>
                                 &nbsp;Расм юкланг:</h5>
@@ -153,13 +153,13 @@ export default class MyRentItems extends React.Component {
                             /><br />
                           */}
                             {this.state.showWaitMessage ? <h5>илтимос кутиб туринг...{" "} {completed}</h5> : ""}
-                            {this.state.showSubmitButton ? <button className='btn btn-success form-control'>ижарага бериш</button> : ""}
-                            {this.state.showSubmitButtonWithoutPhoto ? <button className='btn btn-success form-control'>ижарага бериш</button> : ""}
+                            {this.state.showSubmitButton ? <button className='btn btn-success form-control'>rent</button> : ""}
+                            {this.state.showSubmitButtonWithoutPhoto ? <button className='btn btn-success form-control'>rent</button> : ""}
                         </form>
-                        <button onClick={()=> {alert("Баъзи техник сабабларга кура айни пайт сурат юклаб булмайди. ")}}>cурат юкланг</button>
+                        <button onClick={()=> {alert("Due to some technical issues photo can not be uploaded")}}>upload photo</button>
                     </div>
                 </div>
-                <h3>Ижарага берадиган буюмларим</h3>
+                <h3>My items for rent</h3>
                 <RenderRentBox
                     my_rent_items={my_rent_items}
                     handleSubmitDeleteRentItem={this.handleSubmitDeleteRentItem}

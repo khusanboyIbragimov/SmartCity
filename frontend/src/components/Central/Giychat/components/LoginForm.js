@@ -87,7 +87,7 @@ export default class LoginForm extends Component {
             })
     }
 
-  
+
     handleSubmit = (e) => {
         e.preventDefault();
         const { username, password } = this.state;
@@ -124,14 +124,13 @@ export default class LoginForm extends Component {
 
 	render() {
 		const { nickname, error, isLogged } = this.state
-		
+
 		if (nickname) {
 			return (
 				<div className="login">
-				
 					<form onSubmit={this.handleSubmit_socket} className="login-form" >
 						<label htmlFor="nickname">
-							<h4>Салом <span style={{ color: '#0093d3' }}>{nickname}</span> Ғийчатга мархамат.</h4>
+							<h4>Hi <span style={{ color: '#0093d3' }}>{nickname}</span> Welcome to chat.</h4>
 						</label>
 						{/* <input
 							ref={(input)=>{ this.textInput = input }}
@@ -143,7 +142,7 @@ export default class LoginForm extends Component {
 							/> */}
 						<div className="error">{error ? error : null}</div>
 						<button className='btn btn-success'><i className="fa fa-sign-in" aria-hidden="true"></i>
-							&nbsp;чатга кириш</button>
+							&nbsp;enter to chat</button>
 						<div className='footer-away'></div>
 					</form>
 				</div>
@@ -151,11 +150,11 @@ export default class LoginForm extends Component {
 		} else {
 			return (
 				<div>
-					<h5 style={{ color: 'red' }}>Илтимос <span style={{color: 'black'}}><i className="fa fa-weixin" aria-hidden="true"></i> Ғийчатга</span> кириш учун    {!isLogged ?
+					<h5 style={{ color: 'red' }}>Please login <span style={{color: 'black'}}><i className="fa fa-weixin" aria-hidden="true"></i> Ғийчатга</span> кириш учун    {!isLogged ?
                                     <a
                                         onClick={this.handleLogin}>
-                                       
-                                            <b>аккаунтингизга</b>
+
+                                            <b>to your account</b>
                                         </a> :
                                     <li onClick={this.handleLogout} redirect='/'>
                                         <a data-toggle="collapse"
@@ -172,30 +171,30 @@ export default class LoginForm extends Component {
                                 >
                                     <Modal.Header closeButton>
                                         <Modal.Title id="contained-modal-title">
-                                        <h4><img alt="" style={{height: '16px'}}src={photo}/> маъмурияти</h4>
+                                        <h4>SmartCity administration</h4>
                                     </Modal.Title>
                                     </Modal.Header>
                                     <Modal.Body>
-                                        {isLogged !== "loggedIn" ? <Link to="/sc/register" onClick={this.handleLogin}> Aккаунт яратиш </Link> : ""}
+                                        {isLogged !== "loggedIn" ? <Link to="/sc/register" onClick={this.handleLogin}>Create an account</Link> : ""}
                                         {isLogged !== "loggedIn" ?
                                             <form className="form-inline" onSubmit={this.handleSubmit} >
                                                 <div>
                                                     <input
                                                         type="text"
                                                         className="form-control"
-                                                        placeholder="юзернэйм"
+                                                        placeholder="username"
                                                         onChange={this.handleFormInput}
                                                         name="username"
                                                     />
                                                     <input
                                                         type="password"
                                                         className="form-control"
-                                                        placeholder="парол"
+                                                        placeholder="password"
                                                         onChange={this.handleFormInput}
                                                         name="password"
                                                     />
                                                     <hr />
-                                                    <button type="submit" className="btn btn-primary mb-2">Кириш</button>
+                                                    <button type="submit" className="btn btn-primary mb-2">Login</button>
                                                 </div>
                                                 <Modal
                                                     show={this.state.loginMessage}
@@ -205,20 +204,20 @@ export default class LoginForm extends Component {
                                                 >
                                                     <Modal.Header closeButton>
                                                         <Modal.Title id="contained-modal-title">
-                                                        <h4><img alt="" style={{height: '16px'}}src={photo}/> маъмурияти</h4>
+                                                        <h4>SmartCity administration</h4>
                                                     </Modal.Title>
                                                     </Modal.Header>
                                                     <Modal.Body>
-                                                        парол ёки юзернэймда хатолиги бор.
+                                                        password or username is incorrect
                                                     </Modal.Body>
                                                     <Modal.Footer>
-                                                        <button className='btn btn-success' onClick={this.handleLoginMessage}>ёпиш</button>
+                                                        <button className='btn btn-success' onClick={this.handleLoginMessage}>close</button>
                                                     </Modal.Footer>
                                                 </Modal>
                                             </form> :
-                                            <div><button onClick={this.handleLogout}>чиқиш</button><Link to="/sc/profile">Менинг Аккаунтим</Link></div>} <br />
+                                            <div><button onClick={this.handleLogout}>logout</button><Link to="/sc/profile">My account</Link></div>} <br />
                                     </Modal.Body>
-                                </Modal> киринг!</h5>
+                                </Modal></h5>
 					<div className='footer-away'></div>
 				</div>
 			)

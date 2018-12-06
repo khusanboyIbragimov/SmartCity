@@ -129,16 +129,16 @@ export default class MyServices extends React.Component {
                     <div className="panel-body">
                         <form onSubmit={this.handleSubmit}>
                             <input style={{ borderColor: '#0093d3' }}
-                                className='form-control' placeholder="хизмат номи" onChange={this.handleInput} name="title" value={title} /><br />
+                                className='form-control' placeholder="service" onChange={this.handleInput} name="title" value={title} /><br />
                             <textarea style={{ borderColor: '#0093d3' }}
-                                className='form-control' rows="5" id="comment" placeholder="батафсил маълумот" onChange={this.handleInput} name="description" value={description} /><br />
+                                className='form-control' rows="5" id="comment" placeholder="description" onChange={this.handleInput} name="description" value={description} /><br />
                             <input style={{ borderColor: '#0093d3' }}
-                                className='form-control' type="text" pattern="[0-9]*" placeholder="қиймати (фақат сон миллий пулда)" name="price" onChange={this.handleInput} value={price} /><br />
-                            <button className='btn btn-success form-control'>хизмат кўрсатиш</button>
+                                className='form-control' type="text" pattern="[0-9]*" placeholder="price (only number)" name="price" onChange={this.handleInput} value={price} /><br />
+                            <button className='btn btn-success form-control'>submit</button>
                         </form>
                     </div>
                 </div>
-                <h3>Xизматларим</h3>
+                <h3>My services</h3>
                 <hr/>
                 <RenderServiceBox
                     my_services={my_services}

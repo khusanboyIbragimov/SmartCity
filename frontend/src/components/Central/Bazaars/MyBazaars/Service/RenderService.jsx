@@ -48,7 +48,7 @@ export default class RenderService extends React.Component {
                                     style={{ borderColor: '#0093d3' }}
                                     className="form-control"
                                     name="newTitle"
-                                    placeholder="буюм номи"
+                                    placeholder="name of item"
                                     onChange={this.props.handleInput}>
                                 </input>}<br />
                         </div>
@@ -60,13 +60,13 @@ export default class RenderService extends React.Component {
                                         style={{ borderColor: '#0093d3' }}
                                         className="form-control"
                                         name="newDescription"
-                                        placeholder="батафсил маълумот"
+                                        placeholder="description"
                                         onChange={this.props.handleInput}>
                                     </textarea>}<br />
                                 <div className='row'>
                                     <div className="col-sm-12 col-xs-12">
                                         {!toggleEditService ?
-                                            <p className='text-left'> <i className="fa fa-money" aria-hidden="true"></i>&nbsp;қиймати:&nbsp;{this.props.price} сомони      
+                                            <p className='text-left'> <i className="fa fa-money" aria-hidden="true"></i>&nbsp;price:&nbsp;{this.props.price} USD
                                             </p> :
                                             <input
                                                 style={{ borderColor: '#0093d3' }}
@@ -74,7 +74,7 @@ export default class RenderService extends React.Component {
                                                 name="newPrice"
                                                 type="text"
                                                 pattern="[0-9]*"
-                                                placeholder="қиймати (фақат сон миллий пулда)"
+                                                placeholder="price (only number)"
                                                 onChange={this.props.handleInput}>
                                             </input>}<br />
                                     </div>
@@ -90,7 +90,7 @@ export default class RenderService extends React.Component {
                                         className="col-sm-12 col-xs-12 btn btn-danger"
                                         onClick={this.handleClickEditService2}>
                                         <span className='glyphicon glyphicon-trash'></span>
-                                        &nbsp;ўчириш
+                                        &nbsp;delete
                                     </button>
                                 </form>
                             </div>

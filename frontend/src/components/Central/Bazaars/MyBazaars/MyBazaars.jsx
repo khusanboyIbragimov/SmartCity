@@ -20,14 +20,14 @@ export default class MyBazaars extends React.Component {
         return (
             <div className='row'>
                 <div className='col-sm-12'>
-                    <h3>Менинг бозорим</h3>
+                    <h3>Мy bazaar</h3>
                 </div>
                 <div className='col-sm-12'>
                     <select value={action} onChange={this.handleSelect} className="form-control" style={{ borderColor: '#0093d3' }}>
-                        <option value="">сайлаш</option>
-                        <option value="sale">сотиш</option>
-                        <option value="rent">ижарага бериш</option>
-                        <option value="service">хизмат кўрсатиш</option>
+                        <option value="">choose</option>
+                        <option value="sale">sale</option>
+                        <option value="rent">rent</option>
+                        <option value="service">service</option>
                     </select>
                     <hr />
                     {action === "rent" ? <MyRentItems /> :

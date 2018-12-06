@@ -120,9 +120,9 @@ export default class ChatContainer extends Component {
 					<div className="col-md-12">
 						<h4>
 							<i className="fa fa-weixin" aria-hidden="true"></i> &nbsp;
-							Ғулакандоз Ғийчати 
+							SmartCity chat
                     	</h4>
-						<span style={{color: 'red'}}>Чат иштирокчиларини ва узингизни хурмат килинг!</span>
+						<span style={{color: 'red'}}>Please respect each other!</span>
 					</div>
 					<div className="container">
 						<div className="chat_container">
@@ -131,7 +131,7 @@ export default class ChatContainer extends Component {
 									<div>
 										<h4>
 											<i className="fa fa-users" aria-hidden="true"></i> &nbsp;
-											Иштирокчилар
+											users
                    						 </h4>
 									</div>
 									<div className="member_list">

@@ -112,7 +112,7 @@ export default class Survey extends React.Component {
         // console.log('3========>: ', countAdded)
         return (
             <div>
-                <h4><span style={{ color: 'rgb(241, 159, 77)' }}>Smart</span> <strong style={{ color: '#0093d3'}}>Сўровлар</strong></h4><hr/>
+                <h4><span style={{ color: 'rgb(241, 159, 77)' }}>Smart</span> <strong style={{ color: '#0093d3'}}>Surveys</strong></h4><hr/>
                 <RenderSurveyBox1
                     surveyAndOptions={countAdded}
                     handleVote={this.handleVote}

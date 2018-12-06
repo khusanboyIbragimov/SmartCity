@@ -4,11 +4,14 @@ import axios from 'axios';
 import { Link } from "react-router-dom";
 const photo = require('../../../logo3.png');
 var Moment = require("moment");
-require('moment/locale/uz');
-let gulakandozFiles = require("./gulakandozFiles");
-let api = gulakandozFiles.default;
+// require('moment/locale/uz');
+// let gulakandozFiles = require("./gulakandozFiles");
+// let api = gulakandozFiles.default;
 // let gulakandozHistory = api[0];
-let images = api[1];
+let images = ['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhtIkh76M3aqByHStzP-e3eL4YzAfa0CeL1gbpfyz-mJjHWpbwBQ',
+'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRER5YotdW8RaUw8WWT_8C736-OdUKrr0wp3XGTe9KqKI0zSDqH2g',
+'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrwXjdd-rW72b0Zy4fKiySIcFjHI43c54bsMzHs4sKY-WPUBsz',
+'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvIY3Ykrp4Yk3jIn5RKTMXc5qnpcuRKips7ANpCXQwNDftQyWKWA'];
 
 
 export default class RenderNewsPage extends React.Component {
@@ -91,7 +94,7 @@ export default class RenderNewsPage extends React.Component {
                             <div className="row hidden-md hidden-lg"><h4 className="row hidden-md hidden-lg"><span style={{ color: 'rgb(241, 159, 77)' }} className='glyphicon glyphicon-globe'></span> {title}</h4></div>
 
                             <div className="pull-left col-md-4 col-xs-12 thumb-contenido"><img style={{ height: "200px", width: "100%" }} alt="yangilik surati" className="center-block img-responsive" src={news_imgurl ? news_imgurl :
-                                    images[Math.floor(Math.random() * images.length)]}/></div>
+                              images[Math.floor(Math.random() * images.length)]}/></div>
                             <div className="">
                                     <h4 className="h4 hidden-xs hidden-sm"><span style={{ color: 'rgb(241, 159, 77)' }} className='glyphicon glyphicon-globe'></span> {title}</h4>
 
@@ -111,15 +114,15 @@ export default class RenderNewsPage extends React.Component {
                                     >
                                         <Modal.Header closeButton>
                                         <Modal.Title id="contained-modal-title">
-                                        <h4><img alt="" style={{height: '16px'}}src={photo}/> маъмурияти</h4>
+                                        <h4>SmartCity administration</h4>
                                     </Modal.Title>
                                     </Modal.Header>
                                         <Modal.Body>
-                                            Илтимос {!isLogged ?
+                                            Please login into your {!isLogged ?
                                     <a
                                         onClick={this.handleLogin}>
 
-                                            <p className='pointer'>аккаунтингизга</p>
+                                            <p className='pointer'>account</p>
                                        </a> :
                                     <li onClick={this.handleLogout} >
                                         <a data-toggle="collapse"
@@ -136,30 +139,30 @@ export default class RenderNewsPage extends React.Component {
                                 >
                                     <Modal.Header closeButton>
                                         <Modal.Title id="contained-modal-title">
-                                        <h4><img alt="" style={{height: '16px'}}src={photo}/> маъмурияти</h4>
+                                        <h4>SmartCity administration</h4>
                                     </Modal.Title>
                                     </Modal.Header>
                                     <Modal.Body>
-                                        {isLogged !== "loggedIn" ? <Link to="/sc/register" onClick={this.handleLogin}> Aккаунт яратиш </Link> : ""}
+                                        {isLogged !== "loggedIn" ? <Link to="/sc/register" onClick={this.handleLogin}>Create an account</Link> : ""}
                                         {isLogged !== "loggedIn" ?
                                             <form className="form-inline" onSubmit={this.handleSubmit} >
                                                 <div>
                                                     <input
                                                         type="text"
                                                         className="form-control"
-                                                        placeholder="юзернэйм"
+                                                        placeholder="username"
                                                         onChange={this.handleFormInput}
                                                         name="username"
                                                     />
                                                     <input
                                                         type="password"
                                                         className="form-control"
-                                                        placeholder="парол"
+                                                        placeholder="password"
                                                         onChange={this.handleFormInput}
                                                         name="password"
                                                     />
                                                     <hr />
-                                                    <button type="submit" className="btn btn-primary mb-2">Кириш</button>
+                                                    <button type="submit" className="btn btn-primary mb-2">Login</button>
                                                 </div>
                                                 <Modal
                                                     show={this.state.loginMessage}
@@ -169,25 +172,23 @@ export default class RenderNewsPage extends React.Component {
                                                 >
                                                     <Modal.Header closeButton>
                                                         <Modal.Title id="contained-modal-title">
-                                                        <h4><img alt="" style={{height: '16px'}}src={photo}/> маъмурияти</h4>
+                                                        <h4>SmartCity administration</h4>
                                                     </Modal.Title>
                                                     </Modal.Header>
                                                     <Modal.Body>
-                                                        парол ёки юзернэймда хатолиги бор.
+                                                        password or username is incorrect
                                                     </Modal.Body>
                                                     <Modal.Footer>
-                                                        <button className='btn btn-success' onClick={this.handleLoginMessage}>ёпиш</button>
+                                                        <button className='btn btn-success' onClick={this.handleLoginMessage}>close</button>
                                                     </Modal.Footer>
                                                 </Modal>
                                             </form> :
-                                            <div><button onClick={this.handleLogout}>чиқиш</button><Link to="/sc/profile">Менинг Аккаунтим</Link></div>} <br />
+                                            <div><button onClick={this.handleLogout}>logout</button><Link to="/sc/profile">Мy profile</Link></div>} <br />
                                     </Modal.Body>
-                                </Modal> киринг ва ушбу хабарни хақиқатга
-                                            яқинлаштиришга ўз ҳиссангизни қўшинг. Унитманг бу жамиятда
-                                            сизнинг хам ўрнингиз бор
+                                </Modal> and vote it.
                                         </Modal.Body>
                                         <Modal.Footer>
-                                            <button className='btn btn-success' onClick={this.handleIsUserLogged}>ёпиш</button>
+                                            <button className='btn btn-success' onClick={this.handleIsUserLogged}>close</button>
                                         </Modal.Footer>
                                     </Modal>
 
@@ -201,26 +202,26 @@ export default class RenderNewsPage extends React.Component {
                                     <div className='col-sm-2 col-xs-6'>
                                         <form onSubmit={handleSubmitRightNews} id={news_id}>
                                             {userId && users_who_agree.indexOf(userId.toString()) !== -1 ?
-                                                <button style={{ width: '80%' }} className='btn btn-success btn-xs' disabled>ҳақиқат{" "}{rightees}</button> :
-                                                <button style={{ width: '80%' }} className='btn btn-success btn-xs'>ҳақиқат{" "}{rightees}</button>}
+                                                <button style={{ width: '80%' }} className='btn btn-success btn-xs' disabled>true{" "}{rightees}</button> :
+                                                <button style={{ width: '80%' }} className='btn btn-success btn-xs'>true{" "}{rightees}</button>}
                                         </form>                                    </div>
                                     <div className='col-sm-2 col-xs-6'>
                                         <form onSubmit={handleSubmitWrongNews} id={news_id}>
                                             {userId && users_who_disagree.indexOf(userId.toString()) !== -1 ?
-                                                <button style={{ width: '80%' }} className='btn btn-danger btn-xs' disabled>ғийбат&nbsp;&nbsp;{" "}{wrongees}</button> :
-                                                <button style={{ width: '80%' }} className='btn btn-danger btn-xs'>ғийбат&nbsp;&nbsp;{" "}{wrongees}</button>}
+                                                <button style={{ width: '80%' }} className='btn btn-danger btn-xs' disabled>false&nbsp;&nbsp;{" "}{wrongees}</button> :
+                                                <button style={{ width: '80%' }} className='btn btn-danger btn-xs'>false&nbsp;&nbsp;{" "}{wrongees}</button>}
                                         </form>                                    </div>
                                 </div> :
                                     <div className="row">
                                      <div className='col-sm-8 col-xs-0'></div>
                                         <div className='col-sm-2 col-xs-6'>
                                             <button style={{ width: '80%' }} className='btn btn-success btn-xs'
-                                                onClick={() => this.setState({ isUserLogged: true })}>ҳақиқат{" "}{rightees}
+                                                onClick={() => this.setState({ isUserLogged: true })}>true{" "}{rightees}
                                             </button>
                                         </div>
                                         <div className='col-sm-2 col-xs-6'>
                                             <button style={{ width: '80%' }} className='btn btn-danger btn-xs'
-                                                onClick={() => this.setState({ isUserLogged: true })}>ғийбат&nbsp;&nbsp;{" "}{wrongees}
+                                                onClick={() => this.setState({ isUserLogged: true })}>false&nbsp;&nbsp;{" "}{wrongees}
                                             </button>
                                         </div>
                                     </div>

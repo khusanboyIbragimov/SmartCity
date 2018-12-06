@@ -100,7 +100,7 @@ export default class Rating extends React.Component {
         const { ratingQuestion, ratingScore, userId } = this.state;
         return (
             <div>
-               <h4><span style={{ color: 'rgb(241, 159, 77)' }}>Smart</span> <strong style={{ color: '#0093d3'}}>Рейтинглар</strong></h4>
+               <h4><span style={{ color: 'rgb(241, 159, 77)' }}>Smart</span> <strong style={{ color: '#0093d3'}}>Ratings</strong></h4>
                <hr/>
                 <RenderRatingBox
                     ratingQuestion={ratingQuestion}

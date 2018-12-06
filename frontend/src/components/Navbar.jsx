@@ -7,7 +7,7 @@ import { LOGOUT } from './Central/Giychat/Events';
 import { Redirect } from "react-router";
 import IdleTimer from 'react-idle-timer';
 // const socketUrl = "http://localhost:3100";
-const photo = require('./logo3.png');
+const photo = require('./SmartCity.png');
 
 export default class Navbar extends React.Component {
 
@@ -157,7 +157,7 @@ export default class Navbar extends React.Component {
                     <div style={{paddingBottom: "0px", paddingLeft: '30px', paddingRight: '30px'}} className="container-fluid">
                         <div className="navbar-header">
                             <button  type="button" className="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                               <span style={{ color: 'rgb(241, 159, 77)' }}>Меню</span>
+                               <span style={{ color: 'rgb(241, 159, 77)' }}>Menu</span>
                                 &nbsp;<i style={{ color: '#0093d3' }} className="fa fa-bars"></i>
                             </button>
                             <Link to='/'>
@@ -172,7 +172,7 @@ export default class Navbar extends React.Component {
                                     to="/"
                                     data-toggle="collapse"
                                     data-target=".navbar-collapse.in">
-                                    <b><span className='glyphicon glyphicon-home nav-icons'></span><span style={{letterSpacing: '1px'}}  className='nav-tabz'>Марказ</span></b>
+                                    <b><span className='glyphicon glyphicon-home nav-icons'></span><span style={{letterSpacing: '1px'}}  className='nav-tabz'>Home</span></b>
                                     </Link>
                                 </li>
                                 <li><Link
@@ -180,7 +180,7 @@ export default class Navbar extends React.Component {
                                     to="/sc/news"
                                     data-toggle="collapse"
                                     data-target=".navbar-collapse.in">
-                                    <b><span className='glyphicon glyphicon-globe nav-icons'></span><span style={{letterSpacing: '1px'}} className='nav-tabz'>Янгиликлар</span></b>
+                                    <b><span className='glyphicon glyphicon-globe nav-icons'></span><span style={{letterSpacing: '1px'}} className='nav-tabz'>News</span></b>
                                     </Link>
                                 </li>
                                 <li><Link
@@ -188,7 +188,7 @@ export default class Navbar extends React.Component {
                                     to="/sc/announcement"
                                     data-toggle="collapse"
                                     data-target=".navbar-collapse.in">
-                                    <b><span className='glyphicon glyphicon-bullhorn nav-icons'></span><span style={{letterSpacing: '1px'}} className='nav-tabz'>Эълонлар</span></b>
+                                    <b><span className='glyphicon glyphicon-bullhorn nav-icons'></span><span style={{letterSpacing: '1px'}} className='nav-tabz'>Announcements</span></b>
                                     </Link>
                                 </li>
                                 <li><Link
@@ -196,7 +196,7 @@ export default class Navbar extends React.Component {
                                     to="/sc/ratings"
                                     data-toggle="collapse"
                                     data-target=".navbar-collapse.in">
-                                    <b><span className='glyphicon glyphicon-star nav-icons'></span><span style={{letterSpacing: '1px'}} className='nav-tabz'>Рейтинг</span></b>
+                                    <b><span className='glyphicon glyphicon-star nav-icons'></span><span style={{letterSpacing: '1px'}} className='nav-tabz'>Ratings</span></b>
                                     </Link>
                                 </li>
                                 <li><Link
@@ -208,7 +208,7 @@ export default class Navbar extends React.Component {
                                         className="fa fa-bar-chart nav-icons"
                                         aria-hidden="true"
                                     >
-                                    </i><span style={{letterSpacing: '1px'}} className='nav-tabz'>Сўров</span></b>
+                                    </i><span style={{letterSpacing: '1px'}} className='nav-tabz'>Surveys</span></b>
                                     </Link>
                                 </li>
                                 <li><Link
@@ -216,7 +216,7 @@ export default class Navbar extends React.Component {
                                     to="/sc/bazaar"
                                     data-toggle="collapse"
                                     data-target=".navbar-collapse.in">
-                                    <b><span className='glyphicon glyphicon-usd nav-icons'></span><span style={{letterSpacing: '1px'}} className='nav-tabz'>Бозор</span></b>
+                                    <b><span className='glyphicon glyphicon-usd nav-icons'></span><span style={{letterSpacing: '1px'}} className='nav-tabz'>Bazaar</span></b>
                                     </Link>
                                 </li>
                                 <li><Link
@@ -224,7 +224,7 @@ export default class Navbar extends React.Component {
                                     to="/sc/giychat"
                                     data-toggle="collapse"
                                     data-target=".navbar-collapse.in">
-                                    <b> <i className="fa fa-users nav-icons" aria-hidden="true"></i><span style={{letterSpacing: '1px'}} className='nav-tabz'>Ғийчат</span></b>
+                                    <b> <i className="fa fa-users nav-icons" aria-hidden="true"></i><span style={{letterSpacing: '1px'}} className='nav-tabz'>Chat</span></b>
                                     </Link>
                                 </li>
                                 {isLogged ?
@@ -261,30 +261,30 @@ export default class Navbar extends React.Component {
                                 >
                                     <Modal.Header closeButton>
                                         <Modal.Title id="contained-modal-title">
-                                        <div><img alt="" style={{height: '16px'}} src={photo}/> маъмурияти</div>
+                                        <div> SmartCity administration</div>
                                     </Modal.Title>
                                     </Modal.Header>
                                     <Modal.Body>
-                                        {isLogged !== "loggedIn" ? <Link to="/sc/register" onClick={this.handleLogin}> Aккаунт яратиш </Link> : ""}
+                                        {isLogged !== "loggedIn" ? <Link to="/sc/register" onClick={this.handleLogin}> Create an account </Link> : ""}
                                         {isLogged !== "loggedIn" ?
                                             <form className="form-inline" onSubmit={this.handleSubmit} >
                                                 <div>
                                                     <input
                                                         type="text"
                                                         className="form-control"
-                                                        placeholder="юзернэйм"
+                                                        placeholder="username"
                                                         onChange={this.handleFormInput}
                                                         name="username"
                                                     />
                                                     <input
                                                         type="password"
                                                         className="form-control"
-                                                        placeholder="парол"
+                                                        placeholder="password"
                                                         onChange={this.handleFormInput}
                                                         name="password"
                                                     />
                                                     <hr />
-                                                    <button type="submit" className="btn btn-primary mb-2">Кириш</button>
+                                                    <button type="submit" className="btn btn-primary mb-2">Enter</button>
                                                 </div>
                                                 <Modal
                                                     show={this.state.loginMessage}
@@ -294,24 +294,24 @@ export default class Navbar extends React.Component {
                                                 >
                                                     <Modal.Header closeButton>
                                                         <Modal.Title id="contained-modal-title">
-                                                        <div><img alt="" style={{height: '16px'}}src={photo}/> маъмурияти</div>
+                                                        <div> SmartCity administration</div>
                                                     </Modal.Title>
                                                     </Modal.Header>
                                                     <Modal.Body>
-                                                        парол ёки юзернэймда хатолиги бор.
+                                                        password or username is incorrect
                                                     </Modal.Body>
                                                     <Modal.Footer>
-                                                        <button className='btn btn-success' onClick={this.handleLoginMessage}>ёпиш</button>
+                                                        <button className='btn btn-success' onClick={this.handleLoginMessage}>close</button>
                                                     </Modal.Footer>
                                                 </Modal>
                                             </form> :
-                                            <div><button onClick={this.handleLogout}>чиқиш</button><Link to="/sc/profile">Менинг Аккаунтим</Link></div>} <br />
+                                            <div><button onClick={this.handleLogout}>logout</button><Link to="/sc/profile">My profile</Link></div>} <br />
                                     </Modal.Body>
                                 </Modal>
                             </ul>
                         </div>
                     </div>
-                    <b><footer className='text-right' style={{ fontFamily: 'san-serif', fontSize: '12px', paddingRight: '45px', letterSpacing: '-0.1px'}} >{isLogged ? <span style={{color: 'rgb(241, 159, 77)'}}>Хуш келибсиз </span>:''}<span style={{ color: 'rgb(241, 159, 77)' }}></span><span style={{ color: '#0093d3' }}>{firstName[0]?firstName[0]+"!":""}</span></footer></b>
+                    <b><footer className='text-right' style={{ fontFamily: 'san-serif', fontSize: '12px', paddingRight: '45px', letterSpacing: '-0.1px'}} >{isLogged ? <span style={{color: 'rgb(241, 159, 77)'}}>Welcome </span>:''}<span style={{ color: 'rgb(241, 159, 77)' }}></span><span style={{ color: '#0093d3' }}>{firstName[0]?firstName[0]+"!":""}</span></footer></b>
                 </nav>
                 <div className="container-fluid bg-1 text-center">
                     <div id="myCarousel" className="carousel slide" data-ride="carousel">

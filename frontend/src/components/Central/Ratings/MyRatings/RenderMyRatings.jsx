@@ -34,7 +34,7 @@ export default class RenderMyRatings extends React.Component {
                                     &nbsp;{this.props.rating_question}</h4> :
                                     <input name="newRatingQuestion"
                                         className='form-control'
-                                        placeholder="менинг фикрим"
+                                        placeholder="my rating question"
                                         onChange={this.props.handleInput}>
                                     </input>}
                             </div>
@@ -48,7 +48,7 @@ export default class RenderMyRatings extends React.Component {
                                         style={{ width: '100%' }}
                                         className='btn btn-danger'
                                         onClick={this.handleClickEditAnnouncements2}>
-                                        <span className='glyphicon glyphicon-trash'></span> ўчириш
+                                        <span className='glyphicon glyphicon-trash'></span> delete
                                         </button>
                                 </form>
                             </div>

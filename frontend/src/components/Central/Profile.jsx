@@ -144,7 +144,7 @@ export default class Profile extends React.Component {
                                 <div className="panel-body">
                                     <div className="row">
                                         <div className="col-sm-3">
-                                            {!toggle ? <img src={user_imgurl} alt="img" style={{ height: "100%", width: "100%" }} /> : ""}
+                                            {!toggle ? <img src='https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png' alt="img" style={{ height: "100%", width: "100%" }} /> : ""}
                                             {toggle ? <ReactS3Uploader
                                                 signingUrl="/s3/sign"
                                                 signingUrlMethod="GET"
@@ -162,19 +162,19 @@ export default class Profile extends React.Component {
                                             <div className="row">
                                                 <form onSubmit={this.handleSubmit}>
                                                     <div className="col-sm-6 text-left">
-                                                        <h4>Менинг профайлим</h4><br />
-                                                        <span className='glyphicon glyphicon-check'></span> Тўлиқ исмим: {!toggle ? fullname : ""} {toggle ? <input  value={fullname} name="fullname" onChange={this.handleInput}></input> : ""}<br /><br />
-                                                        <span className='glyphicon glyphicon-user'></span> Менинг юзернэймим: {!toggle ? username : ""} {toggle ? <input value={username} name="username" onChange={this.handleInput}></input> : ""}<br /><br />
-                                                        <span className='glyphicon glyphicon-earphone'></span> Телефон номерим: {!toggle ? phone_number : ""} {toggle ? <input value={phone_number} name="phone_number" onChange={this.handleInput}></input> : ""}<br /><br />
+                                                        <h4>My profile</h4><br />
+                                                        <span className='glyphicon glyphicon-check'></span> My fullname: {!toggle ? fullname : ""} {toggle ? <input  value={fullname} name="fullname" onChange={this.handleInput}></input> : ""}<br /><br />
+                                                        <span className='glyphicon glyphicon-user'></span> My username: {!toggle ? username : ""} {toggle ? <input value={username} name="username" onChange={this.handleInput}></input> : ""}<br /><br />
+                                                        <span className='glyphicon glyphicon-earphone'></span> My phone number: {!toggle ? phone_number : ""} {toggle ? <input value={phone_number} name="phone_number" onChange={this.handleInput}></input> : ""}<br /><br />
                                                     </div>
                                                     <div className="col-sm-3">
-                                                    <img alt='' src={photo} style={{ height: '168px'}}/>
+                                                    <img alt='' src='https://upload.wikimedia.org/wikipedia/en/3/3f/Smart_Cities_%28India%29_logo.png' style={{ height: '168px'}}/>
                                                         {/* <span className="glyphicon glyphicon-globe logo slideanim" style={{ color: '#0093d3', fontSize: '200px' }}></span> */}
                                                     </div>
                                                     <div className="col-sm-3 text-right">
-                                                        {!toggle ? <button className="btn btn-default" onClick={this.handleToggle}><span className='glyphicon glyphicon-pencil'></span> ўзгартириш</button> : ""}
-                                                        {toggle && showSubmitButton ? <button className="btn btn-default" onClick={this.handleToggle}>сақлаш</button> : ""}
-                                                        {this.state.showSubmitButtonWithoutPhoto ? <button className="btn btn-default"><span className='glyphicon glyphicon-check'></span> сақлаш</button> : ""}
+                                                        {!toggle ? <button className="btn btn-default" onClick={this.handleToggle}><span className='glyphicon glyphicon-pencil'></span> edit</button> : ""}
+                                                        {toggle && showSubmitButton ? <button className="btn btn-default" onClick={this.handleToggle}>save</button> : ""}
+                                                        {this.state.showSubmitButtonWithoutPhoto ? <button className="btn btn-default"><span className='glyphicon glyphicon-check'></span> save</button> : ""}
                                                     </div>
                                                 </form>
                                             </div>
@@ -185,19 +185,19 @@ export default class Profile extends React.Component {
                             <div className='row'>
                                 <div className='col-sm-1 col-xs-3 text-center'></div>
                                 <div className='col-sm-2 col-xs-6 text-center'>
-                                    <Link to="/sc/profile/mynews"><button style={{ width: '100%', fontSize: '12px' }} className='btn btn-primary'><b><span className='glyphicon glyphicon-globe'></span></b>&nbsp;янгиликларим </button></Link>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <Link to="/sc/profile/mynews"><button style={{ width: '100%', fontSize: '12px' }} className='btn btn-primary'><b><span className='glyphicon glyphicon-globe'></span></b>&nbsp;my news </button></Link>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 </div>
                                 <div className='col-sm-2 col-xs-6 text-center'>
-                                    <Link to="/sc/profile/myannouncements"><button style={{ width: '100%', fontSize: '12px' }} className='btn btn-primary'><b><span className='glyphicon glyphicon-bullhorn'></span></b>&nbsp;эълонларим</button></Link>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <Link to="/sc/profile/myannouncements"><button style={{ width: '100%', fontSize: '12px' }} className='btn btn-primary'><b><span className='glyphicon glyphicon-bullhorn'></span></b>&nbsp;my announcements</button></Link>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 </div>
                                 <div className='col-sm-2 col-xs-6 text-center'>
-                                    <Link to="/sc/profile/myratings"><button style={{ width: '100%', fontSize: '12px' }} className='btn btn-primary'><span className='glyphicon glyphicon-star'></span>&nbsp;рэйтингларим</button></Link>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <Link to="/sc/profile/myratings"><button style={{ width: '100%', fontSize: '12px' }} className='btn btn-primary'><span className='glyphicon glyphicon-star'></span>&nbsp;my ratings</button></Link>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 </div>
                                 <div className='col-sm-2 col-xs-6 text-center'>
-                                    <Link to="/sc/profile/mysurveys"><button style={{ width: '100%', fontSize: '12px' }} className='btn btn-primary'> <b><i className="fa fa-bar-chart" aria-hidden="true"></i></b>&nbsp;сўровларим</button></Link>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <Link to="/sc/profile/mysurveys"><button style={{ width: '100%', fontSize: '12px' }} className='btn btn-primary'> <b><i className="fa fa-bar-chart" aria-hidden="true"></i></b>&nbsp;my surveys</button></Link>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 </div>
                                 <div className='col-sm-2 col-xs-6 '>
-                                    <Link to="/sc/profile/mybazaar"><button style={{ width: '100%', fontSize: '12px' }} className='btn btn-primary'><b><span className='glyphicon glyphicon-usd'></span></b>&nbsp;бозорим</button></Link>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <Link to="/sc/profile/mybazaar"><button style={{ width: '100%', fontSize: '12px' }} className='btn btn-primary'><b><span className='glyphicon glyphicon-usd'></span></b>&nbsp;my bazaar</button></Link>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 </div>
                             </div>
                             <div>
@@ -214,13 +214,13 @@ export default class Profile extends React.Component {
                     </div>
                 </div>
                 <div id="contact" className="container-fluid" style={{ background: 'white' }}>
-                    <h2 className="text-center">Биз билан богланинг</h2>
+                    <h2 className="text-center">Contact us</h2>
                     <div className="row">
                         <div className="col-sm-5">
-                            <p>Биз билан богланинг ва биз сизга 24 соат ичида жавоб кайтарамиз.</p>
-                            <p><span className="glyphicon glyphicon-map-marker"></span> Гулакандоз, TJ</p>
-                            <p><span className="glyphicon glyphicon-phone"></span> +00 1515151515</p>
-                            <p><span className="glyphicon glyphicon-envelope"></span> g-smartcity@g-smartcity.tj</p>
+                            <p>Contact us and we will respond as soon as possible.</p>
+                            <p><span className="glyphicon glyphicon-map-marker"></span> Jersey City, NJ</p>
+                            <p><span className="glyphicon glyphicon-phone"></span> +1 347-366-6891</p>
+                            <p><span className="glyphicon glyphicon-envelope"></span>smartcity@smartcity.com</p>
                         </div>
                         <div className="col-sm-7 slideanim">
                             <div className="row">

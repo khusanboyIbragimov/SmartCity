@@ -149,7 +149,7 @@ export default class MyNews extends React.Component {
                                 type="text"
                                 onChange={this.handleInput}
                                 name="title"
-                                placeholder="сарлавҳа"
+                                placeholder="title"
                                 value={title}
                                 style={{ borderColor: '#0093d3' }}
                             />
@@ -158,7 +158,7 @@ export default class MyNews extends React.Component {
                                 type="text"
                                 onChange={this.handleInput}
                                 name="text"
-                                placeholder="янгилик матни"
+                                placeholder="news"
                                 value={text}
                                 style={{ borderColor: '#0093d3' }}
                             >
@@ -178,13 +178,13 @@ export default class MyNews extends React.Component {
                             /><br />
                           */}
                             {this.state.showWaitMessage ? <h4>илтимос кутиб туринг...{" "} {completed}</h4> : ""}
-                            {this.state.showSubmitButtonWithPhoto ? <button className='btn btn-success form-control'>Янгилик тарқатиш</button> : ""}
-                            {this.state.showSubmitButtonWithoutPhoto ? <button className='btn btn-success form-control'>Янгилик тарқатиш</button> : ""}
+                            {this.state.showSubmitButtonWithPhoto ? <button className='btn btn-success form-control'>submit</button> : ""}
+                            {this.state.showSubmitButtonWithoutPhoto ? <button className='btn btn-success form-control'>submit</button> : ""}
                         </form>
-                        <button onClick={()=> {alert("Баъзи техник сабабларга кура айни пайт сурат юклаб булмайди. ")}}>cурат юкланг</button>
+                        <button onClick={()=> {alert("Due to some technical issues photo can not be uploaded")}}>photo upload</button>
                     </div>
                 </div>
-                <h3>Mенинг янгиликларим</h3>
+                <h3>My news</h3>
                 <RenderNewsBox
                     news={news}
                     handleInput={this.handleInput}

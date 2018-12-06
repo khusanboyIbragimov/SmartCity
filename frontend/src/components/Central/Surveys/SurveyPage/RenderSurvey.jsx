@@ -152,14 +152,14 @@ export default class RenderSurvey extends React.Component {
                     <Modal.Body>
                     <Modal.Header closeButton>
                                         <Modal.Title id="contained-modal-title">
-                                        <h4><img alt="" style={{height: '16px'}}src={photo}/> маъмурияти</h4>
+                                        <h4>SmartCity administration</h4>
                                     </Modal.Title>
                                     </Modal.Header>
-                        Илтимос    {!isLogged ?
+                        Please login to your {!isLogged ?
                                     <a
                                         onClick={this.handleLogin}>
 
-                                            <p className='pointer'>аккаунтингизга</p>
+                                            <p className='pointer'>account</p>
                                         </a> :
                                     <li onClick={this.handleLogout} >
                                         <a data-toggle="collapse"
@@ -176,30 +176,30 @@ export default class RenderSurvey extends React.Component {
                                 >
                                     <Modal.Header closeButton>
                                         <Modal.Title id="contained-modal-title">
-                                        <h4><img alt="" style={{height: '16px'}}src={photo}/> маъмурияти</h4>
+                                        <h4>SmartCity administration</h4>
                                     </Modal.Title>
                                     </Modal.Header>
                                     <Modal.Body>
-                                        {isLogged !== "loggedIn" ? <Link to="/sc/register" onClick={this.handleLogin}> Aккаунт яратиш </Link> : ""}
+                                        {isLogged !== "loggedIn" ? <Link to="/sc/register" onClick={this.handleLogin}>Create an account</Link> : ""}
                                         {isLogged !== "loggedIn" ?
                                             <form className="form-inline" onSubmit={this.handleSubmit} >
                                                 <div>
                                                     <input
                                                         type="text"
                                                         className="form-control"
-                                                        placeholder="юзернэйм"
+                                                        placeholder="username"
                                                         onChange={this.handleFormInput}
                                                         name="username"
                                                     />
                                                     <input
                                                         type="password"
                                                         className="form-control"
-                                                        placeholder="парол"
+                                                        placeholder="password"
                                                         onChange={this.handleFormInput}
                                                         name="password"
                                                     />
                                                     <hr />
-                                                    <button type="submit" className="btn btn-primary mb-2">Кириш</button>
+                                                    <button type="submit" className="btn btn-primary mb-2">Login</button>
                                                 </div>
                                                 <Modal
                                                     show={this.state.loginMessage}
@@ -209,24 +209,23 @@ export default class RenderSurvey extends React.Component {
                                                 >
                                                     <Modal.Header closeButton>
                                                         <Modal.Title id="contained-modal-title">
-                                                        <h4><img alt="" style={{height: '16px'}}src={photo}/> маъмурияти</h4>
+                                                        <h4>SmartCity administration</h4>
                                                     </Modal.Title>
                                                     </Modal.Header>
                                                     <Modal.Body>
-                                                        парол ёки юзернэймда хатолиги бор.
+                                                        password or username is incorrect
                                                     </Modal.Body>
                                                     <Modal.Footer>
-                                                        <button className='btn btn-success' onClick={this.handleLoginMessage}>ёпиш</button>
+                                                        <button className='btn btn-success' onClick={this.handleLoginMessage}>close</button>
                                                     </Modal.Footer>
                                                 </Modal>
                                             </form> :
-                                            <div><button onClick={this.handleLogout}>чиқиш</button><Link to="/sc/profile">Менинг Аккаунтим</Link></div>} <br />
+                                            <div><button onClick={this.handleLogout}>logout</button><Link to="/sc/profile">My profile</Link></div>} <br />
                                     </Modal.Body>
-                                </Modal> киринг ва ушбу суровда қатнашинг. Унитманг бу жамиятда
-                        сизнинг хам ўрнингиз бор
+                                </Modal>and participate 
                     </Modal.Body>
                     <Modal.Footer>
-                        <button className='btn btn-success' onClick={this.handleModal}>ёпиш</button>
+                        <button className='btn btn-success' onClick={this.handleModal}>close</button>
                     </Modal.Footer>
                 </Modal>
             </div>

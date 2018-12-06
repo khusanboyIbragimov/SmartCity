@@ -1,6 +1,6 @@
 import React from 'react';
 var Moment = require("moment");
-require('moment/locale/uz');
+// require('moment/locale/uz');
 
 export default class RenderSale extends React.Component {
 
@@ -37,7 +37,7 @@ export default class RenderSale extends React.Component {
                                     style={{ borderColor: '#0093d3' }}
                                     className="form-control"
                                     name="newTitle"
-                                    placeholder="буюм номи"
+                                    placeholder="name of item"
                                     onChange={this.props.handleInput}>
                                 </input>}<br />
                         </div>
@@ -49,14 +49,14 @@ export default class RenderSale extends React.Component {
                                         style={{ borderColor: '#0093d3' }}
                                         className="form-control"
                                         name="newDescription"
-                                        placeholder="батафсил маълумот"
+                                        placeholder="description"
                                         onChange={this.props.handleInput}>
                                     </textarea>}<br />
                                 <div className='row'>
                                     <div className="col-sm-12 col-xs-12">
                                         {!toggleEditSaleItem ?
-                                            <p className='text-left'><i className="fa fa-money" aria-hidden="true"></i>&nbsp;қиймати:
-                                                    &nbsp;{this.props.price} сомони
+                                            <p className='text-left'><i className="fa fa-money" aria-hidden="true"></i>&nbsp;price:
+                                                    &nbsp;{this.props.price} USD
                                             </p> :
                                             <input
                                                 style={{ borderColor: '#0093d3' }}
@@ -64,13 +64,13 @@ export default class RenderSale extends React.Component {
                                                 name="newPrice"
                                                 type="text"
                                                 pattern="[0-9]*"
-                                                placeholder="қиймати (фақат сон миллий пулда)"
+                                                placeholder="price (only number)"
                                                 onChange={this.props.handleInput}>
                                             </input>}
                                     </div>
                                     <div className="col-sm-12 col-xs-12">
                                         {!toggleEditSaleItem ?
-                                            <p className='text-left'><i className="fa fa-heartbeat" aria-hidden="true"></i>&nbsp;аҳволи:
+                                            <p className='text-left'><i className="fa fa-heartbeat" aria-hidden="true"></i>&nbsp;condition:
                                                 &nbsp;{this.props.condition}
                                             </p> :
                                             <select
@@ -78,13 +78,13 @@ export default class RenderSale extends React.Component {
                                                 name="newCondition"
                                                 onChange={this.props.handleInput}
                                                 className="form-control">
-                                                <option value="">аҳволи</option>
-                                                <option value="янги">янги</option>
-                                                <option value="янгироқ">янгироқ</option>
-                                                <option value="яхши">яхши</option>
-                                                <option value="бўлади">бўлади</option>
-                                                <option value="ёмон">ёмон</option>
-                                                <option value="запчасть учун">запчасть учун</option>
+                                                <option value="">condition</option>
+                                                <option value="new">new</option>
+                                                <option value="like new">like new</option>
+                                                <option value="good">good</option>
+                                                <option value="it is ok">it is ok</option>
+                                                <option value="bad">bad</option>
+                                                <option value="for parts only">for parts only</option>
                                             </select>}
                                     </div>
                                 </div>
@@ -106,7 +106,7 @@ export default class RenderSale extends React.Component {
                                         className="col-sm-12 col-xs-12 btn btn-danger"
                                         onClick={this.handleClickEditSaleItem2}>
                                         <span className='glyphicon glyphicon-trash'></span>
-                                        &nbsp;ўчириш
+                                        &nbsp;delete
                                                     </button>
                                 </form>
                             </div>

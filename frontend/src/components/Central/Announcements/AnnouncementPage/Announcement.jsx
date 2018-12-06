@@ -4,7 +4,7 @@ import io from 'socket.io-client';
 import { LOGOUT } from '../../Giychat/Events';
 // const socketUrl = "http://localhost:3100";
 var Moment = require("moment");
-require('moment/locale/uz');
+// require('moment/locale/uz');
 
 export default class Announcement extends React.Component {
 
@@ -39,7 +39,7 @@ export default class Announcement extends React.Component {
         const { announcements } = this.state;
         return (
             <div>
-                <h4> <span style={{ color: 'rgb(241, 159, 77)' }}>Smart</span> <strong style={{ color: '#0093d3' }}>Эълонлар</strong></h4><hr />
+                <h4> <span style={{ color: 'rgb(241, 159, 77)' }}>Smart</span> <strong style={{ color: '#0093d3' }}>Announcements</strong></h4><hr />
                 <div className='container' >
                     <div  className="row ">
                         {announcements.map(announcement => {

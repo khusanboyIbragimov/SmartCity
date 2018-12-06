@@ -181,7 +181,7 @@ export default class News extends React.Component {
         news.forEach(i => i.rightees = (getrightcounts.find(j => j.news_id === i.news_id) || { rightees: 0 }).rightees);
         return(
             <div>
-                <h4><span style={{ color: 'rgb(241, 159, 77)' }}>Smart</span> <strong style={{ color: '#0093d3'}}>Янгиликлар</strong></h4>
+                <h4><span style={{ color: 'rgb(241, 159, 77)' }}>Smart</span> <strong style={{ color: '#0093d3'}}>News</strong></h4>
                 <hr/>
                 <RenderNewsPageBox
                     news={news}

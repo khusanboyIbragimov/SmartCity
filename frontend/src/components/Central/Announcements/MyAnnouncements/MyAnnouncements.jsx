@@ -99,7 +99,7 @@ export default class MyAnnouncements extends React.Component {
                                 type="text"
                                 onChange={this.handleInput}
                                 name="title"
-                                placeholder="сарлавҳа"
+                                placeholder="title"
                                 value={title}
                                 style={{ borderColor: '#0093d3' }}
                             />
@@ -108,17 +108,17 @@ export default class MyAnnouncements extends React.Component {
                                 type="text" className="form-control" rows="5" id="comment"
                                 onChange={this.handleInput}
                                 name="announcement"
-                                placeholder="эълон матни"
+                                placeholder="announcement text"
                                 value={announcement}
                                 style={{ borderColor: '#0093d3' }}
                             >
                             </textarea>
                             <br />
-                            <button className='btn btn-success form-control'> Эълон тарқатиш</button>
+                            <button className='btn btn-success form-control'>submit</button>
                         </form>
                     </div>
                 </div>
-                <h3>Менинг эълонларим</h3>
+                <h3>Мy announcements</h3>
                 <RenderMyAnnouncementsBox
                     announcements={announcements}
                     handleInput={this.handleInput}
